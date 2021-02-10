@@ -1,7 +1,19 @@
+body {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+#mainSection {
+    margin: 10px 0;
+    height: 200px;
+    border: 1px solid black;
+}
+
 #mainHolder {
     width: 1000px;
     margin: auto;
 }
+
+/* Header styles */
 
 #mainHeader {
     height:fit-content;
@@ -9,7 +21,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size:15px;
 }
 
@@ -107,4 +118,94 @@ div#topNavigation a, nav#mainNavigation a {
 
 div#topNavigation a:hover, nav#mainNavigation a:hover{
     background-color: rgb(0, 153, 255);
+}
+
+/* Footer styles */
+
+footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #40b9f3;
+}
+
+#baseCategoriesFooter ul,
+#siteInfoFooter,
+#siteInfoFooter ul,
+#baseCategoriesFooter ul,
+#companyInfoFooter,
+#companyInfoFooter ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#baseCategoriesFooter ul {
+    font-size: 0.8em;
+}
+
+#baseCategoriesFooter li:nth-child(even) {
+    padding: 0 5px;
+}
+
+#baseCategoriesFooter li:first-child {
+    padding: 0 0;
+}
+
+#baseCategoriesFooter a {
+    text-decoration: none;
+    color: grey;
+}
+
+#baseCategoriesFooter a:hover {
+    text-decoration: underline;
+}
+
+#siteInfoFooter {
+    margin: 10px 0;
+}
+
+#siteInfoFooter li:nth-child(even) {
+    padding: 0 3px;
+}
+
+#siteInfoFooter li a {
+    color: black;
+    font-size: 0.78em;
+}
+
+#siteInfoFooter span a {
+    color: black;
+    font-size: 0.71em;
+}
+
+#siteInfoFooter,
+#companyInfoFooter {
+    justify-content: space-between;
+}
+
+#siteInfoFooter li a,
+#companyInfoFooter li a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#companyInfoFooter {
+    background-color: #008fc6;
+    color: white;
+    padding: 3px 4px;
+}
+
+
+#companyInfoFooter li a {
+    color: white;
+    font-size: 0.75em;
+}
+
+#companyInfoFooter li:nth-child(even) {
+    padding: 0 5px;
+
+}
+
+#companyInfoFooter span {
+    font-size: 0.7em;
+    align-self: center;
 }
