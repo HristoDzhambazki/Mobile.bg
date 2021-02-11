@@ -14,7 +14,7 @@
         <header id="mainHeader">
             <div id="mainIconWrapper" class="topWrapper">
                 <div id="leftMainWrapper" class="topWrapper">
-                    <div id="mainIcon"><a href="#"><img src="images/logo.svg" alt="mobile.bg"></a></div>
+                    <div id="mainIcon"><a href="#mainPage"><img src="images/logo.svg" alt="mobile.bg"></a></div>
 
                     <div class="topWrapper" id="loginWrapper">
                         <div id="logIn"><a href="#">Вход</a></div>
@@ -32,22 +32,24 @@
 
             <nav id="mainNavigation">
                 <div id="topNavigation">
-                    <a href="#">Начало</a>
-                    <a href="#">Публикуване</a>
-                    <a href="#">Търсене</a>
-                    <a href="#">Новини</a>
-                    <a href="#">Rent-a-car</a>
-                    <a href="#">Дилъри</a>
+                    <a href="#mainPage">Начало</a>
+                    <a href="#publishPage">Публикуване</a>
+                    <a href="#searchPage">Търсене</a>
+                    <a href="https://fakti.bg/dnes" target="_blank">Новини</a>
+                    <a href="https://toprentacar.bg/" target="_blank">Rent-a-car</a>
+                    <a href="#dealersPage">Дилъри</a>
                 </div>
 
-                <a href="#">Моите обяви</a>
+                <a href="#myAdPage">Моите обяви</a>
             </nav>
         </header>
 
         <main>
-            <div id="mainSection">
-
-            </div>
+            <div id="mainPage">mainPage</div>
+            <div id="publishPage">publishPage</div>
+            <div id="searchPage">searchPage</div>
+            <div id="dealersPage">dealersPage</div>
+            <div id="myAdPage">myAdPage</div>
         </main>
 
         <footer>
@@ -108,6 +110,7 @@
         </footer>
     </div>
 
+    <script src="assets/utils.js"></script>
     <script src="assets/index.js"></script>
 </body>
 
