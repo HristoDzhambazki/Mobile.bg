@@ -201,5 +201,3 @@ let arrayData = [
         email: ''
     }
 ]
-
-console.log(arrayData.length);
