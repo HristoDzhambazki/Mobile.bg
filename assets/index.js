@@ -1,10 +1,14 @@
+// const { auto } = require("async");
+
 (function () {
     let mainPage = getById('mainPage');
     let publishPage = getById('publishPage');
     let searchPage = getById('searchPage');
     let dealersPage = getById('dealersPage');
     let myAdPage = getById('myAdPage');
-
+    let mainPageWrapper = getById('mainPageWrapper');
+    let mainPageSearchIcons = Array.from(getById('mainSearchNav').children);
+    let mainSearchContainer = getById('mainSearchTitle')
 
     function showPage() {
         let page = location.hash.slice(1);
@@ -54,6 +58,13 @@
         }
     }
 
+    function showForm(event) {
+        
+    }
+
+    mainPageSearchIcons.forEach(icon => icon.addEventListener('click', showForm));
+
+    window.addEventListener('DOMContentLoaded', showForm);
     window.addEventListener('DOMContentLoaded', showPage);
     window.addEventListener('hashchange', showPage);
 }());
