@@ -1,5 +1,3 @@
-// const { auto } = require("async");
-
 (function () {
     let mainPage = getById('mainPage');
     let publishPage = getById('publishPage');
