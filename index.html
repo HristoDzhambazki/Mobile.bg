@@ -7,6 +7,90 @@
     <title>Mobile.bg</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/index.css">
+
+    <style>
+        #searchMenu {
+            width: 100%;
+            height: 500px;
+            border: 2px solid seagreen;
+            padding: 0 10px;
+        }
+
+        #searchMainCategory {
+            margin-bottom: 15px;
+            display: flex;
+
+        }
+
+        #searchMainCategory img {
+            width: 48px;
+            height: 33px;
+            align-self: flex-end;
+            margin-left: 24px;
+        }
+
+        #searchMainCategory select {
+            padding-right: 35px;
+        }
+
+        .searchTitle {
+            font-size: 0.75em;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        #searchSecondFloor {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #searchBrandAndModel {
+            display: flex;
+        }
+
+        .searchBandM {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #searchBrandAndModel div:first-child {
+            margin-right: 15px;
+        }
+
+        .searchBandM select {
+            margin: 5px 0;
+        }
+
+        .selectCommonWidth {
+            width: 150px;
+        }
+
+        #searchStateAndYear {
+            margin: 0 10px;
+        }
+
+        #searchYear {
+            margin-top: 20px;
+        }
+
+        #searchBtnDiv {
+            width: 290px;
+            height: 60px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        #searchButton {
+            width: 100%;
+            height: 70%;
+        }
+
+        #searchSorting select {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -53,8 +137,8 @@
                                 class="normalDrive"></a>
                         <a href="#mainPage/Бусове" class="normalDrive"><img src="assets/images/Бусове.gif" alt="Бусове"
                                 class="normalDrive"></a>
-                        <a href="#mainPage/Камиони" class="normalDrive"><img src="assets/images/Камиони.gif" alt="Камиони"
-                                class="normalDrive"></a>
+                        <a href="#mainPage/Камиони" class="normalDrive"><img src="assets/images/Камиони.gif"
+                                alt="Камиони" class="normalDrive"></a>
                         <a href="#mainPage/Мотоциклети" class="normalDrive"><img src="assets/images/Мотоциклети.gif"
                                 alt="Мотоциклети" class="normalDrive"></a>
                         <a href="#mainPage/Селкостопански" class="bigDrive"><img src="assets/images/Селкостопански.gif"
@@ -63,16 +147,17 @@
                                 alt="Индуистриални" class="bigDrive"></a>
                         <a href="#mainPage/Кари" class="bigDrive"><img src="assets/images/Кари.gif" alt="Кари"
                                 class="bigDrive"></a>
-                        <a href="#mainPage/Каравани" class="bigDrive"><img src="assets/images/Каравани.gif" alt="Каравани"
-                                class="bigDrive"></a>
+                        <a href="#mainPage/Каравани" class="bigDrive"><img src="assets/images/Каравани.gif"
+                                alt="Каравани" class="bigDrive"></a>
                         <a href="#mainPage/Яхти и Лодки" class="bigDrive"><img src="assets/images/Яхти и Лодки.gif"
                                 alt="Яхти и Лодки" class="bigDrive"></a>
-                        <a href="#mainPage/Ремаркета" class="bigDrive"><img src="assets/images/Ремаркета.gif" alt="Ремаркета"
-                                class="bigDrive"></a>
+                        <a href="#mainPage/Ремаркета" class="bigDrive"><img src="assets/images/Ремаркета.gif"
+                                alt="Ремаркета" class="bigDrive"></a>
                         <a href="#mainPage/Велосипеди"><img src="assets/images/Велосипеди.gif" alt="Велосипеди"></a>
                         <a href="#mainPage/Части"><img src="assets/images/Части.gif" alt="Части"></a>
                         <a href="#mainPage/Аксесоари"><img src="assets/images/Аксесоари.gif" alt="Аксесоари"></a>
-                        <a href="#mainPage/Гуми и Джанти"><img src="assets/images/Гуми и Джанти.gif" alt="Гуми и Джанти"></a>
+                        <a href="#mainPage/Гуми и Джанти"><img src="assets/images/Гуми и Джанти.gif"
+                                alt="Гуми и Джанти"></a>
                         <a href="#mainPage/Купува"><img src="assets/images/Купува.gif" alt="Купува"></a>
                         <a href="#dealersPage"><img src="assets/images/Услуги.gif" alt="Услуги"></a>
                     </nav>
@@ -102,7 +187,7 @@
                                 <option value="Купува">Купува</option>
                             </select>
 
-                            
+
                         </form>
                     </section>
                     <section id="vehicleCardCont">
@@ -115,7 +200,77 @@
                 </aside>
             </div>
             <div id="publishPage">publishPage</div>
-            <div id="searchPage">searchPage</div>
+            <div id="searchPage">
+                <div id="searchMenu">
+                    <div id="searchMainCategory">
+                        <div>
+                            <p class="searchTitle">Онсновна категория</p>
+                            <select name="mainCategories" id="selectMainCategory">
+                                <option value="">Автомобили и Джипове</option>
+                                <option value="">traktori</option>
+                            </select>
+                        </div>
+                        <img id="selectMainCategoryLogo" src="./assets/images/Автомобили и Джипове.gif" alt="avtomobil">
+                    </div>
+                    <div id="searchSecondFloor">
+                        <div id="searchBrandAndModel">
+                            <div class="searchBandM">
+                                <p class="searchTitle">Марка</p>
+                                <select class="selectCommonWidth" name="brandFirst" id="brandFirst">
+                                    <option value="">Избери</option>
+                                </select>
+                                <select class="selectCommonWidth" name="brandSecond" id="brandSecond">
+                                    <option value="">Избери</option>
+                                </select>
+                                <select class="selectCommonWidth" name="brandThird" id="brandThird">
+                                    <option value="">Избери</option>
+                                </select>
+                            </div>
+                            <div class="searchBandM">
+                                <p class="searchTitle">Модел</p>
+                                <select class="selectCommonWidth" name="modelFirst" id="modelFirst">
+                                    <option value="">Избери</option>
+                                </select>
+                                <select class="selectCommonWidth" name="modelSecond" id="modelSecond">
+                                    <option value="">Избери</option>
+                                </select>
+                                <select class="selectCommonWidth" name="modelThrid" id="modelThrid">
+                                    <option value="">Избери</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="searchStateAndYear">
+                            <div id="searchState">
+                                <p class="searchTitle">Състояние:</p>
+                                <input type="checkbox" id="newCar">
+                                <label for="newCar">Нов</label>
+                                <input type="checkbox" id="usedCar">
+                                <label for="usedCar">Употребяван</label>
+                                <input type="checkbox" id="partsCar">
+                                <label for="partsCar">За части</label>
+                            </div>
+                            <div id="searchYear">
+                                <p class="searchTitle">Година на производство</p>
+                                <select class="selectCommonWidth" name="productionYearFrom"
+                                    id="productionYearFrom"></select>
+                                <select class="selectCommonWidth" name="productionYearTill"
+                                    id="productionYearTill"></select>
+                            </div>
+                        </div>
+                        <div id="searchButtonAndSorting">
+                            <div id="searchBtnDiv">
+                                <button id="searchButton">Т Ъ Р С И</button>
+                            </div>
+                            <div id="searchSorting">
+                                <p class="searchTitle">Сортиране според:</p>
+                                <select name="selectSorting" id="selectSorting"></select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
             <div id="dealersPage">dealersPage</div>
             <div id="myAdPage">myAdPage</div>
         </main>
