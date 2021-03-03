@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="assets/css/index.css">
 
     <style>
+        #searchPage {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
         #searchMenu {
             width: 100%;
-            height: 500px;
             border: 2px solid seagreen;
             padding: 0 10px;
         }
@@ -40,6 +43,7 @@
         }
 
         #searchSecondFloor {
+            height: 135px;
             margin-top: 20px;
             display: flex;
             justify-content: space-between;
@@ -54,12 +58,16 @@
             flex-direction: column;
         }
 
-        #searchBrandAndModel div:first-child {
-            margin-right: 15px;
+        .searchBandM p {
+            margin-bottom: 10px;
         }
 
-        .searchBandM select {
-            margin: 5px 0;
+        .searchBandM select:nth-child(3) {
+            margin: 19px 0;
+        }
+
+        #searchBrandAndModel div:first-child {
+            margin-right: 15px;
         }
 
         .selectCommonWidth {
@@ -68,10 +76,12 @@
 
         #searchStateAndYear {
             margin: 0 10px;
+            display: flex;
+            flex-direction: column;
         }
 
         #searchYear {
-            margin-top: 20px;
+            margin-top: 23px;
         }
 
         #productionYearFrom {
@@ -86,9 +96,19 @@
             justify-content: center;
         }
 
+        #searchButtonAndSorting {
+            display: flex;
+            flex-direction: column;
+        }
+
         #searchButton {
             width: 100%;
             height: 70%;
+            font-weight: bold;
+        }
+
+        #searchSorting {
+            margin-top: 13px;
         }
 
         #searchSorting select {
@@ -156,6 +176,28 @@
 
         #selectRegion {
             width: 135px;
+        }
+
+        #searchCheckboxOptions {
+            margin: 15px 0;
+            font-size: 11px;
+            display: flex;
+        }
+
+        #searchCheckboxOptions p {
+            font-size: 12px;
+        }
+
+        #searchSafety {
+            width: 300px;
+        }
+
+        #searchComfort {
+            width: 270px;
+        }
+
+        #searchOthers {
+            width: 200px;
         }
     </style>
 </head>
@@ -421,11 +463,449 @@
                             </select>
                         </div>
                     </div>
+                    <div id="searchCheckboxOptions">
+                        <div id="searchSafety">
+                            <p class="searchTitle">Безопасност</p>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="100" value="GPS система за проследяване">
+                                        <label for="100">GPS система за проследяване</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="101" value="Автоматичен контрол на стабилността">
+                                        <label for="101">Автоматичен контрол на стабилността</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="102" value="Адаптивни предни светлини">
+                                        <label for="102">Адаптивни предни светлини</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="103" value="Въздушни възглавници - Задни">
+                                        <label for="103">Въздушни възглавници - Задни</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="104" value="Въздушни възглавници - Предни">
+                                        <label for="104">Въздушни възглавници - Предни</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="105" value="Въздушни възглавници - Странични">
+                                        <label for="105">Въздушни възглавници - Странични</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="106" value="Ел. разпределяне на спирачното усилие">
+                                        <label for="106">Ел. разпределяне на спирачното усилие</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="107" value="Електронна програма за стабилизиране">
+                                        <label for="107">Електронна програма за стабилизиране</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="108" value="Контрол на налягането на гумите">
+                                        <label for="108">Контрол на налягането на гумите</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="109" value="Парктроник">
+                                        <label for="109">Парктроник</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="110" value="Система ISOFIX">
+                                        <label for="110">Система ISOFIX</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="111" value="Система за динамична устойчивост">
+                                        <label for="111">Система за динамична устойчивост</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="112" value="Система за защита от пробуксуване">
+                                        <label for="112">Система за защита от пробуксуване</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="113" value="Система за изсушаване на накладките">
+                                        <label for="113">Система за изсушаване на накладките</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="114" value="Система за контрол на дистанцията">
+                                        <label for="114">Система за контрол на дистанцията</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="115" value="Система за контрол на спускането">
+                                        <label for="115">Система за контрол на спускането</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="116" value="Система за подпомагане на спирането">
+                                        <label for="116">Система за подпомагане на спирането</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="searchComfort">
+                            <p class="searchTitle">Комфорт</p>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="117" value="Auto Start Stop function">
+                                        <label for="117">Auto Start Stop function</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="118" value="Bluetooth \ handsfree система">
+                                        <label for="118">Bluetooth \ handsfree система</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="119" value="DVD, TV">
+                                        <label for="119">DVD, TV</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="120" value="Steptronic, Tiptronic">
+                                        <label for="120">Steptronic, Tiptronic</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="121" value="USB, audio\video, IN\AUX изводи">
+                                        <label for="121">USB, audio\video, IN\AUX изводи</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="122" value="Адаптивно въздушно окачване">
+                                        <label for="122">Адаптивно въздушно окачване</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="123" value="Безключово палене">
+                                        <label for="123">Безключово палене</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="124" value="Блокаж на диференциала">
+                                        <label for="124">Блокаж на диференциала</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="125" value="Бордкомпютър">
+                                        <label for="125">Бордкомпютър</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="126" value="Бързи \ бавни скорости">
+                                        <label for="126">Бързи \ бавни скорости</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="127" value="Датчик за светлина">
+                                        <label for="127">Датчик за светлина</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="128" value="Ел. Огледала">
+                                        <label for="128">Ел. Огледала</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="129" value="Ел. Стъкла">
+                                        <label for="129">Ел. Стъкла</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="130" value="Ел. регулиране на окачването">
+                                        <label for="130">Ел. регулиране на окачването</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="131" value="Ел. регулиране на седалките">
+                                        <label for="131">Ел. регулиране на седалките</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="132" value="Ел. усилвател на волана">
+                                        <label for="132">Ел. усилвател на волана</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="133" value="Климатик">
+                                        <label for="133">Климатик</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="134" value="Климатроник">
+                                        <label for="134">Климатроник</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="135" value="Мултифункционален волан">
+                                        <label for="135">Мултифункционален волан</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="136" value="Навигация">
+                                        <label for="136">Навигация</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="137" value="Отопление на волана">
+                                        <label for="137">Отопление на волана</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="138" value="Печка">
+                                        <label for="138">Печка</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="139" value="Подгряване на предното стъкло">
+                                        <label for="139">Подгряване на предното стъкло</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="140" value="Подгряване на седалките">
+                                        <label for="140">Подгряване на седалките</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="141" value="Регулиране на волана">
+                                        <label for="141">Регулиране на волана</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="142" value="Сензор за дъжд">
+                                        <label for="142">Сензор за дъжд</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="143" value="Серво усилвател на волана">
+                                        <label for="143">Серво усилвател на волана</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="144" value="Система за измиване на фаровете">
+                                        <label for="144">Система за измиване на фаровете</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="145"
+                                            value="Система за контрол на скоростта (автопилот)">
+                                        <label for="145">Система за контрол на скоростта (автопилот)</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="146" value="Стерео уредба">
+                                        <label for="146">Стерео уредба</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="147" value="Филтър за твърди частици">
+                                        <label for="147">Филтър за твърди частици</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="148" value="Хладилна жабка">
+                                        <label for="148">Хладилна жабка</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="searchOthers">
+                            <p class="searchTitle">Други</p>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="149" value="4x4">
+                                    <label for="149">4x4</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="150" value="7 места">
+                                    <label for="150">7 места</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="151" value="Buy back">
+                                    <label for="151">Buy back</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="152" value="Бартер">
+                                    <label for="152">Бартер</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="153" value="Газова уредба">
+                                    <label for="153">Газова уредба</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="154" value="Дълга база">
+                                    <label for="154">Дълга база</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="155" value="Капариран\Продаден">
+                                    <label for="155">Капариран\Продаден</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="156" value="Катастрофирал">
+                                    <label for="156">Катастрофирал</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="157" value="Къса база">
+                                    <label for="157">Къса база</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="158" value="Лизинг">
+                                    <label for="158">Лизинг</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="159" value="Метанова уредба">
+                                    <label for="159">Метанова уредба</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="160" value="На части">
+                                    <label for="160">На части</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="161" value="Напълно обслужен">
+                                    <label for="161">Напълно обслужен</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="162" value="Нов внос">
+                                    <label for="162">Нов внос</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="163" value="С право на дан.к-т">
+                                    <label for="163">С право на дан.к-т</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="164" value="С регистрация">
+                                    <label for="164">С регистрация</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="165" value="Сервизна книжка">
+                                    <label for="165">Сервизна книжка</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="166" value="Тунинг">
+                                    <label for="166">Тунинг</label>
+                                </li>
+                                <li>
+                                    <p class="searchTitle">Екстериор</p>
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox" id="167" value="2(3) Врати">
+                                            <label for="167">2(3) Врати</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="168" value="4(5) Врати">
+                                            <label for="168">4(5) Врати</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="169" value="LED фарове">
+                                            <label for="169">LED фарове</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="170" value="Ксенонови фарове">
+                                            <label for="170">Ксенонови фарове</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="171" value="Лети джанти">
+                                            <label for="171">Лети джанти</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="172" value="Металик">
+                                            <label for="172">Металик</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="173" value="Отопляеми чистачки">
+                                            <label for="173">Отопляеми чистачки</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="174" value="Панорамен люк">
+                                            <label for="174">Панорамен люк</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="175" value="Рейлинг на покрива">
+                                            <label for="175">Рейлинг на покрива</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="176" value="Ролбари">
+                                            <label for="176">Ролбари</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="177" value="Спойлери">
+                                            <label for="177">Спойлери</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="178" value="Теглич">
+                                            <label for="178">Теглич</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="179" value="Халогенни фарове">
+                                            <label for="179">Халогенни фарове</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="180" value="Шибедах">
+                                            <label for="180">Шибедах</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="searchInterior">
+                            <p class="searchTitle">Защита</p>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="180" value="OFFROAD пакет">
+                                    <label for="180">OFFROAD пакет</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="181" value="Аларма">
+                                    <label for="181">Аларма</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="182" value="Брониран">
+                                    <label for="182">Брониран</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="183" value="Имобилайзер">
+                                    <label for="183">Имобилайзер</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="184" value="Каско">
+                                    <label for="184">Каско</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="185" value="Лебедка">
+                                    <label for="185">Лебедка</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="186" value="Подсилени стъкла">
+                                    <label for="186">Подсилени стъкла</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="187" value="Централно заключване">
+                                    <label for="187">Централно заключване</label>
+                                </li>
+                                <li>
+                                    <p class="searchTitle">Интериор</p>
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox" id="188" value="Велурен салон">
+                                            <label for="188">Велурен салон</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="189" value="Десен волан">
+                                            <label for="189">Десен волан</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="190" value="Кожен салон">
+                                            <label for="190">Кожен салон</label>
+                                        </li>
+                                        <li>
+                                            <p class="searchTitle">Специализирани</p>
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox" id="191" value="TAXI">
+                                                    <label for="191">TAXI</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="192" value="За хора с увреждания">
+                                                    <label for="192">За хора с увреждания</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="193" value="Катафалка">
+                                                    <label for="193">Катафалка</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="194" value="Линейка">
+                                                    <label for="194">Линейка</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="195" value="Учебен">
+                                                    <label for="195">Учебен</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="196" value="Хладилен">
+                                                    <label for="196">Хладилен</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="197" value="Хомологация N1">
+                                                    <label for="197">Хомологация N1</label>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
 
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-            <div id="dealersPage">dealersPage</div>
-            <div id="myAdPage">myAdPage</div>
+                <div id="dealersPage">dealersPage</div>
+                <div id="myAdPage">myAdPage</div>
         </main>
 
         <footer>
