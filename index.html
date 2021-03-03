@@ -36,7 +36,7 @@
         .searchTitle {
             font-size: 0.75em;
             font-weight: bold;
-            margin: 12px 0;
+            margin: 10px 0;
         }
 
         #searchSecondFloor {
@@ -74,6 +74,10 @@
             margin-top: 20px;
         }
 
+        #productionYearFrom {
+            margin-right: 10px;
+        }
+
         #searchBtnDiv {
             width: 290px;
             height: 60px;
@@ -89,6 +93,69 @@
 
         #searchSorting select {
             width: 100%;
+        }
+
+        #searchThirdFloor {
+            height: 120px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-content: space-between;
+        }
+
+        #searchPrice input {
+            width: 90px;
+        }
+
+        #searchPrice select {
+            width: 55px;
+        }
+
+        #searchPower {
+            width: 155px;
+            display: flex;
+            justify-content: space-between;
+            width: 315px;
+        }
+
+        #searchPower input {
+            width: 142px;
+        }
+
+        #searchTypeOfCarAndEuroStandard {
+            width: 287px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #searchTypeOfCarAndEuroStandard select {
+            width: 135px;
+        }
+
+        #searchEngineAndGear {
+            display: flex;
+        }
+
+        #selectEngine {
+            margin-right: 10px;
+        }
+
+        #searchMaxMileageAndColor {
+            display: flex;
+            justify-content: space-between;
+            width: 315px;
+        }
+
+        #searchMaxMileageAndColor select {
+            width: 148px;
+        }
+
+        #searchRegion {
+            width: 287px;
+        }
+
+        #selectRegion {
+            width: 135px;
         }
     </style>
 </head>
@@ -267,6 +334,92 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div id="searchThirdFloor">
+                        <div id="searchPrice">
+                            <p class="searchTitle">Цена</p>
+                            <span>от</span>
+                            <input type="number" id="priceFrom">
+                            <span>до</span>
+                            <input type="number" id="priceTo">
+                            <select name="currencySelector" id="selectCurrency">
+                                <option value="">лв.</option>
+                                <option value="">EURO</option>
+                                <option value="">USD</option>
+                            </select>
+                        </div>
+                        <div id="searchPower">
+                            <div id="searchPowerFrom">
+                                <p class="searchTitle">Мощност от (к.с.):</p>
+                                <input type="number" id="powerFrom">
+                            </div>
+                            <div id="searchPowerTo">
+                                <p class="searchTitle">до:</p>
+                                <input type="number" id="powerTo">
+                            </div>
+                        </div>
+                        <div id="searchTypeOfCarAndEuroStandard">
+                            <div id="searchTypeOfCar">
+                                <p class="searchTitle">Категория</p>
+                                <select name="selectTypeOfCar" id="selectTypeOfCar">
+                                    <option value=""></option>
+                                    <option value="">стреч лимузина</option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div id="searchEuroStandard">
+                                <p class="searchTitle">Евростандарт</p>
+                                <select name="selectEuroStandard" id="selectEuroStandard">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="searchEngineAndGear">
+                            <div id="searchEngine">
+                                <p class="searchTitle">Тип двигател</p>
+                                <select class="selectCommonWidth" name="selectEngine" id="selectEngine">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div id="searchGear">
+                                <p class="searchTitle">Скоростна кутия</p>
+                                <select class="selectCommonWidth" name="selectGear" id="selectGear">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="searchMaxMileageAndColor">
+                            <div id="searchMaxMileage">
+                                <p class="searchTitle">Макс.пробег в км</p>
+                                <select id="selectMaxMileage">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div id="searchColor">
+                                <p class="searchTitle">Цвят</p>
+                                <select id="selectColor">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="searchRegion">
+                            <p class="searchTitle">Регион</p>
+                            <select name="selectRegion" id="selectRegion">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                        </div>
                     </div>
 
                 </div>
