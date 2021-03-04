@@ -46,75 +46,162 @@
 
         <main>
             <div id="mainPage">
+                <nav id="mainSearchNav">
+                    <a href="#mainPage/Автомобили и Джипове" class="normalDrive"><img
+                            src="assets/images/Автомобили и Джипове.gif" alt="Автомобили и Джипове"
+                            class="normalDrive"></a>
+                    <a href="#mainPage/Бусове" class="normalDrive"><img src="assets/images/Бусове.gif" alt="Бусове"
+                            class="normalDrive"></a>
+                    <a href="#mainPage/Камиони" class="normalDrive"><img src="assets/images/Камиони.gif" alt="Камиони"
+                            class="normalDrive"></a>
+                    <a href="#mainPage/Мотоциклети" class="normalDrive"><img src="assets/images/Мотоциклети.gif"
+                            alt="Мотоциклети" class="normalDrive"></a>
+                    <a href="#mainPage/Селкостопански" class="bigDrive"><img src="assets/images/Селкостопански.gif"
+                            alt="Селкостопански" class="bigDrive"></a>
+                    <a href="#mainPage/Индуистриални" class="bigDrive"><img src="assets/images/Индуистриални.gif"
+                            alt="Индуистриални" class="bigDrive"></a>
+                    <a href="#mainPage/Кари" class="bigDrive"><img src="assets/images/Кари.gif" alt="Кари"
+                            class="bigDrive"></a>
+                    <a href="#mainPage/Каравани" class="bigDrive"><img src="assets/images/Каравани.gif" alt="Каравани"
+                            class="bigDrive"></a>
+                    <a href="#mainPage/Яхти и Лодки" class="bigDrive"><img src="assets/images/Яхти и Лодки.gif"
+                            alt="Яхти и Лодки" class="bigDrive"></a>
+                    <a href="#mainPage/Ремаркета" class="bigDrive"><img src="assets/images/Ремаркета.gif"
+                            alt="Ремаркета" class="bigDrive"></a>
+                    <a href="#mainPage/Велосипеди"><img src="assets/images/Велосипеди.gif" alt="Велосипеди"></a>
+                    <a href="#mainPage/Части"><img src="assets/images/Части.gif" alt="Части"></a>
+                    <a href="#mainPage/Аксесоари"><img src="assets/images/Аксесоари.gif" alt="Аксесоари"></a>
+                    <a href="#mainPage/Гуми и Джанти"><img src="assets/images/Гуми и Джанти.gif"
+                            alt="Гуми и Джанти"></a>
+                    <a href="#mainPage/Купува"><img src="assets/images/Купува.gif" alt="Купува"></a>
+                    <a href="#dealersPage"><img src="assets/images/Услуги.gif" alt="Услуги"></a>
+                </nav>
+
                 <div id="mainPageWrapper">
-                    <nav id="mainSearchNav">
-                        <a href="#mainPage/Автомобили и Джипове" class="normalDrive"><img
-                                src="assets/images/Автомобили и Джипове.gif" alt="Автомобили и Джипове"
-                                class="normalDrive"></a>
-                        <a href="#mainPage/Бусове" class="normalDrive"><img src="assets/images/Бусове.gif" alt="Бусове"
-                                class="normalDrive"></a>
-                        <a href="#mainPage/Камиони" class="normalDrive"><img src="assets/images/Камиони.gif" alt="Камиони"
-                                class="normalDrive"></a>
-                        <a href="#mainPage/Мотоциклети" class="normalDrive"><img src="assets/images/Мотоциклети.gif"
-                                alt="Мотоциклети" class="normalDrive"></a>
-                        <a href="#mainPage/Селкостопански" class="bigDrive"><img src="assets/images/Селкостопански.gif"
-                                alt="Селкостопански" class="bigDrive"></a>
-                        <a href="#mainPage/Индуистриални" class="bigDrive"><img src="assets/images/Индуистриални.gif"
-                                alt="Индуистриални" class="bigDrive"></a>
-                        <a href="#mainPage/Кари" class="bigDrive"><img src="assets/images/Кари.gif" alt="Кари"
-                                class="bigDrive"></a>
-                        <a href="#mainPage/Каравани" class="bigDrive"><img src="assets/images/Каравани.gif" alt="Каравани"
-                                class="bigDrive"></a>
-                        <a href="#mainPage/Яхти и Лодки" class="bigDrive"><img src="assets/images/Яхти и Лодки.gif"
-                                alt="Яхти и Лодки" class="bigDrive"></a>
-                        <a href="#mainPage/Ремаркета" class="bigDrive"><img src="assets/images/Ремаркета.gif" alt="Ремаркета"
-                                class="bigDrive"></a>
-                        <a href="#mainPage/Велосипеди"><img src="assets/images/Велосипеди.gif" alt="Велосипеди"></a>
-                        <a href="#mainPage/Части"><img src="assets/images/Части.gif" alt="Части"></a>
-                        <a href="#mainPage/Аксесоари"><img src="assets/images/Аксесоари.gif" alt="Аксесоари"></a>
-                        <a href="#mainPage/Гуми и Джанти"><img src="assets/images/Гуми и Джанти.gif" alt="Гуми и Джанти"></a>
-                        <a href="#mainPage/Купува"><img src="assets/images/Купува.gif" alt="Купува"></a>
-                        <a href="#dealersPage"><img src="assets/images/Услуги.gif" alt="Услуги"></a>
-                    </nav>
-                    <section id="mainSearchBox">
-                        <div id="mainSearchTitle"></div>
-                        <form action="#" id="mainSearchForm">
-                            <div>
-                                Основна Категория
+                    <div id="formAndCarWrapper">
+                        <section id="mainSearchBox">
+                            <div id="mainSearchTitle">Търсене в Автомобили и Джипове</div>
+                            <form action="#" id="mainSearchForm">
+                                <div>
+                                    Основна Категория
+                                </div>
+
+                                <select name="mainCatSelect" id="mainCatSelect">
+                                    <option value="Автомобили и Джипове">Автомобили и Джипове</option>
+                                    <option value="Бусове">Бусове</option>
+                                    <option value="Камиони">Камиони</option>
+                                    <option value="Мотоциклети">Мотоциклети</option>
+                                    <option value="Селскостопански">Селскостопански</option>
+                                    <option value="Индустриални">Индустриални</option>
+                                    <option value="Кари">Кари</option>
+                                    <option value="Каравани">Каравани</option>
+                                    <option value="Яхти и Лодки">Яхти и Лодки</option>
+                                    <option value="Ремаркета">Ремаркета</option>
+                                    <option value="Велосипеди">Велосипеди</option>
+                                    <option value="Части">Части</option>
+                                    <option value="Аксесоари">Аксесоари</option>
+                                    <option value="Гуми и джанти">Гуми и джанти</option>
+                                    <option value="Услуги">Услуги</option>
+                                    <option value="Купува">Купува</option>
+                                </select>
+
+                            </form>
+                        </section>
+
+                        <section id="bottomContainer">
+                            <div id="vehicleCardContHeader">
+                                Най-новите обяви за Автомобили и Джипове
                             </div>
 
-                            <select name="mainCatSelect" id="mainCatSelect">
-                                <option value="Автомобили и Джипове">Автомобили и Джипове</option>
-                                <option value="Бусове">Бусове</option>
-                                <option value="Камиони">Камиони</option>
-                                <option value="Мотоциклети">Мотоциклети</option>
-                                <option value="Селскостопански">Селскостопански</option>
-                                <option value="Индустриални">Индустриални</option>
-                                <option value="Кари">Кари</option>
-                                <option value="Каравани">Каравани</option>
-                                <option value="Яхти и Лодки">Яхти и Лодки</option>
-                                <option value="Ремаркета">Ремаркета</option>
-                                <option value="Велосипеди">Велосипеди</option>
-                                <option value="Части">Части</option>
-                                <option value="Аксесоари">Аксесоари</option>
-                                <option value="Гуми и джанти">Гуми и джанти</option>
-                                <option value="Услуги">Услуги</option>
-                                <option value="Купува">Купува</option>
-                            </select>
+                            <div id="vehicleCardContHeaderLine"></div>
 
-                            
-                        </form>
-                    </section>
-                    <section id="vehicleCardCont">
+                            <div id="vehicleCardCont">
 
-                    </section>
+                            </div>
+                        </section>
+                    </div>
+
+                    <aside id="mainPageNews">
+                        <div id='newsHeader'> Последни новини от Факти </div>
+                        <div id='newsLine'></div>
+
+                        <a href="" class="article" target="_blank" id="linkToArticle1">
+                            <div>
+                                <img src="" alt="статия" class="imageArticle" id="articleImage1">
+                            </div>
+                            <div class="articleHeader" id="newsDesc1"></div>
+                        </a>
+                        <div id="newsSepLine"></div>
+                        <a href="" class="article" target="_blank" id="linkToArticle2">
+                            <div>
+                                <img src="" alt="статия" class="imageArticle" id="articleImage2">
+                            </div>
+                            <div class="articleHeader" id="newsDesc2"></div>
+                        </a>
+                        <div id="newsSepLine"></div>
+                        <a href="" class="article" target="_blank" id="linkToArticle3">
+                            <div>
+                                <img src="" alt="статия" class="imageArticle" id="articleImage3">
+                            </div>
+                            <div class="articleHeader" id="newsDesc3"></div>
+                        </a>
+                        <div id="newsSepLine"></div>
+                        <a href="" class="article" target="_blank" id="linkToArticle4">
+                            <div>
+                                <img src="" alt="статия" class="imageArticle" id="articleImage4">
+                            </div>
+                            <div class="articleHeader" id="newsDesc4"></div>
+                        </a>
+                        <div id="newsSepLine"></div>
+                        <a href="" class="article" target="_blank" id="linkToArticle5">
+                            <div>
+                                <img src="" alt="статия" class="imageArticle" id="articleImage5">
+                            </div>
+                            <div class="articleHeader" id="newsDesc5"></div>
+                        </a>
+                        <div id="newsSepLine"></div>
+                        <a href="" class="article" target="_blank" id="linkToArticle6">
+                            <div>
+                                <img src="" alt="статия" class="imageArticle" id="articleImage6">
+                            </div>
+                            <div class="articleHeader" id="newsDesc6"></div>
+                        </a>
+                        <div id="newsSepLine"></div>
+
+                    </aside>
                 </div>
 
-                <aside id="mainPageNews">
-
-                </aside>
             </div>
-            <div id="publishPage">publishPage</div>
+
+            <div id="publishPage">
+                <div id="adsHeader">Публикуване на обява в mobile.bg</div>
+
+                <div id="adsExplanation">
+                    <div id="adLeftText">
+                        Ако желаете да публикувате повече обяви
+                        и искате да ги управлявате по-лесно,
+                        влезте във Вашият акаунт <a href="#" target="_blank" id="adLinkToLogin">ВХОД</a> или
+                        си направете нов акаунт <a href="#" target="_blank" id="adLinkToReg">НОВА РЕГИСТРАЦИЯ</a>
+                    </div>
+                    <div id="adCenterText">
+                        <div class="adLine"></div>
+                        <div id="adOr">или</div>
+                        <div class="adLine"></div>
+                    </div>
+                    <div id="adRightText">
+                        <div>Ако желаете да публикувате единична обява
+                            с <span id="adBolded">верификация по телефон</span> кликнете тук:</div>
+                        <a href="#">
+                            <button id="adPathToPublish">Продължи</button>
+                        </a>
+                        <div id="adMoneyText">
+                            /Промотирането на тази обява ще Ви е по-скъпо
+                            (само с SMS) и няма да можете да я направите ТОП оферта/
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="searchPage">searchPage</div>
             <div id="dealersPage">dealersPage</div>
             <div id="myAdPage">myAdPage</div>

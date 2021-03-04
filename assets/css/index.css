@@ -2,6 +2,15 @@ body {
     font-family: Verdana, Geneva, sans-serif;
 }
 
+#mainPageWrapper {
+    display: flex;
+}
+
+#formAndCarWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 #mainSection {
     margin: 10px 0;
     height: 200px;
@@ -16,12 +25,12 @@ body {
 /* Header styles */
 
 #mainHeader {
-    height:fit-content;
+    height: fit-content;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size:15px;
+    font-size: 15px;
 }
 
 div.topWrapper {
@@ -30,7 +39,7 @@ div.topWrapper {
     align-items: center;
 }
 
-#mainIconWrapper a{
+#mainIconWrapper a {
     text-decoration: none;
     color: rgb(0, 153, 255);
 }
@@ -56,7 +65,7 @@ div#loginWrapper {
 }
 
 div#logIn {
-    font-weight:600;
+    font-weight: 600;
 }
 
 div#line {
@@ -90,7 +99,7 @@ a#rightBox>span {
 }
 
 a#rightBox span#plus {
-    font-size:18px;
+    font-size: 18px;
 }
 
 nav#mainNavigation {
@@ -116,8 +125,14 @@ div#topNavigation a, nav#mainNavigation a {
     font-weight: 700;
 }
 
-div#topNavigation a:hover, nav#mainNavigation a:hover{
+div#topNavigation a:hover, nav#mainNavigation a:hover {
     background-color: rgb(0, 153, 255);
+}
+
+div#mainSearchTitle {
+    font-weight: 600;
+    font-size: 0.85em;
+    margin-bottom: 1em;
 }
 
 /* Form styles */
@@ -130,6 +145,124 @@ form#mainSearchForm {
     font-size: 0.8em;
 }
 
+#vehicleCardCont a {
+    color: #0060B6;
+    text-decoration: none;
+}
+
+#vehicleCardContHeader {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    font-size: 0.85em;
+}
+
+#vehicleCardContHeaderLine {
+    margin-bottom: 0.5em;
+    background-color: #0099ff;
+    width: 750px;
+    height: 3px;
+}
+
+#newsHeader {
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+#newsLine {
+    height: 3px;
+    width: 260px;
+    margin-bottom: 0.5em;
+    background-color: #0099ff;
+}
+
+#newsSepLine {
+    height: 1px;
+    width: 260px;
+    margin-bottom: 0.5em;
+    background-color: #e2e2e2;
+}
+
+div.articleHeader:hover {
+    text-decoration: underline;
+}
+
+/* Publish Page styles */
+
+div#adsHeader {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+div#adsExplanation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    font-size: 0.95em;
+}
+
+div#adLeftText {
+    width: 450px;
+}
+
+div#adLeftText>a {
+    color: #00a2ef;
+    text-decoration:underline;
+    text-decoration-color: #00a2ef;
+    font-weight: 600;
+}
+
+div#adLeftText>a:hover {
+    text-decoration: none;
+}
+
+div.adLine {
+    margin: auto;
+    height: 30px;
+    width: 1px;
+    background-color: #00a2ef;
+}
+
+div#adOr {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #efefef;
+    font-size: 0.75em;
+}
+
+div#adRightText {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+span#adBolded {
+    font-weight: 600;
+}
+
+button#adPathToPublish {
+    width: 180px;
+    height: 40px;
+    font-size: 1.25em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+div#adMoneyText {
+    font-size: 0.85em;
+}
+
 /* Footer styles */
 
 footer {
@@ -138,12 +271,7 @@ footer {
     border-top: 1px solid #40b9f3;
 }
 
-#baseCategoriesFooter ul,
-#siteInfoFooter,
-#siteInfoFooter ul,
-#baseCategoriesFooter ul,
-#companyInfoFooter,
-#companyInfoFooter ul {
+#baseCategoriesFooter ul, #siteInfoFooter, #siteInfoFooter ul, #baseCategoriesFooter ul, #companyInfoFooter, #companyInfoFooter ul {
     display: flex;
     flex-wrap: wrap;
 }
@@ -187,13 +315,11 @@ footer {
     font-size: 0.71em;
 }
 
-#siteInfoFooter,
-#companyInfoFooter {
+#siteInfoFooter, #companyInfoFooter {
     justify-content: space-between;
 }
 
-#siteInfoFooter li a,
-#companyInfoFooter li a {
+#siteInfoFooter li a, #companyInfoFooter li a {
     text-decoration: none;
     font-weight: bold;
 }
@@ -204,7 +330,6 @@ footer {
     padding: 3px 4px;
 }
 
-
 #companyInfoFooter li a {
     color: white;
     font-size: 0.75em;
@@ -212,7 +337,6 @@ footer {
 
 #companyInfoFooter li:nth-child(even) {
     padding: 0 5px;
-
 }
 
 #companyInfoFooter span {
@@ -227,7 +351,7 @@ nav#mainSearchNav {
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 nav#mainSearchNav img {
