@@ -49,6 +49,10 @@ let carStorage = (function () {
             let index = this.list.findIndex(car => car.id == id);
             this.list.splice(index, 1);
         }
+
+        getLast6() {
+
+        }
     }
 
     return new CarStorage();

@@ -10,7 +10,141 @@
     <link rel="stylesheet" href="assets/css/searchPage.css">
 
     <style>
+        #searchResultsContainer {
+            width: 100%;
+            height: 800px;
+            display: flex;
+            margin: 10px 0;
+        }
 
+        #searchResultsMainContent {
+            width: 70%;
+            border: 2px solid salmon;
+            height: 100%;
+        }
+
+        #searchResultsAsideContent {
+            width: 30%;
+            height: 100%;
+            border: 2px solid aqua;
+        }
+
+        #newSearch ul {
+            display: flex;
+            font-size: 12px;
+        }
+
+        #newSearch ul li:nth-child(2) {
+            margin: 0 10px;
+        }
+
+        #resultsInfoHeading {
+            margin: 10px 0;
+        }
+
+        #resultsInfoHeading {
+            border-bottom: 3px solid #09F;
+        }
+
+        #resultsInfoHeading h1 {
+            font-weight: bold;
+            font-size: 14px;
+            padding-bottom: 5px;
+        }
+
+        #resultsInfoContent {
+            background-color: #efefef;
+            padding: 15px;
+            font-size: 12px;
+        }
+
+        #resultsInfoUpperBody {
+            display: flex;
+        }
+
+        #resultInfoMainContent {
+            width: 462px;
+        }
+
+        #resultInfoMainContent h1,
+        #resultInfoMainContent p {
+            font-weight: bold;
+        }
+
+        #resultInfoMainContent div {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #resultsInfoUpperBody a {
+            margin-left: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        #resultsInfoUpperBody img {
+            height: 40px;
+            width: 40px;
+        }
+
+        #searchResultsLink {
+            margin-top: 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        #searchResultsLink input {
+            margin-left: 5px;
+            width: 200px;
+            border: 1px solid #09f;
+            color: #09f;
+        }
+
+        #searchResultsPagesAndPagination {
+            font-size: 12px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #005aff;
+            padding-bottom: 10px;
+        }
+
+        #searchResultPagesCount {
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        #searchResultsPagination,
+        #searchResultsPagination ul {
+            display: flex;
+            align-items: center;
+
+        }
+
+        #searchResultsPagination li {
+            margin-left: 5px;
+        }
+
+        #searchResultsPagination li>a {
+            padding: 5px;
+            color: #09f;
+            text-decoration: none;
+            border: 1px solid #b3b3b3;
+        }
+
+        #searchResultsPagination a {
+            padding: 6.5px;
+            color: #09f;
+            text-decoration: none;
+            border: 1px solid #b3b3b3;
+        }
+
+        #napredAnchor {
+            margin-left: 5px;
+        }
     </style>
 </head>
 
@@ -121,6 +255,91 @@
                 </aside>
             </div>
             <div id="publishPage">publishPage</div>
+            <div id="searchResultsPage">
+                <div id="searchResultsContainer">
+                    <div id="searchResultsMainContent">
+                        <div id="newSearch">
+                            <ul>
+                                <li>
+                                    <a href="">НОВО ТЪРСЕНЕ</a>
+                                </li>
+                                <li> | </li>
+                                <li>
+                                    <a href="">КОРЕКЦИЯ НА ТЪРСЕНЕТО</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="searchResultsInfo">
+                            <div id="resultsInfoHeading">
+                                <h1>1 - 20 от общо 3000+ Обяви за BMW Автомобили и Джипове</h1>
+                            </div>
+                            <div id="resultsInfoContent">
+                                <div id="resultsInfoUpperBody">
+                                    <div id="resultInfoMainContent">
+                                        <h1>Резултат от Вашето търсене на:</h1>
+                                        <div>
+                                            <h6>Рубрика:</h6>
+                                            <p id="searchResultsCategory">Автомобили и Джипове, BMW</p>
+                                            <span>;</span>
+                                            <h6>Състояние:</h6>
+                                            <p id="searchResultsState">Употребявани, Нови</p>
+                                            <span>,</span>
+                                            <h6>Особености:</h6>
+                                            <p id="searchResultsFeatures"></p>
+                                            <span>,</span>
+                                            <h6>Подредени по:</h6>
+                                            <p id="searchResultsOrderedBy">Марка/Модел/Цена</p>
+                                        </div>
+                                    </div>
+                                    <a href="">
+                                        Запази Търсенето
+                                        <img src="./assets/images/saveSearch.JPG" alt="saveImage">
+                                    </a>
+                                </div>
+                                <div id="resultsInfoLowerBody">
+                                    <div id="searchResultsLink">
+                                        <p>Страница на резултата от търсене:</p>
+                                        <input type="text" value="https://www.mobile.bg/j8aqew" readonly
+                                            onclick="javascript:this.focus();this.select();">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="searchResultsPagesAndPagination">
+                            <div id="searchResultPagesCount">
+                                <p>Страница 1 от 150</p>
+                            </div>
+                            <div id="searchResultsPagination">
+                                <a href="">Назад</a>
+                                <ul>
+                                    <li>
+                                        <a href="">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="">4</a>
+                                    </li>
+                                </ul>
+                                <a id="napredAnchor" href="">Напред</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mainResults">
+                        <div id="searchResultCard">
+                            <a href="">
+                                <img src="" alt="">
+                            </a>
+
+                        </div>
+                    </div>
+                    <div id="searchResultsAsideContent"></div>
+                </div>
+            </div>
             <div id="searchPage">
                 <div id="searchMenu">
                     <div id="searchMainCategory">
@@ -778,12 +997,13 @@
         </footer>
     </div>
 
-    <script src="assets/js/utils.js"></script>
-    <script src="assets/js/CarController.js"></script>
-    <script src="assets/js/CarService.js"></script>
-    <script src="assets/js/data.js"></script>
-    <script src="assets/js/index.js"></script>
-    <script src="assets/js/RouterController.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/data.js"></script>
+    <script src="/assets/js/RouterController.js"></script>
+    <script src="/assets/js/CarController.js"></script>
+    <script src="/assets/js/CarService.js"></script>
+    <script src="/assets/js/SearchController.js"></script>
+    <script src="/assets/js/index.js"></script>
 </body>
 
 </html>
