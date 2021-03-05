@@ -146,8 +146,71 @@ form#mainSearchForm {
     font-size: 0.8em;
 }
 
+div#vehicleCardCont {
+    height: 430px;
+    width: 780px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 #vehicleCardCont a {
     color: #0060B6;
+    text-decoration: none;
+}
+
+.autoCont {
+    width: 390px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.autoInfoCont {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.autoInfoHolder {
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.autoHeader {
+    text-decoration: underline;
+    font-style: oblique;
+    font-weight: 600;
+}
+
+.autoPrice {
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.autoKm {
+    font-size: 0.9em;
+    font-style: oblique;
+}
+
+.autoCity {
+    font-size: 0.95em;
+    font-style: oblique;
+}
+
+.autoAdTime {
+    color: rgb(153, 153, 153);
+    font-size: 0.75em;
+}
+
+.autoPhoto {
+    width: 190px;
+    height: 130px;
+}
+
+.autoPhotoLink {
     text-decoration: none;
 }
 
@@ -176,6 +239,24 @@ form#mainSearchForm {
     width: 260px;
     margin-bottom: 0.5em;
     background-color: #0099ff;
+}
+
+.artLink {
+    display: flex;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.newsImg {
+    width: 160px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.newsDesc {
+    color: rgb(51, 51, 51);
+    font-size: 0.8em;
 }
 
 #newsSepLine {

@@ -88,12 +88,12 @@
             let photoLink = createEl('a');
             let photo = createEl('img');
             let info = createEl('div');
-            let vehHeader = createEl('div');
+            let vehHeader = createEl('header');
             let vehInfoHolder = createEl('div');
-            let vehPrice = createEl('div');
-            let vehKm = createEl('div');
-            let vehCity = createEl('div');
-            let adTime = createEl('div');
+            let vehPrice = createEl('p');
+            let vehKm = createEl('p');
+            let vehCity = createEl('p');
+            let adTime = createEl('p');
             container.append(wrapper);
             wrapper.append(photoLink);
             photoLink.append(photo);
@@ -105,41 +105,20 @@
             vehInfoHolder.append(vehKm);
             vehInfoHolder.append(vehCity);
 
-            container.style.height = '430px';
-            container.style.width = '780px';
-            container.style.display = 'flex';
-            container.style.flexDirection = 'column';
-            container.style.flexWrap = 'wrap';
+            wrapper.classList.add('autoCont'); 
+            info.classList.add('autoInfoCont');
+            vehInfoHolder.classList.add('autoInfoHolder');
+            vehHeader.classList.add('autoHeader');         
+            vehPrice.classList.add('autoPrice');
+            vehKm.classList.add('autoKm');
+            vehCity.classList.add('autoCity');
+            adTime.classList.add('autoAdTime');
 
-            wrapper.style.display = 'flex';
-            wrapper.style.marginBottom = '10px';
-            info.style.marginLeft = '10px';
-            info.style.display = 'flex';
-            info.style.flexDirection = 'column';
-            info.style.justifyContent = 'space-around';
-
-            vehInfoHolder.style.height = '56px';
-            vehInfoHolder.style.display = 'flex';
-            vehInfoHolder.style.flexDirection = 'column';
-            vehInfoHolder.style.justifyContent = 'space-between';
-            vehHeader.style.textDecoration = 'underline';
-            vehHeader.style.fontStyle = 'oblique';
-            vehHeader.style.fontWeight = '600';
-            vehPrice.style.fontWeight = '700';
-            vehPrice.style.fontSize = '1.1em';
-            vehKm.style.fontSize = '0.9em';
-            vehKm.style.fontStyle = 'oblique';
-            vehCity.style.fontSize = '0.95em';
-            vehCity.style.fontStyle = 'oblique';
-            adTime.style.color = 'rgb(153, 153, 153)';
-            adTime.style.fontSize = '0.75em';
-
+            photo.classList.add('autoPhoto');
             photo.src = `assets/images/car${i + 1}-1.jpg`;
             photo.alt = `car${i}`;
-            photo.style.width = '190px';
-            photo.style.height = '130px';
             photoLink.href = "#";
-            photoLink.style.textDecoration = 'none';
+            photoLink.classList.add('autoPhotoLink');
 
             vehHeader.innerHTML = `${vehicles[i].components.brand + ' ' + vehicles[i].components.model}`;
             vehPrice.innerHTML = `${vehicles[i].price} лв.`;
@@ -170,26 +149,13 @@
             img.src = `assets/images/${arrayOfRandom[i].image}`;
             desContainer.innerHTML = arrayOfRandom[i].text;
 
-            artLink.style.display = 'flex';
-            artLink.style.marginBottom = '15px';
-            artLink.style.textDecoration = 'none';
-            artLink.style.color = 'inherit';
-            img.style.width = '160px';
-            img.style.height = '100px';
-            img.style.marginRight = '10px';
-            desContainer.style.color = 'rgb(51, 51, 51)';
-            desContainer.style.fontSize = '0.8em';
+            artLink.classList.add('artLink');
+            img.classList.add('newsImg');
+            desContainer.classList.add('newsDesc');
         }
 
     }
     showNews()
-
-    function showAds(ads, adsWrapper) {
-
-    }
-    showAds([], adsContainer)
-
-    // mainPageSearchIcons.forEach(icon => icon.addEventListener('click', showForm));
 
     window.addEventListener('DOMContentLoaded', showPage);
     window.addEventListener('hashchange', showPage);
