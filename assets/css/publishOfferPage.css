@@ -1,0 +1,172 @@
+#stepsToPublish {
+    display: flex;
+    margin: 15px 0;
+    font-size: 12px;
+}
+
+.steps {
+    border: 1px solid gray;
+    padding: 10px;
+    display: inline-block;
+}
+
+#stepsToPublish div:nth-of-type(2) {
+    align-self: center;
+    margin: 0 10px;
+}
+
+#firstStepHeading {
+    font-weight: bold;
+}
+
+#firstStepHeading span {
+    font-weight: normal;
+    color: #0099ff;
+}
+
+#offerDescription {
+    padding: 20px;
+    border: 1px solid #0099ff;
+    border-top: 3px solid #0099ff;
+    margin-top: 10px;
+}
+
+#publishSecondFloor {
+    display: flex;
+    flex-wrap: wrap;
+    ;
+}
+
+#publishSecondFloor p {
+    color: #0099ff;
+}
+
+#publishFirstColumn {
+    width: 315px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 220px;
+}
+
+.pubDisWidthVal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.publishInputWidth {
+    width: 140px;
+}
+
+#publishColor select,
+#publishGear select {
+    width: 315px;
+}
+
+#publishSecondColumn {
+    margin: 0 10px;
+    width: 315px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 220px;
+}
+
+#publishGear p {
+    margin-top: 8px;
+}
+
+#publishDateOfProduction {
+    margin-bottom: 3px;
+}
+
+#publishDateOfProduction p {
+    margin-top: 13px;
+}
+
+#publishRegion p {
+    margin-top: 9px;
+}
+
+#publishDateOfProduction {
+    width: 100%;
+}
+
+#publishDateOfProduction div:last-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+#publishThirdColumn {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 220px;
+}
+
+#publishState label {
+    font-size: 12px;
+}
+
+#publishCategory select,
+#publishExpiryDays select {
+    width: 300px;
+}
+
+#publishProbeg span {
+    font-size: 12px;
+}
+
+#publishThirdFloor {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#publishCheckboxOptions {
+    width: 100%;
+    display: flex;
+}
+
+#publishCheckboxOptions ul {
+    font-size: 11px;
+}
+
+#publishImage {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#publishImage input {
+    margin-top: 30px;
+}
+
+#showUploadedImage {
+    width: 250px;
+    height: 150px;
+
+}
+
+#showUploadedImage img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain
+}
+
+#publishImage div:nth-of-type(2) {
+    width: 50%;
+    display: flex;
+}
+
+
+#publishButtonDiv {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#publishButtonDiv button {
+    font-weight: bold;
+    padding: 10px;
+}

@@ -105,17 +105,17 @@
             vehInfoHolder.append(vehKm);
             vehInfoHolder.append(vehCity);
 
-            wrapper.classList.add('autoCont'); 
+            wrapper.classList.add('autoCont');
             info.classList.add('autoInfoCont');
             vehInfoHolder.classList.add('autoInfoHolder');
-            vehHeader.classList.add('autoHeader');         
+            vehHeader.classList.add('autoHeader');
             vehPrice.classList.add('autoPrice');
             vehKm.classList.add('autoKm');
             vehCity.classList.add('autoCity');
             adTime.classList.add('autoAdTime');
 
             photo.classList.add('autoPhoto');
-            photo.src = `assets/images/car${i + 1}-1.jpg`;
+            photo.src = `assets/images/cars/car${i + 1}-1.jpg`;
             photo.alt = `car${i}`;
             photoLink.href = "#";
             photoLink.classList.add('autoPhotoLink');
@@ -146,7 +146,7 @@
             let desContainer = getById(`newsDesc${i + 1}`);
 
             artLink.href = arrayOfRandom[i].link;
-            img.src = `assets/images/${arrayOfRandom[i].image}`;
+            img.src = `assets/images/news/${arrayOfRandom[i].image}`;
             desContainer.innerHTML = arrayOfRandom[i].text;
 
             artLink.classList.add('artLink');

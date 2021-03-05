@@ -6,7 +6,7 @@
 }
 
 #searchResultsMainContent {
-    width: 70%;
+    width: 75%;
     border: 2px solid salmon;
     height: 100%;
 }
@@ -182,9 +182,10 @@
 }
 
 #favIconDiv {
+    padding-top: 5px;
+    margin-left: 10px;
     max-height: 38px;
     overflow: hidden;
-    margin-left: 10px;
 }
 
 #favIconDiv img {
