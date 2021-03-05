@@ -133,3 +133,75 @@
 #napredAnchor {
     margin-left: 5px;
 }
+
+#mainResults {
+    width: 100%;
+}
+
+#searchResultCard {
+    margin-top: 15px;
+    background-color: #e7eaf2;
+    border-bottom: 1px solid #005aff;
+}
+
+
+#searchResultCard h1{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#cardUpperBody {
+    display: flex;
+}
+
+#cardContent {
+    width: 55%;
+}
+
+#cardImageDiv {
+    background-color: white;
+    padding: 5px;
+    display: inline-block;
+}
+
+#cardMainImg {
+    width: 280px;
+    height: 185px;
+}
+
+#cardtitleAndPrice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+#priceAndFavsIcon {
+    display: flex;
+    align-items: center;
+}
+
+#favIconDiv {
+    max-height: 38px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+#favIconDiv img {
+    width: 38px;
+}
+
+#cardDescription{
+    margin-left: 10px;
+    margin-top: 50px;
+    font-size: 15px;
+}
+
+#cardDetails {
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
