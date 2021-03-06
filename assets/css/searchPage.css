@@ -1,5 +1,9 @@
 #searchPage {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+    border: 1px solid #0099ff;
+    border-top: 3px solid #0099ff;
+    margin-top: 10px;
 }
 
 #searchMenu {
@@ -159,6 +163,8 @@
 
 #searchRegion {
     width: 287px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #selectRegion {
@@ -185,4 +191,8 @@
 
 #searchOthers {
     width: 200px;
+}
+
+#searchLastFloor {
+    font-size: 11px;
 }

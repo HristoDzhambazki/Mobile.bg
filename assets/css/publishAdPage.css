@@ -71,6 +71,10 @@
     height: 220px;
 }
 
+#publishSelectRegion {
+    width: 150px;
+}
+
 #publishGear p {
     margin-top: 8px;
 }

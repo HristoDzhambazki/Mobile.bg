@@ -1,0 +1,99 @@
+#showOffer {
+    margin: 20px 0;
+    width: 100%;
+    border: 1px solid #0099ff;
+    border-top: 3px solid #0099ff;
+    background-color: #e6eaed;
+    padding: 10px;
+}
+
+#offerFirstFloor {
+    display: flex;
+}
+
+#offerImages {
+    width: 50%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#offerMainImage {
+    width: 400px;
+    height: 300px;
+}
+
+#offerComponents {
+    width: 50%;
+    padding-top: 20px;
+}
+
+#offerMainCategory {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#offerComponents h3 {
+    margin-right: 30px;
+    color: #0099ff;
+}
+
+#offerComponents ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 348px;
+}
+
+#offerComponents li {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#offerExtras {
+    width: 50%;
+    margin: 20px 0;
+}
+
+#extrasHeading {
+    color: #0099ff;
+    font-weight: bold;
+    border-bottom: 2px solid #0099ff;
+    margin-bottom: 5px;
+}
+
+#extrasHeading h1 {
+    margin-bottom: 5px;
+}
+
+#extrasContent {
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+#extrasContent ul {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+#offerBtnDiv {
+    width: 95%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#offerBtnDiv button:first-of-type {
+    font-weight: bold;
+    width: 100px;
+    height: 35px;
+}
+
+#offerBtnDiv button:last-of-type {
+    font-weight: bold;
+    width: 240px;
+    height: 35px;
+}
