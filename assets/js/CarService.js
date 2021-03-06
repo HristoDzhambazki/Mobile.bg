@@ -1,67 +1,22 @@
-let carStorage = (function () {
-    let id = 0;
-
-    class Car {
-        constructor(state, price, currency, images, brand, model, year, engine, power, euroSt, gear, category, mileage, color, region, others, desctiption, seller, mobile, email) {
-
-            this.id = ++id;
-
-            this.state = state;
-            this.price = price;
-            this.currency = currency;
-            this.region = region;
-
-            this.images = images;
-
-            this.information = {
-                desctiption,
-                seller,
-                mobile,
-                email
-            }
-
-            this.components = {
-                brand,
-                model,
-                year,
-                engine,
-                power,
-                euroSt,
-                gear,
-                category,
-                mileage,
-                color,
-                others,
-            }
-        }
+class CarStorage {
+    constructor() {
+        this.list = [];
     }
 
-    class CarStorage {
-        constructor() {
-            this.list = [];
-        }
-
-        addCar() {
-            this.list.push(new Car(...arguments));
-        }
-
-        removeCar(id) {
-            let index = this.list.findIndex(car => car.id == id);
-            this.list.splice(index, 1);
-        }
-
-        getLast6() {
-
-        }
+    addCar(car) {
+        this.list.push(car);
     }
 
-    return new CarStorage();
-})();
+    removeCar(id) {
+        let index = this.list.findIndex(car => car.id == id);
+        this.list.splice(index, 1);
+    }
+};
 
 let id = 0;
 
 class Car {
-    constructor(state, price, currency, images, brand, model, year, engine, power, euroSt, gear, category, mileage, color, region, others, desctiption, seller, mobile, email) {
+    constructor(state, price, currency, images, brand, model, year, engine, power, euroSt, gear, category, mileage, color, region, extras) {
 
         this.id = ++id;
 
@@ -72,12 +27,7 @@ class Car {
 
         this.images = images;
 
-        this.information = {
-            desctiption,
-            seller,
-            mobile,
-            email
-        }
+        this.extras = extras;
 
         this.components = {
             brand,
@@ -90,7 +40,6 @@ class Car {
             category,
             mileage,
             color,
-            others,
         }
     }
 }

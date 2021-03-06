@@ -360,9 +360,23 @@
                             <div id="searchMainCategory">
                                 <div>
                                     <p class="searchTitle">Онсновна категория</p>
-                                    <select name="mainCategories" id="selectMainCategory">
-                                        <option value="">Автомобили и Джипове</option>
-                                        <option value="">traktori</option>
+                                    <select name="mainCategory" id="publishMainCategory">
+                                        <option selected value="1">Автомобили и Джипове
+                                        <option value="3">Бусове
+                                        <option value="4">Камиони
+                                        <option value="5">Мотоциклети
+                                        <option value="6">Селскостопански
+                                        <option value="7">Индустриални
+                                        <option value="8">Кари
+                                        <option value="9">Каравани
+                                        <option value="a">Яхти и Лодки
+                                        <option value="b">Ремаркета
+                                        <option value="c">Велосипеди
+                                        <option value="u">Части
+                                        <option value="v">Аксесоари
+                                        <option value="w">Гуми и джанти
+                                        <option value="y">Купува
+                                        <option value="z">Услуги
                                     </select>
                                 </div>
                                 <img id="selectMainCategoryLogo" src="./assets/images/icons/Автомобили и Джипове.gif"
@@ -373,7 +387,7 @@
                                     <div class="pubDisWidthVal" id="publishBrandAndModel">
                                         <div>
                                             <p class="searchTitle">Марка</p>
-                                            <select class="selectCommonWidth" name="brandFirst" id="brandFirst">
+                                            <select class="selectCommonWidth" name="brand" id="publishSelectBrand">
                                                 <option selected value="">Избери
                                                     <optgroup label="A">
                                                         <option value="AC">AC
@@ -550,7 +564,7 @@
                                         </div>
                                         <div>
                                             <p class="searchTitle">Модел</p>
-                                            <select class="selectCommonWidth" name="modelFirst" id="modelFirst">
+                                            <select class="selectCommonWidth" name="model" id="publishSelectModel">
                                                 <option value="">Избери</option>
                                             </select>
                                         </div>
@@ -558,38 +572,80 @@
                                     <div class="pubDisWidthVal" id="publishPowerAndEuroSt">
                                         <div>
                                             <p class="searchTitle">Мощност от (к.с.):</p>
-                                            <input class="publishInputWidth" type="number" id="publishPower">
+                                            <input class="publishInputWidth" name="power" type="text" id="publishPower">
                                         </div>
                                         <div>
                                             <p class="searchTitle">Евростандарт</p>
-                                            <select class="selectCommonWidth" name="selectEuroStandard"
-                                                id="selectEuroStandard">
-                                                <option value=""></option>
-                                                <option value=""></option>
-                                                <option value=""></option>
+                                            <select class="selectCommonWidth" name="euroSt" id="selectEuroStandard">
+                                                <option value="">Без значение
+                                                <option value="1">Евро 1
+                                                <option value="2">Евро 2
+                                                <option value="3">Евро 3
+                                                <option value="4">Евро 4
+                                                <option value="5">Евро 5
+                                                <option value="6">Евро 6
                                             </select>
                                         </div>
                                     </div>
                                     <div class="pubDisWidthVal" id="publishPriceAndCurrency">
                                         <div>
                                             <p class="searchTitle">Цена</p>
-                                            <input class="publishInputWidth" type="number" id="publishPrice">
+                                            <input class="publishInputWidth" name="price" type="text" id="publishPrice">
                                         </div>
                                         <div>
                                             <p class="searchTitle">Валута</p>
-                                            <select class="selectCommonWidth" name="selectCurrency" id="selectCurrency">
-                                                <option value=""></option>
-                                                <option value=""></option>
-                                                <option value=""></option>
+                                            <select class="selectCommonWidth" name="currency" id="publishCurrency">
+                                                <option value="лв.">лв.</option>
+                                                <option value="EURO">EURO</option>
+                                                <option value="USD">USD</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div id="publishColor">
                                         <p class="searchTitle">Цвят</p>
-                                        <select name="selectColor" id="selectColor">
-                                            <option value=""></option>
-                                            <option value=""></option>
-                                            <option value=""></option>
+                                        <select name="color" id="publishColor">
+                                            <option value="">всички цветове
+                                            <option value="Tъмно син">Tъмно син
+                                            <option value="Банан">Банан
+                                            <option value="Беата">Беата
+                                            <option value="Бежов">Бежов
+                                            <option value="Бордо">Бордо
+                                            <option value="Бронз">Бронз
+                                            <option value="Бял">Бял
+                                            <option value="Винен">Винен
+                                            <option value="Виолетов">Виолетов
+                                            <option value="Вишнев">Вишнев
+                                            <option value="Графит">Графит
+                                            <option value="Жълт">Жълт
+                                            <option value="Зелен">Зелен
+                                            <option value="Златист">Златист
+                                            <option value="Кафяв">Кафяв
+                                            <option value="Керемиден">Керемиден
+                                            <option value="Кремав">Кремав
+                                            <option value="Лилав">Лилав
+                                            <option value="Металик">Металик
+                                            <option value="Оранжев">Оранжев
+                                            <option value="Охра">Охра
+                                            <option value="Пепеляв">Пепеляв
+                                            <option value="Перла">Перла
+                                            <option value="Пясъчен">Пясъчен
+                                            <option value="Резидав">Резидав
+                                            <option value="Розов">Розов
+                                            <option value="Сахара">Сахара
+                                            <option value="Светло сив">Светло сив
+                                            <option value="Светло син">Светло син
+                                            <option value="Сив">Сив
+                                            <option value="Син">Син
+                                            <option value="Слонова кост">Слонова кост
+                                            <option value="Сребърен">Сребърен
+                                            <option value="Т.зелен">Т.зелен
+                                            <option value="Тъмно сив">Тъмно сив
+                                            <option value="Тъмно син мет.">Тъмно син мет.
+                                            <option value="Тъмно червен">Тъмно червен
+                                            <option value="Тютюн">Тютюн
+                                            <option value="Хамелеон">Хамелеон
+                                            <option value="Червен">Червен
+                                            <option value="Черен">Черен
                                         </select>
                                     </div>
                                 </div>
@@ -597,24 +653,26 @@
                                     <div class="pubDisWidthVal" id="publishModificationAndEngine">
                                         <div>
                                             <p class="searchTitle">Модификация</p>
-                                            <input class="publishInputWidth" type="text">
+                                            <input class="publishInputWidth" name="modification" type="text">
                                         </div>
                                         <div id="publishEngine">
                                             <p class="searchTitle">Тип двигател</p>
-                                            <select class="selectCommonWidth" name="selectEngine"
-                                                id="publishSelectEngine">
-                                                <option value=""></option>
-                                                <option value=""></option>
-                                                <option value=""></option>
+                                            <select class="selectCommonWidth" name="engine" id="publishSelectEngine">
+                                                <option value="">всички типове
+                                                <option value="Бензинов">Бензинов
+                                                <option value="Дизелов">Дизелов
+                                                <option value="Електрически">Електрически
+                                                <option value="Хибриден">Хибриден
                                             </select>
                                         </div>
                                     </div>
                                     <div id="publishGear">
                                         <p class="searchTitle">Скоростна кутия</p>
-                                        <select name="selectGear" id="selectGear">
-                                            <option value=""></option>
-                                            <option value=""></option>
-                                            <option value=""></option>
+                                        <select name="gear" id="publishGear">
+                                            <option value="">Без значение
+                                            <option value="Ръчна">Ръчна
+                                            <option value="Автоматична">Автоматична
+                                            <option value="Полуавтоматична">Полуавтоматична
                                         </select>
                                     </div>
                                     <div id="publishDateOfProduction">
@@ -622,11 +680,116 @@
                                             <p class="searchTitle">Дата на производство</p>
                                         </div>
                                         <div>
-                                            <select class="selectCommonWidth" name="brandFirst" id="productionMonth">
-                                                <option value="">Избери</option>
+                                            <select class="selectCommonWidth" name="productionMonth"
+                                                id="productionMonth">
+                                                <option selected value=""></option>
+                                                <option value="Януари">Януари</option>
+                                                <option value="Февруаро">Февруаро</option>
+                                                <option value="Март">Март</option>
+                                                <option value="Април">Април</option>
+                                                <option value="Май">Май</option>
+                                                <option value="Юни">Юни</option>
+                                                <option value="Юли">Юли</option>
+                                                <option value="Август">Август</option>
+                                                <option value="Септември">Септември</option>
+                                                <option value="Октомври">Октомври</option>
+                                                <option value="Ноември">Ноември</option>
+                                                <option value="Декември">Декември</option>
                                             </select>
-                                            <select class="selectCommonWidth" name="modelFirst" id="productionYear">
-                                                <option value="">Избери</option>
+                                            <select class="selectCommonWidth" name="productionYear" id="productionYear">
+                                                <option selected value=""></option>
+                                                <option value="2021">2021</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2014">2014</option>
+                                                <option value="2013">2013</option>
+                                                <option value="2012">2012</option>
+                                                <option value="2011">2011</option>
+                                                <option value="2010">2010</option>
+                                                <option value="2009">2009</option>
+                                                <option value="2008">2008</option>
+                                                <option value="2007">2007</option>
+                                                <option value="2006">2006</option>
+                                                <option value="2005">2005</option>
+                                                <option value="2004">2004</option>
+                                                <option value="2003">2003</option>
+                                                <option value="2002">2002</option>
+                                                <option value="2001">2001</option>
+                                                <option value="2000">2000</option>
+                                                <option value="1999">1999</option>
+                                                <option value="1998">1998</option>
+                                                <option value="1997">1997</option>
+                                                <option value="1996">1996</option>
+                                                <option value="1995">1995</option>
+                                                <option value="1994">1994</option>
+                                                <option value="1993">1993</option>
+                                                <option value="1992">1992</option>
+                                                <option value="1991">1991</option>
+                                                <option value="1990">1990</option>
+                                                <option value="1989">1989</option>
+                                                <option value="1988">1988</option>
+                                                <option value="1987">1987</option>
+                                                <option value="1986">1986</option>
+                                                <option value="1985">1985</option>
+                                                <option value="1984">1984</option>
+                                                <option value="1983">1983</option>
+                                                <option value="1982">1982</option>
+                                                <option value="1981">1981</option>
+                                                <option value="1980">1980</option>
+                                                <option value="1979">1979</option>
+                                                <option value="1978">1978</option>
+                                                <option value="1977">1977</option>
+                                                <option value="1976">1976</option>
+                                                <option value="1975">1975</option>
+                                                <option value="1974">1974</option>
+                                                <option value="1973">1973</option>
+                                                <option value="1972">1972</option>
+                                                <option value="1971">1971</option>
+                                                <option value="1970">1970</option>
+                                                <option value="1969">1969</option>
+                                                <option value="1968">1968</option>
+                                                <option value="1967">1967</option>
+                                                <option value="1966">1966</option>
+                                                <option value="1965">1965</option>
+                                                <option value="1964">1964</option>
+                                                <option value="1963">1963</option>
+                                                <option value="1962">1962</option>
+                                                <option value="1961">1961</option>
+                                                <option value="1960">1960</option>
+                                                <option value="1959">1959</option>
+                                                <option value="1958">1958</option>
+                                                <option value="1957">1957</option>
+                                                <option value="1956">1956</option>
+                                                <option value="1955">1955</option>
+                                                <option value="1954">1954</option>
+                                                <option value="1953">1953</option>
+                                                <option value="1952">1952</option>
+                                                <option value="1951">1951</option>
+                                                <option value="1950">1950</option>
+                                                <option value="1949">1949</option>
+                                                <option value="1948">1948</option>
+                                                <option value="1947">1947</option>
+                                                <option value="1946">1946</option>
+                                                <option value="1945">1945</option>
+                                                <option value="1944">1944</option>
+                                                <option value="1943">1943</option>
+                                                <option value="1942">1942</option>
+                                                <option value="1941">1941</option>
+                                                <option value="1940">1940</option>
+                                                <option value="1939">1939</option>
+                                                <option value="1938">1938</option>
+                                                <option value="1937">1937</option>
+                                                <option value="1936">1936</option>
+                                                <option value="1935">1935</option>
+                                                <option value="1934">1934</option>
+                                                <option value="1933">1933</option>
+                                                <option value="1932">1932</option>
+                                                <option value="1931">1931</option>
+                                                <option value="1930">1930</option>
                                             </select>
                                         </div>
                                     </div>
@@ -634,14 +797,43 @@
                                     <div class="pubDisWidthVal" id="publishRegion">
                                         <div>
                                             <p class="searchTitle">Регион</p>
-                                            <select id="publishSelectRegion">
+                                            <select name="region" id="publishSelectRegion">
                                                 <option value=""></option>
+                                                <option value="Благоевград">Благоевград
+                                                <option value="Бургас">Бургас
+                                                <option value="Варна">Варна
+                                                <option value="Велико Търново">Велико Търново
+                                                <option value="Видин">Видин
+                                                <option value="Враца">Враца
+                                                <option value="Габрово">Габрово
+                                                <option value="Добрич">Добрич
+                                                <option value="Дупница">Дупница
+                                                <option value="Кърджали">Кърджали
+                                                <option value="Кюстендил">Кюстендил
+                                                <option value="Ловеч">Ловеч
+                                                <option value="Монтана">Монтана
+                                                <option value="Пазарджик">Пазарджик
+                                                <option value="Перник">Перник
+                                                <option value="Плевен">Плевен
+                                                <option value="Пловдив">Пловдив
+                                                <option value="Разград">Разград
+                                                <option value="Русе">Русе
+                                                <option value="Силистра">Силистра
+                                                <option value="Сливен">Сливен
+                                                <option value="Смолян">Смолян
+                                                <option value="София">София
+                                                <option value="Стара Загора">Стара Загора
+                                                <option value="Търговище">Търговище
+                                                <option value="Хасково">Хасково
+                                                <option value="Шумен">Шумен
+                                                <option value="Ямбол">Ямбол
+                                                <option value="Извън страната">Извън страната
                                             </select>
                                         </div>
                                         <div>
                                             <p class="searchTitle">Населено място</p>
                                             <select class="selectCommonWidth" id="">
-                                                <option value="">Всички</option>
+                                                <option value="">Всички
                                             </select>
                                         </div>
                                     </div>
@@ -658,25 +850,36 @@
                                     </div>
                                     <div id="publishCategory">
                                         <p class="searchTitle">Категория</p>
-                                        <select name="selectTypeOfCar" id="selectTypeOfCar">
-                                            <option value=""></option>
-                                            <option value="">стреч лимузина</option>
-                                            <option value=""></option>
+                                        <select name="category" id="publishTypeOfCar">
+                                            <option value="">всички категории
+                                            <option value="Ван">Ван
+                                            <option value="Джип">Джип
+                                            <option value="Кабрио">Кабрио
+                                            <option value="Комби">Комби
+                                            <option value="Купе">Купе
+                                            <option value="Миниван">Миниван
+                                            <option value="Пикап">Пикап
+                                            <option value="Седан">Седан
+                                            <option value="Стреч лимузина">Стреч лимузина
+                                            <option value="Хечбек">Хечбек
                                         </select>
                                     </div>
                                     <div id="publishProbeg">
                                         <p class="searchTitle">Пробег</p>
-                                        <input class="publishInputWidth" type="number" id="publishPrice">
+                                        <input class="publishInputWidth" name="miliage" type="text" id="publishPrice">
                                         <span>в километри</span>
                                     </div>
                                     <div id="publishExpiryDays">
                                         <p class="searchTitle">Валидност на обявата</p>
-                                        <select name="selectTypeOfCar" id="selectExpiryDays">
+                                        <select name="expiryDays" id="selectExpiryDays">
                                             <option value="">35</option>
                                             <option value="">49</option>
                                         </select>
                                     </div>
                                 </div>
+                            </div>
+                            <div id="temp">
+
                             </div>
                             <div id="publishThirdFloor">
                                 <div id="publishCheckboxOptions">
@@ -685,83 +888,86 @@
                                         <div>
                                             <ul>
                                                 <li>
-                                                    <input type="checkbox" id="100" value="GPS система за проследяване">
+                                                    <input name="safety" type="checkbox" id="100"
+                                                        value="GPS система за проследяване">
                                                     <label for="100">GPS система за проследяване</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="101"
+                                                    <input name="safety" type="checkbox" id="101"
                                                         value="Автоматичен контрол на стабилността">
                                                     <label for="101">Автоматичен контрол на стабилността</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="102" value="Адаптивни предни светлини">
+                                                    <input name="safety" type="checkbox" id="102"
+                                                        value="Адаптивни предни светлини">
                                                     <label for="102">Адаптивни предни светлини</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="103"
+                                                    <input name="safety" type="checkbox" id="103"
                                                         value="Въздушни възглавници - Задни">
                                                     <label for="103">Въздушни възглавници - Задни</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="104"
+                                                    <input name="safety" type="checkbox" id="104"
                                                         value="Въздушни възглавници - Предни">
                                                     <label for="104">Въздушни възглавници - Предни</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="105"
+                                                    <input name="safety" type="checkbox" id="105"
                                                         value="Въздушни възглавници - Странични">
                                                     <label for="105">Въздушни възглавници - Странични</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="106"
+                                                    <input name="safety" type="checkbox" id="106"
                                                         value="Ел. разпределяне на спирачното усилие">
                                                     <label for="106">Ел. разпределяне на спирачното усилие</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="107"
+                                                    <input name="safety" type="checkbox" id="107"
                                                         value="Електронна програма за стабилизиране">
                                                     <label for="107">Електронна програма за стабилизиране</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="108"
+                                                    <input name="safety" type="checkbox" id="108"
                                                         value="Контрол на налягането на гумите">
                                                     <label for="108">Контрол на налягането на гумите</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="109" value="Парктроник">
+                                                    <input name="safety" type="checkbox" id="109" value="Парктроник">
                                                     <label for="109">Парктроник</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="110" value="Система ISOFIX">
+                                                    <input name="safety" type="checkbox" id="110"
+                                                        value="Система ISOFIX">
                                                     <label for="110">Система ISOFIX</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="111"
+                                                    <input name="safety" type="checkbox" id="111"
                                                         value="Система за динамична устойчивост">
                                                     <label for="111">Система за динамична устойчивост</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="112"
+                                                    <input name="safety" type="checkbox" id="112"
                                                         value="Система за защита от пробуксуване">
                                                     <label for="112">Система за защита от пробуксуване</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="113"
+                                                    <input name="safety" type="checkbox" id="113"
                                                         value="Система за изсушаване на накладките">
                                                     <label for="113">Система за изсушаване на накладките</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="114"
+                                                    <input name="safety" type="checkbox" id="114"
                                                         value="Система за контрол на дистанцията">
                                                     <label for="114">Система за контрол на дистанцията</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="115"
+                                                    <input name="safety" type="checkbox" id="115"
                                                         value="Система за контрол на спускането">
                                                     <label for="115">Система за контрол на спускането</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="116"
+                                                    <input name="safety" type="checkbox" id="116"
                                                         value="Система за подпомагане на спирането">
                                                     <label for="116">Система за подпомагане на спирането</label>
                                                 </li>
@@ -773,137 +979,155 @@
                                         <div>
                                             <ul>
                                                 <li>
-                                                    <input type="checkbox" id="117" value="Auto Start Stop function">
+                                                    <input name="comfort" type="checkbox" id="117"
+                                                        value="Auto Start Stop function">
                                                     <label for="117">Auto Start Stop function</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="118"
+                                                    <input name="comfort" type="checkbox" id="118"
                                                         value="Bluetooth \ handsfree система">
                                                     <label for="118">Bluetooth \ handsfree система</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="119" value="DVD, TV">
+                                                    <input name="comfort" type="checkbox" id="119" value="DVD, TV">
                                                     <label for="119">DVD, TV</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="120" value="Steptronic, Tiptronic">
+                                                    <input name="comfort" type="checkbox" id="120"
+                                                        value="Steptronic, Tiptronic">
                                                     <label for="120">Steptronic, Tiptronic</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="121"
+                                                    <input name="comfort" type="checkbox" id="121"
                                                         value="USB, audio\video, IN\AUX изводи">
                                                     <label for="121">USB, audio\video, IN\AUX изводи</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="122" value="Адаптивно въздушно окачване">
+                                                    <input name="comfort" type="checkbox" id="122"
+                                                        value="Адаптивно въздушно окачване">
                                                     <label for="122">Адаптивно въздушно окачване</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="123" value="Безключово палене">
+                                                    <input name="comfort" type="checkbox" id="123"
+                                                        value="Безключово палене">
                                                     <label for="123">Безключово палене</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="124" value="Блокаж на диференциала">
+                                                    <input name="comfort" type="checkbox" id="124"
+                                                        value="Блокаж на диференциала">
                                                     <label for="124">Блокаж на диференциала</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="125" value="Бордкомпютър">
+                                                    <input name="comfort" type="checkbox" id="125" value="Бордкомпютър">
                                                     <label for="125">Бордкомпютър</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="126" value="Бързи \ бавни скорости">
+                                                    <input name="comfort" type="checkbox" id="126"
+                                                        value="Бързи \ бавни скорости">
                                                     <label for="126">Бързи \ бавни скорости</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="127" value="Датчик за светлина">
+                                                    <input name="comfort" type="checkbox" id="127"
+                                                        value="Датчик за светлина">
                                                     <label for="127">Датчик за светлина</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="128" value="Ел. Огледала">
+                                                    <input name="comfort" type="checkbox" id="128" value="Ел. Огледала">
                                                     <label for="128">Ел. Огледала</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="129" value="Ел. Стъкла">
+                                                    <input name="comfort" type="checkbox" id="129" value="Ел. Стъкла">
                                                     <label for="129">Ел. Стъкла</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="130"
+                                                    <input name="comfort" type="checkbox" id="130"
                                                         value="Ел. регулиране на окачването">
                                                     <label for="130">Ел. регулиране на окачването</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="131" value="Ел. регулиране на седалките">
+                                                    <input name="comfort" type="checkbox" id="131"
+                                                        value="Ел. регулиране на седалките">
                                                     <label for="131">Ел. регулиране на седалките</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="132" value="Ел. усилвател на волана">
+                                                    <input name="comfort" type="checkbox" id="132"
+                                                        value="Ел. усилвател на волана">
                                                     <label for="132">Ел. усилвател на волана</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="133" value="Климатик">
+                                                    <input name="comfort" type="checkbox" id="133" value="Климатик">
                                                     <label for="133">Климатик</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="134" value="Климатроник">
+                                                    <input name="comfort" type="checkbox" id="134" value="Климатроник">
                                                     <label for="134">Климатроник</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="135" value="Мултифункционален волан">
+                                                    <input name="comfort" type="checkbox" id="135"
+                                                        value="Мултифункционален волан">
                                                     <label for="135">Мултифункционален волан</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="136" value="Навигация">
+                                                    <input name="comfort" type="checkbox" id="136" value="Навигация">
                                                     <label for="136">Навигация</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="137" value="Отопление на волана">
+                                                    <input name="comfort" type="checkbox" id="137"
+                                                        value="Отопление на волана">
                                                     <label for="137">Отопление на волана</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="138" value="Печка">
+                                                    <input name="comfort" type="checkbox" id="138" value="Печка">
                                                     <label for="138">Печка</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="139"
+                                                    <input name="comfort" type="checkbox" id="139"
                                                         value="Подгряване на предното стъкло">
                                                     <label for="139">Подгряване на предното стъкло</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="140" value="Подгряване на седалките">
+                                                    <input name="comfort" type="checkbox" id="140"
+                                                        value="Подгряване на седалките">
                                                     <label for="140">Подгряване на седалките</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="141" value="Регулиране на волана">
+                                                    <input name="comfort" type="checkbox" id="141"
+                                                        value="Регулиране на волана">
                                                     <label for="141">Регулиране на волана</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="142" value="Сензор за дъжд">
+                                                    <input name="comfort" type="checkbox" id="142"
+                                                        value="Сензор за дъжд">
                                                     <label for="142">Сензор за дъжд</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="143" value="Серво усилвател на волана">
+                                                    <input name="comfort" type="checkbox" id="143"
+                                                        value="Серво усилвател на волана">
                                                     <label for="143">Серво усилвател на волана</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="144"
+                                                    <input name="comfort" type="checkbox" id="144"
                                                         value="Система за измиване на фаровете">
                                                     <label for="144">Система за измиване на фаровете</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="145"
+                                                    <input name="comfort" type="checkbox" id="145"
                                                         value="Система за контрол на скоростта (автопилот)">
                                                     <label for="145">Система за контрол на скоростта (автопилот)</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="146" value="Стерео уредба">
+                                                    <input name="comfort" type="checkbox" id="146"
+                                                        value="Стерео уредба">
                                                     <label for="146">Стерео уредба</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="147" value="Филтър за твърди частици">
+                                                    <input name="comfort" type="checkbox" id="147"
+                                                        value="Филтър за твърди частици">
                                                     <label for="147">Филтър за твърди частици</label>
                                                 </li>
                                                 <li>
-                                                    <input type="checkbox" id="148" value="Хладилна жабка">
+                                                    <input name="comfort" type="checkbox" id="148"
+                                                        value="Хладилна жабка">
                                                     <label for="148">Хладилна жабка</label>
                                                 </li>
                                             </ul>
@@ -913,134 +1137,146 @@
                                         <p class="searchTitle">Други</p>
                                         <ul>
                                             <li>
-                                                <input type="checkbox" id="149" value="4x4">
+                                                <input name="others" type="checkbox" id="149" value="4x4">
                                                 <label for="149">4x4</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="150" value="7 места">
+                                                <input name="others" type="checkbox" id="150" value="7 места">
                                                 <label for="150">7 места</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="151" value="Buy back">
+                                                <input name="others" type="checkbox" id="151" value="Buy back">
                                                 <label for="151">Buy back</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="152" value="Бартер">
+                                                <input name="others" type="checkbox" id="152" value="Бартер">
                                                 <label for="152">Бартер</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="153" value="Газова уредба">
+                                                <input name="others" type="checkbox" id="153" value="Газова уредба">
                                                 <label for="153">Газова уредба</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="154" value="Дълга база">
+                                                <input name="others" type="checkbox" id="154" value="Дълга база">
                                                 <label for="154">Дълга база</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="155" value="Капариран\Продаден">
+                                                <input name="others" type="checkbox" id="155"
+                                                    value="Капариран\Продаден">
                                                 <label for="155">Капариран\Продаден</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="156" value="Катастрофирал">
+                                                <input name="others" type="checkbox" id="156" value="Катастрофирал">
                                                 <label for="156">Катастрофирал</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="157" value="Къса база">
+                                                <input name="others" type="checkbox" id="157" value="Къса база">
                                                 <label for="157">Къса база</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="158" value="Лизинг">
+                                                <input name="others" type="checkbox" id="158" value="Лизинг">
                                                 <label for="158">Лизинг</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="159" value="Метанова уредба">
+                                                <input name="others" type="checkbox" id="159" value="Метанова уредба">
                                                 <label for="159">Метанова уредба</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="160" value="На части">
+                                                <input name="others" type="checkbox" id="160" value="На части">
                                                 <label for="160">На части</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="161" value="Напълно обслужен">
+                                                <input name="others" type="checkbox" id="161" value="Напълно обслужен">
                                                 <label for="161">Напълно обслужен</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="162" value="Нов внос">
+                                                <input name="others" type="checkbox" id="162" value="Нов внос">
                                                 <label for="162">Нов внос</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="163" value="С право на дан.к-т">
+                                                <input name="others" type="checkbox" id="163"
+                                                    value="С право на дан.к-т">
                                                 <label for="163">С право на дан.к-т</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="164" value="С регистрация">
+                                                <input name="others" type="checkbox" id="164" value="С регистрация">
                                                 <label for="164">С регистрация</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="165" value="Сервизна книжка">
+                                                <input name="others" type="checkbox" id="165" value="Сервизна книжка">
                                                 <label for="165">Сервизна книжка</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="166" value="Тунинг">
+                                                <input name="others" type="checkbox" id="166" value="Тунинг">
                                                 <label for="166">Тунинг</label>
                                             </li>
                                             <li>
                                                 <p class="searchTitle">Екстериор</p>
                                                 <ul>
                                                     <li>
-                                                        <input type="checkbox" id="167" value="2(3) Врати">
+                                                        <input name="exterior" type="checkbox" id="167"
+                                                            value="2(3) Врати">
                                                         <label for="167">2(3) Врати</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="168" value="4(5) Врати">
+                                                        <input name="exterior" type="checkbox" id="168"
+                                                            value="4(5) Врати">
                                                         <label for="168">4(5) Врати</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="169" value="LED фарове">
+                                                        <input name="exterior" type="checkbox" id="169"
+                                                            value="LED фарове">
                                                         <label for="169">LED фарове</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="170" value="Ксенонови фарове">
+                                                        <input name="exterior" type="checkbox" id="170"
+                                                            value="Ксенонови фарове">
                                                         <label for="170">Ксенонови фарове</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="171" value="Лети джанти">
+                                                        <input name="exterior" type="checkbox" id="171"
+                                                            value="Лети джанти">
                                                         <label for="171">Лети джанти</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="172" value="Металик">
+                                                        <input name="exterior" type="checkbox" id="172" value="Металик">
                                                         <label for="172">Металик</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="173" value="Отопляеми чистачки">
+                                                        <input name="exterior" type="checkbox" id="173"
+                                                            value="Отопляеми чистачки">
                                                         <label for="173">Отопляеми чистачки</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="174" value="Панорамен люк">
+                                                        <input name="exterior" type="checkbox" id="174"
+                                                            value="Панорамен люк">
                                                         <label for="174">Панорамен люк</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="175" value="Рейлинг на покрива">
+                                                        <input name="exterior" name="exterior" type="checkbox" id="175"
+                                                            value="Рейлинг на покрива">
                                                         <label for="175">Рейлинг на покрива</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="176" value="Ролбари">
+                                                        <input name="exterior" type="checkbox" id="176" value="Ролбари">
                                                         <label for="176">Ролбари</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="177" value="Спойлери">
+                                                        <input name="exterior" type="checkbox" id="177"
+                                                            value="Спойлери">
                                                         <label for="177">Спойлери</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="178" value="Теглич">
+                                                        <input name="exterior" type="checkbox" id="178" value="Теглич">
                                                         <label for="178">Теглич</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="179" value="Халогенни фарове">
+                                                        <input name="exterior" type="checkbox" id="179"
+                                                            value="Халогенни фарове">
                                                         <label for="179">Халогенни фарове</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="180" value="Шибедах">
+                                                        <input name="exterior" type="checkbox" id="180" value="Шибедах">
                                                         <label for="180">Шибедах</label>
                                                     </li>
                                                 </ul>
@@ -1051,82 +1287,93 @@
                                         <p class="searchTitle">Защита</p>
                                         <ul>
                                             <li>
-                                                <input type="checkbox" id="180" value="OFFROAD пакет">
+                                                <input name="security" type="checkbox" id="180" value="OFFROAD пакет">
                                                 <label for="180">OFFROAD пакет</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="181" value="Аларма">
+                                                <input name="security" type="checkbox" id="181" value="Аларма">
                                                 <label for="181">Аларма</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="182" value="Брониран">
+                                                <input name="security" type="checkbox" id="182" value="Брониран">
                                                 <label for="182">Брониран</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="183" value="Имобилайзер">
+                                                <input name="security" type="checkbox" id="183" value="Имобилайзер">
                                                 <label for="183">Имобилайзер</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="184" value="Каско">
+                                                <input name="security" type="checkbox" id="184" value="Каско">
                                                 <label for="184">Каско</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="185" value="Лебедка">
+                                                <input name="security" type="checkbox" id="185" value="Лебедка">
                                                 <label for="185">Лебедка</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="186" value="Подсилени стъкла">
+                                                <input name="security" type="checkbox" id="186"
+                                                    value="Подсилени стъкла">
                                                 <label for="186">Подсилени стъкла</label>
                                             </li>
                                             <li>
-                                                <input type="checkbox" id="187" value="Централно заключване">
+                                                <input name="security" type="checkbox" id="187"
+                                                    value="Централно заключване">
                                                 <label for="187">Централно заключване</label>
                                             </li>
                                             <li>
                                                 <p class="searchTitle">Интериор</p>
                                                 <ul>
                                                     <li>
-                                                        <input type="checkbox" id="188" value="Велурен салон">
+                                                        <input name="interior" type="checkbox" id="188"
+                                                            value="Велурен салон">
                                                         <label for="188">Велурен салон</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="189" value="Десен волан">
+                                                        <input name="interior" type="checkbox" id="189"
+                                                            value="Десен волан">
                                                         <label for="189">Десен волан</label>
                                                     </li>
                                                     <li>
-                                                        <input type="checkbox" id="190" value="Кожен салон">
+                                                        <input name="interior" type="checkbox" id="190"
+                                                            value="Кожен салон">
                                                         <label for="190">Кожен салон</label>
                                                     </li>
                                                     <li>
                                                         <p class="searchTitle">Специализирани</p>
                                                         <ul>
                                                             <li>
-                                                                <input type="checkbox" id="191" value="TAXI">
+                                                                <input name="specialized" type="checkbox" id="191"
+                                                                    value="TAXI">
                                                                 <label for="191">TAXI</label>
                                                             </li>
                                                             <li>
-                                                                <input type="checkbox" id="192"
+                                                                <input name="specialized" type="checkbox" id="192"
                                                                     value="За хора с увреждания">
                                                                 <label for="192">За хора с увреждания</label>
                                                             </li>
                                                             <li>
-                                                                <input type="checkbox" id="193" value="Катафалка">
+                                                                <input name="specialized" type="checkbox" id="193"
+                                                                    value="Катафалка">
                                                                 <label for="193">Катафалка</label>
                                                             </li>
                                                             <li>
-                                                                <input type="checkbox" id="194" value="Линейка">
+                                                                <input name="specialized" type="checkbox" id="194"
+                                                                    value="Линейка">
                                                                 <label for="194">Линейка</label>
                                                             </li>
                                                             <li>
-                                                                <input type="checkbox" id="195" value="Учебен">
+                                                                <input name="specialized" type="checkbox" id="195"
+                                                                    value="Учебен">
                                                                 <label for="195">Учебен</label>
                                                             </li>
                                                             <li>
-                                                                <input type="checkbox" id="196" value="Хладилен">
+                                                                <input name="specialized" type="checkbox" id="196"
+                                                                    value="Хладилен">
                                                                 <label for="196">Хладилен</label>
                                                             </li>
                                                             <li>
-                                                                <input type="checkbox" id="197" value="Хомологация N1">
+                                                                <input name="specialized" type="checkbox" id="197"
+                                                                    value="Хомологация N1">
                                                                 <label for="197">Хомологация N1</label>
                                                             </li>
                                                         </ul>
@@ -1138,13 +1385,14 @@
                                 </div>
                                 <div id="publishImage">
                                     <div>
-                                        <p>Избери снимка:</p>
-                                        <input type="file" id="publishImageInput" name="publishImageInput">
+                                        <p>Избери снимки:</p>
+                                        <input type="file" id="publishImageInput" name="publishImageInput"
+                                            accept=".jpg, .jpeg, .png" multiple>
                                     </div>
-                                    <div>
-                                        <p>Преглед на снимката:</p>
-                                        <div id="showUploadedImage">
-                                            <img src="assets/images/icons/searchCardImage.jpg" alt="">
+                                    <div id="publishShowImages">
+                                        <p>Преглед на снимките:</p>
+                                        <div id="showUploadedImages">
+
                                         </div>
                                     </div>
                                 </div>
@@ -1754,9 +2002,9 @@
                             <span>до</span>
                             <input type="number" id="priceTo">
                             <select name="currencySelector" id="selectCurrency">
-                                <option value="">лв.</option>
-                                <option value="">EURO</option>
-                                <option value="">USD</option>
+                                <option value="лв.">лв.</option>
+                                <option value="EURO">EURO</option>
+                                <option value="USD">USD</option>
                             </select>
                         </div>
                         <div id="searchPower">
@@ -1897,7 +2145,7 @@
                         <div id="searchRegion">
                             <div id="seaReg">
                                 <p class="searchTitle">Регион</p>
-                                <select name="selectRegion" id="selectRegion">
+                                <select name="selectRegion" id="searchSelectRegion">
                                     <option value="">всички региони
                                     <option value="Благоевград">Благоевград
                                     <option value="Бургас">Бургас
@@ -2467,11 +2715,14 @@
     </div>
 
     <script src="assets/data/FakeCarsData.js"></script>
+    <script src="assets/data/NewsData.js"></script>
+    <script src="assets/data/CarModelsData.js"></script>
     <script src="assets/js/utils.js"></script>
-    <script src="assets/js/CarController.js"></script>
     <script src="assets/js/CarService.js"></script>
+    <script src="assets/js/CarController.js"></script>
     <script src="assets/js/SearchController.js"></script>
     <script src="assets/js/RouterController.js"></script>
+    <script src="assets/js/HomePageController.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 
