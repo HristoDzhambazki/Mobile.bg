@@ -1,6 +1,5 @@
-let carStorage = new CarStorage();
 
-let obj = {
+let newAd = {
     extras: {
         safety: [],
         comfort: [],
@@ -23,20 +22,12 @@ let checkboxElements = publishFirstStepElement.querySelectorAll('input[type=chec
 let uploadImageInputElement = getById('publishImageInput');
 let showUploadedImagesElement = getById('showUploadedImages');
 
-//Buttons
-let publishBtn = document.querySelector('#publishButtonDiv button');
-
-publishBtn.addEventListener('click', () => console.log(obj));
-
-
-
 //Get uploaded image 
 uploadImageInputElement.addEventListener('change', uploadImages)
 
 //Get Value from Checkbox Elements
 let checkElementsArray = Array.from(checkboxElements);
 let stateElement = checkElementsArray.splice(0, 3);
-
 checkElementsArray.forEach(x => {
     x.addEventListener('change', getCheckboxValue);
 })
@@ -46,43 +37,27 @@ inputElements.forEach(el => el.addEventListener('change', getSelectValue));
 
 //Get value from Select Elements
 let selectElementsArray = Array.from(selectElements).splice(1);
-
 selectElementsArray.forEach(el => el.addEventListener('change', getSelectValue));
 
+//Functions for events
 function uploadImages(ev) {
     let files = Array.from(ev.target.files);
+    newAd.images = files;
 
-    console.log(files);
-
-    files.forEach(file => {
-        readAndPreview(file);
-    });
-
-    function readAndPreview(file) {
-        let imgElement = document.createElement('img');
-        imgElement.classList.add('publishImageSize');
-        imgElement.alt = file.name;
-
-        const reader = new FileReader();
-        reader.addEventListener('load', (event) => {
-            imgElement.src = event.target.result;
-            showUploadedImagesElement.append(imgElement);
-        });
-        reader.readAsDataURL(file);
-    }
+    readAndPreviewImage(files, showUploadedImagesElement);
 }
 
 function getCheckboxValue(ev) {
     let name = ev.target.name;
     let value = ev.target.value;
     if (ev.target.checked) {
-        obj.extras[name].push(value)
+        newAd.extras[name].push(value)
     } else {
-        obj.extras[name] = obj.extras[name].filter(x => x !== value);
+        newAd.extras[name] = newAd.extras[name].filter(x => x !== value);
     }
 }
 
 function getSelectValue(ev) {
     let name = ev.target.name;
-    obj[name] = ev.target.value;
+    newAd[name] = ev.target.value;
 }

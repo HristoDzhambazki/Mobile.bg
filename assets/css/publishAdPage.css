@@ -10,6 +10,11 @@
     display: inline-block;
 }
 
+.activeStep {
+    background-color: #ccebff;
+    border: 1px solid #0099ff;
+}
+
 #stepsToPublish div:nth-of-type(2) {
     align-self: center;
     margin: 0 10px;
@@ -156,7 +161,7 @@
     flex-wrap: wrap;
 }
 
-.publishImageSize {
+#showUploadedImages img {
     width: 220px;
     height: 150px;
     margin-right: 15px;

@@ -14,10 +14,7 @@
 
 
     <style>
-        #publishSecondStep,
-        #publishPageLogin {
-            display: none;
-        }
+
     </style>
 </head>
 
@@ -206,11 +203,12 @@
                         <div id="showOffer">
                             <div id="offerFirstFloor">
                                 <div id="offerImages">
-                                    <img id="offerMainImage" src="assets/images/icons/searchCardImage.jpg" alt="">
-                                    <div>
-
+                                    <div id="offerOtherImages" class="otherImagesStyles">
                                     </div>
                                 </div>
+
+                            </div>
+                            <div id="offerSecondFloor">
                                 <div id="offerComponents">
                                     <div id="offerMainCategory">
                                         <h3>Основна категория</h3>
@@ -307,8 +305,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div id="offerSecondFloor">
                                 <div id="offerExtras">
                                     <div id="extrasHeading">
                                         <h1>Екстри:</h1>
@@ -345,10 +341,10 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div id="offerBtnDiv">
-                                    <button>НАЗАД</button>
-                                    <button>ПУБЛИКУВАЙ ОБЯВАТА</button>
-                                </div>
+                            </div>
+                            <div id="offerBtnDiv">
+                                <button id="backToFirstStep">НАЗАД</button>
+                                <button id="publishNewAd">ПУБЛИКУВАЙ ОБЯВАТА</button>
                             </div>
                         </div>
                     </div>
@@ -2720,6 +2716,7 @@
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/CarService.js"></script>
     <script src="assets/js/CarController.js"></script>
+    <script src="assets/js/NewAdPageController.js"></script>
     <script src="assets/js/SearchController.js"></script>
     <script src="assets/js/RouterController.js"></script>
     <script src="assets/js/HomePageController.js"></script>

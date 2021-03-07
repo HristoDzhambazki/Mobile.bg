@@ -43,3 +43,6 @@ class Car {
         }
     }
 }
+
+let carStorage = new CarStorage();
+
