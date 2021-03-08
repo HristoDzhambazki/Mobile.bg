@@ -1,15 +1,5 @@
 
-let newAd = {
-    extras: {
-        safety: [],
-        comfort: [],
-        others: [],
-        exterior: [],
-        security: [],
-        interior: [],
-        specialized: [],
-    }
-};
+let newAd = new Car();
 
 //Pubish an Ad
 
@@ -21,6 +11,13 @@ let inputElements = publishFirstStepElement.querySelectorAll('input[type=text]')
 let checkboxElements = publishFirstStepElement.querySelectorAll('input[type=checkbox]')
 let uploadImageInputElement = getById('publishImageInput');
 let showUploadedImagesElement = getById('showUploadedImages');
+let publishAdBtnElement = getById('publishNewAd');
+
+publishAdBtnElement.addEventListener('click', () => {
+    carStorage.addCar(newAd);
+    carStorage.addCar(newAd);
+    console.log(carStorage);
+})
 
 //Get uploaded image 
 uploadImageInputElement.addEventListener('change', uploadImages)
@@ -51,13 +48,15 @@ function getCheckboxValue(ev) {
     let name = ev.target.name;
     let value = ev.target.value;
     if (ev.target.checked) {
-        newAd.extras[name].push(value)
+        newAd.extras[name].content.push(value)
     } else {
-        newAd.extras[name] = newAd.extras[name].filter(x => x !== value);
+        newAd.extras[name].content = newAd.extras[name].content.filter(x => x !== value);
     }
 }
 
 function getSelectValue(ev) {
     let name = ev.target.name;
-    newAd[name] = ev.target.value;
+    let value = ev.target.value;
+
+    newAd[name].value = value;
 }

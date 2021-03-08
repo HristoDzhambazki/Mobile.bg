@@ -16,31 +16,101 @@ class CarStorage {
 let id = 0;
 
 class Car {
-    constructor(state, price, currency, images, brand, model, year, engine, power, euroSt, gear, category, mileage, color, region, extras) {
+    constructor() {
+        this.brand = {
+            category: 'Марка',
+        };
 
-        this.id = ++id;
+        this.model = {
+            category: 'Модел',
+        };
 
-        this.state = state;
-        this.price = price;
-        this.currency = currency;
-        this.region = region;
+        this.modification = {
+            category: 'Модификация',
+        };
 
-        this.images = images;
+        this.engine = {
+            category: 'Тип двигател',
+        };
 
-        this.extras = extras;
+        this.gear = {
+            category: 'Скоростна кутия',
+        };
 
-        this.components = {
-            brand,
-            model,
-            year,
-            engine,
-            power,
-            euroSt,
-            gear,
-            category,
-            mileage,
-            color,
-        }
+        this.power = {
+            category: 'Мощност (к.с.)',
+        };
+
+        this.productionMonth = {
+            category: 'Дата на производство',
+        };
+
+        this.productionYear = {
+            category: 'Година на производство',
+        };
+
+        this.miliage = {
+            category: 'Пробег',
+        };
+
+        this.euroSt = {
+            category: 'Евростандарт',
+        };
+
+        this.color = {
+            category: 'Цвят',
+        };
+
+        this.category = {
+            category: 'Категория'
+        };
+
+        this.region = {
+            category: 'Град',
+        };
+
+        this.price = {
+            category: 'Цена',
+        };
+
+        this.currency = {
+            category: 'Валута',
+        };
+
+        this.expiryDays = {
+            category: 'Валидност на обявата',
+        };
+
+        this.extras = {
+            safety: {
+                category: 'Безопасност',
+                content: [],
+            },
+            comfort: {
+                category: 'Комфорт',
+                content: [],
+            },
+            others: {
+                category: 'Други',
+                content: [],
+            },
+            exterior: {
+                category: 'Екстериор',
+                content: [],
+            },
+            security: {
+                category: 'Защита',
+                content: [],
+            },
+            interior: {
+                category: 'Интериор',
+                content: [],
+            },
+            specialized: {
+                category: 'Специализирани',
+                content: [],
+            },
+        };
     }
 }
 

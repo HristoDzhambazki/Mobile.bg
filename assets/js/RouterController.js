@@ -10,18 +10,24 @@
     let publishLogin = getById('publishPageLogin');
     let publishFirstStep = getById('publishFirstStep');
     let publishSecondStep = getById('publishSecondStep');
+    let publishAdPage = getById('publishAd')
 
     let stepsToPublishElement = getById('stepsToPublish');
     let stepOneInfoElement = stepsToPublishElement.children[0];
     let stepTwoInfoElement = stepsToPublishElement.children[2];
 
     //Buttons
+    let publishNavBtn = document.getElementById('topNavigation').children[1];
     let publishFirstStepBtn = document.querySelector('#publishButtonDiv button');
     let backToFirstStepBtn = getById('backToFirstStep');
+    let publishAdBtn = getById('publishNewAd')
 
     //Events
+    publishNavBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'firstStep'))
     backToFirstStepBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'firstStep'));
     publishFirstStepBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'secondStep'));
+    publishAdBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'publishStep'))
+
     window.addEventListener('DOMContentLoaded', showPage);
     window.addEventListener('hashchange', showPage);
 
@@ -32,6 +38,7 @@
                 publishFirstStep.style.display = 'block';
                 publishSecondStep.style.display = 'none';
                 publishLogin.style.display = 'none';
+                publishAdPage.style.display = 'none'
 
                 stepOneInfoElement.classList.add('activeStep')
                 stepTwoInfoElement.classList.remove('activeStep')
@@ -40,9 +47,16 @@
                 publishFirstStep.style.display = 'none';
                 publishSecondStep.style.display = 'block';
                 publishLogin.style.display = 'none';
+                publishAdPage.style.display = 'none'
 
                 stepOneInfoElement.classList.remove('activeStep')
                 stepTwoInfoElement.classList.add('activeStep')
+                break;
+            case 'publishStep':
+                publishFirstStep.style.display = 'none';
+                publishSecondStep.style.display = 'none';
+                publishLogin.style.display = 'none';
+                publishAdPage.style.display = 'block'
                 break;
             default:
             // publishFirstStep.style.display = 'none';
@@ -67,7 +81,7 @@
             case 'publishPage':
                 mainPage.style.display = 'none';
                 publishPage.style.display = 'block';
-                showAccuratePublishPage('secondStep');
+                showAccuratePublishPage('firstStep');
                 searchPage.style.display = 'none';
                 dealersPage.style.display = 'none';
                 myAdPage.style.display = 'none';
