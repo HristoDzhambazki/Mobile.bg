@@ -1,9 +1,8 @@
 let arrayData = [
     {
-        state: 'stara',
         price: 5000,
-        currency: 'leva',
-        region: 'Sofia',
+        currency: 'лв.',
+        region: 'София',
 
         images: [
             'car1-1.jpg',
@@ -15,22 +14,21 @@ let arrayData = [
         brand: 'Toyota',
         model: 'Yaris',
         year: 2009,
-        engine: 'benzinov',
+        engine: 'Бензинов',
         power: 69,
-        euroSt: 'Euro 4',
-        gear: 'Rychna',
-        category: 'Hechbek',
+        euroSt: 'Евро 4',
+        gear: 'Ръчна',
+        category: 'Хечбек',
         mileage: 144000,
-        color: 'black',
+        color: 'Черен',
         extras: {
-            comfort: ['bordkompiuter', 'el.ogledala', 'el.stykla'],
+            comfort: ['Бордкомпютър', 'Ел. огледала', 'Ел. стъкла'],
         },
     },
     {
-        state: 'stara',
         price: 60000,
-        currency: 'leva',
-        region: 'Ruse',
+        currency: 'лв.',
+        region: 'Русе',
 
         images: [
             'car2-1.jpg',
@@ -42,49 +40,47 @@ let arrayData = [
         brand: 'Mercedes-Benz',
         model: 'S 350',
         year: 2014,
-        engine: 'dizelov',
+        engine: 'Дизелов',
         power: 258,
-        euroSt: 'Euro 4',
-        gear: 'avtomatichna',
-        category: 'sedan',
+        euroSt: 'Евро 4',
+        gear: 'Автоматична',
+        category: 'Седан',
         mileage: 199000,
-        color: 'hameleon',
+        color: 'Хамелеон',
         extras: {
-            other: ['barter'],
+            others: ['Бартер'],
         },
     },
     {
-        state: 'stara',
         price: 60000,
-        currency: 'leva',
-        region: 'Ruse',
+        currency: 'лв.',
+        region: 'Русе',
 
         images: [
-            'car3-1.jpg',
-            'car3-2.jpg',
-            'car3-3.jpg',
+            'car2-1.jpg',
+            'car2-2.jpg',
+            'car2-3.jpg',
         ],
 
 
         brand: 'Mercedes-Benz',
         model: 'S 350',
         year: 2014,
-        engine: 'dizelov',
+        engine: 'Дизелов',
         power: 258,
-        euroSt: 'Euro 4',
-        gear: 'avtomatichna',
-        category: 'sedan',
+        euroSt: 'Евро 4',
+        gear: 'Автоматична',
+        category: 'Седан',
         mileage: 199000,
-        color: 'hameleon',
+        color: 'Хамелеон',
         extras: {
-            other: ['barter'],
+            others: ['Бартер'],
         },
     },
     {
-        state: 'stara',
         price: 9990,
-        currency: 'leva',
-        region: 'Dupnica',
+        currency: 'лв.',
+        region: 'Дупница',
 
         images: [
             'car4-1.jpg',
@@ -96,23 +92,22 @@ let arrayData = [
         brand: 'Citroen',
         model: 'C5',
         year: 2010,
-        engine: 'dizelov',
+        engine: 'Дизелов',
         power: 163,
-        euroSt: 'Euro 5',
-        gear: 'avtomatichna',
-        category: 'sedan',
+        euroSt: 'Евро 5',
+        gear: 'Автоматична',
+        category: 'Седан',
         mileage: 168000,
-        color: 'tymno siv',
+        color: 'Тъмно сив',
         extras: {
             comfort: ['Bluetooth', 'DVD', 'USB'],
-            other: ['lizing', 'nov vnos', 'servizna knijka']
+            others: ['Лизинг', 'Нов внос', 'Сервизна книжка']
         },
     },
     {
-        state: 'stara',
         price: 28000,
         currency: 'USD',
-        region: 'Plovdiv',
+        region: 'Пловдив',
 
         images: [
             'car5-1.jpg',
@@ -120,27 +115,25 @@ let arrayData = [
             'car5-3.jpg',
         ],
 
-
         brand: 'VW',
         model: 'Jetta',
         year: 2019,
-        engine: 'benzinov',
+        engine: 'Бензинов',
         power: 150,
         euroSt: '',
-        gear: 'avtomatichna',
-        category: 'sedan',
+        gear: 'Автоматична',
+        category: 'Седан',
         mileage: 35000,
-        color: 'sin',
+        color: 'Син',
         extras: {
             comfort: ['Auto Start Stop function', 'Bluetooth ', 'USB'],
-            other: ['Бартер', '4x4', 'Лизинг']
+            others: ['Бартер', '4x4', 'Лизинг']
         },
     },
     {
-        state: 'stara',
         price: 7000,
-        currency: 'leva',
-        region: 'Burgas',
+        currency: 'лв.',
+        region: 'Бургас',
 
         images: [
             'car6-1.jpg',
@@ -152,16 +145,16 @@ let arrayData = [
         brand: 'BMW',
         model: '120',
         year: 2006,
-        engine: 'dizelov',
+        engine: 'Дизелов',
         power: 163,
-        euroSt: 'Euro 5',
-        gear: 'rychna',
-        category: 'hechbek',
+        euroSt: 'Евро 5',
+        gear: 'Ръчна',
+        category: 'Хечбек',
         mileage: 176000,
-        color: 'tymno sin',
+        color: 'Тъмно син',
         extras: {
             comfort: ['Безключово палене', 'Бордкомпютър ', 'Ел. Огледала'],
-            other: ['Бартер', 'С регистрация', 'Сервизна книжка']
+            others: ['Бартер', 'С регистрация', 'Сервизна книжка']
         },
     }
 ]

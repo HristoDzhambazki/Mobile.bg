@@ -17,6 +17,8 @@ let id = 0;
 
 class Car {
     constructor() {
+        this.images = [];
+
         this.brand = {
             category: 'Марка',
         };
@@ -49,7 +51,7 @@ class Car {
             category: 'Година на производство',
         };
 
-        this.miliage = {
+        this.mileage = {
             category: 'Пробег',
         };
 
@@ -115,4 +117,26 @@ class Car {
 }
 
 let carStorage = new CarStorage();
+
+//GET local data and add it to Car Storage
+arrayData.forEach(obj => {
+    let car = new Car();
+
+    for (const key in obj) {
+        if (key === 'extras') {
+            for (const extrasKey in obj.extras) {
+                car.extras[extrasKey].content = obj.extras[extrasKey];
+            }
+        } else if (key === 'year') {
+            car.productionYear.value = obj[key];
+        } else {
+            console.log(key);
+            car[key].value = obj[key];
+        }
+    }
+
+    carStorage.addCar(car)
+})
+
+console.log(carStorage);
 
