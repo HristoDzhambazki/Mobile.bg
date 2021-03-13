@@ -1,6 +1,7 @@
 class CarStorage {
     constructor() {
         this.list = [];
+        this.newList = [...this.list]
     }
 
     addCar(car) {
@@ -10,6 +11,73 @@ class CarStorage {
     removeCar(id) {
         let index = this.list.findIndex(car => car.id == id);
         this.list.splice(index, 1);
+    }
+
+    filter(obj) {
+        this.newList = [...this.list];
+        let sortList = false;
+        let sortType = '';
+
+        for (const key in obj) {
+            if (key === 'sorting') {
+                sortList = true;
+                sortType = obj[key];
+                continue;
+            }
+
+            this.newList = this.newList.filter(ad => {
+
+                switch (key) {
+                    case 'mileage':
+                        return ad.mileage.value <= Number(obj[key]);
+                    case 'powerFrom':
+                        return ad.power.value >= Number(obj[key]);
+                    case 'powerTo':
+                        return ad.power.value <= Number(obj[key]);
+                    case 'priceFrom':
+                        return ad.price.value >= Number(obj[key]);
+                    case 'priceTo':
+                        return ad.price.value <= Number(obj[key]);
+                    case 'productionYearFrom':
+                        return ad.productionYear.value >= Number(obj[key]);
+                    case 'productionYearTo':
+                        return ad.productionYear.value <= Number(obj[key]);
+                    case 'extras':
+                        let containsExtras = true;
+                        for (const extra in obj.extras) {
+                            if (obj.extras[extra].length > 0) {
+                                obj.extras[extra].forEach(x => {
+                                    containsExtras = ad.extras[extra].content.includes(x);
+                                })
+                            }
+                        }
+                        return containsExtras;
+                    default:
+                        return ad[key].value === obj[key];
+                }
+            });
+        }
+
+        if (sortList) {
+            this.sort(sortType)
+        }
+
+        return this.newList;
+    }
+
+    sort(type) {
+
+        switch (type) {
+            case 'price':
+                this.newList.sort((a, b) => a.price.value - b.price.value)
+                break;
+            case 'productionDate':
+                this.newList.sort((a, b) => b.productionYear.value - a.productionYear.value);
+                break;
+            case 'mileage':
+                this.newList.sort((a, b) => a.mileage.value - b.mileage.value);
+                break;
+        }
     }
 };
 
@@ -130,7 +198,6 @@ arrayData.forEach(obj => {
         } else if (key === 'year') {
             car.productionYear.value = obj[key];
         } else {
-            console.log(key);
             car[key].value = obj[key];
         }
     }
@@ -138,5 +205,4 @@ arrayData.forEach(obj => {
     carStorage.addCar(car)
 })
 
-console.log(carStorage);
 

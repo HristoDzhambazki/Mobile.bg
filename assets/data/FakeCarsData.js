@@ -100,7 +100,7 @@ let arrayData = [
         mileage: 168000,
         color: 'Тъмно сив',
         extras: {
-            comfort: ['Bluetooth', 'DVD', 'USB'],
+            comfort: ['Bluetooth', 'DVD, TV', 'USB'],
             others: ['Лизинг', 'Нов внос', 'Сервизна книжка']
         },
     },
@@ -126,7 +126,7 @@ let arrayData = [
         mileage: 35000,
         color: 'Син',
         extras: {
-            comfort: ['Auto Start Stop function', 'Bluetooth ', 'USB'],
+            comfort: ['Auto Start Stop function', 'Bluetooth', 'USB'],
             others: ['Бартер', '4x4', 'Лизинг']
         },
     },
@@ -153,7 +153,7 @@ let arrayData = [
         mileage: 176000,
         color: 'Тъмно син',
         extras: {
-            comfort: ['Безключово палене', 'Бордкомпютър ', 'Ел. Огледала'],
+            comfort: ['Безключово палене', 'Бордкомпютър', 'Ел. огледала'],
             others: ['Бартер', 'С регистрация', 'Сервизна книжка']
         },
     }

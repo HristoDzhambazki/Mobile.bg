@@ -7,23 +7,27 @@
     //DOM Selectors
     let publishSelectBrand = getById('publishSelectBrand');
     let publishSelectModel = getById('publishSelectModel');
+    let searchSelectBrand = getById('searchSelectBrand');
+    let searchSelectModel = getById('searchSelectModel');
+
 
     //Events
-    publishSelectBrand.addEventListener('change', showCurrentBrandModels);
+    publishSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, publishSelectModel));
+    searchSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, searchSelectModel));
 
-    function showCurrentBrandModels(event) {
-        publishSelectModel.innerHTML = '<option value="">Избери</option>';
+    function showCurrentBrandModels(event, container) {
+        container.innerHTML = '<option value="">Избери</option>';
         let brand = event.target.value;
 
-        carModels[brand].forEach(model => {
-            let op = document.createElement('option');
-            op.value = model;
-            op.innerText = model;
-            publishSelectModel.append(op);
-        })
+        if (brand !== '') {
+            carModels[brand].forEach(model => {
+                let op = document.createElement('option');
+                op.value = model;
+                op.innerText = model;
+                container.append(op);
+            })
+        }
     }
-
-
 
     //Buttons
 })()
