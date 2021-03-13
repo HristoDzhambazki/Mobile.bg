@@ -1,7 +1,7 @@
 let searchObj = (function () {
     let obj = {
 
-        // currency: 'лв.',
+        currency: 'лв.',
 
         extras: {
             safety: [],
@@ -21,15 +21,7 @@ let searchObj = (function () {
     let inputElements = searchMenu.querySelectorAll('input[type=text]');
     let checkboxElements = searchCheckboxOptions.querySelectorAll('input[type=checkbox]')
 
-    //DDM Buttons
-    let searchBtn = getById('searchButton');
-
-
     //Events
-    searchBtn.addEventListener('click', () => {
-        // location.hash = '#searchResultsPage';
-        carStorage.filter(obj);
-    })
 
     //Get Value from Checkbox Elements
     let checkElementsArray = Array.from(checkboxElements);
