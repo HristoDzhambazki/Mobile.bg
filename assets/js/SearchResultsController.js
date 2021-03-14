@@ -12,6 +12,7 @@ let resultsFeatures = getById('searchResultsFeatures');
 let resultsExtras = getById('searchResultsExtras');
 let mainResultsElement = getById('mainResults')
 let paginationElement = getById('searchResultsPagination');
+let pagesCountElement = getById('searchResultPagesCount').children[0];
 
 //Buttons
 let searchBtn = getById('searchButton');
@@ -20,28 +21,102 @@ let searchBtn = getById('searchButton');
 searchBtn.addEventListener('click', () => {
     resultsObj = carStorage.filter(searchObj);
     mainResultsElement.innerHTML = '';
-    // location.hash = '#searchResultsPage';
-    // // resultsObj = carStorage.filter(searchObj);
-    // // console.log(resultsObj);
+    location.hash = '#searchResultsPage';
+    resultsObj = carStorage.filter(searchObj);
 
     renderResultsMainInfo();
     renderPagination();
-
-    resultsObj.forEach(ad => {
-        renderAd(ad);
-    })
 })
 
 newSearchAnchor.addEventListener('click', resetSearchMenu);
 
 // Functions
+let recordsPerPage = 4;
 function renderPagination() {
-    let adsCount = resultsObj.length;
-    let pagesCount = Math.floor(adsCount / 5);
+    let currentPage = 1;
+    let numOfPages = Math.ceil(resultsObj.length / recordsPerPage);
 
-    for (let i = 0; i < pagesCount; i++) {
+    let btnPrev = document.createElement('button');
+    btnPrev.innerText = 'Назад'
+    let btnNext = document.createElement('button');
+    btnNext.innerText = 'Напред'
 
+    btnNext.addEventListener('click', nextPage);
+    btnPrev.addEventListener('click', prevPage);
 
+    paginationElement.innerHTML = '';
+
+    paginationElement.append(btnPrev);
+    for (let i = 1; i <= numOfPages; i++) {
+        let btn = document.createElement('button');
+        btn.innerText = i;
+        btn.value = i;
+        paginationElement.append(btn);
+        btn.addEventListener('click', () => {
+            currentPage = btn.value;
+            changePage(currentPage)
+        })
+    }
+
+    function changeColorOfCurrentPageBox(page) {
+        btns = Array.from(paginationElement.children);
+        btns.forEach(btn => {
+            if (btn.value === page.toString()) {
+                btn.style.color = 'white';
+                btn.style.backgroundColor = '#09f';
+            } else {
+                btn.style.color = '#09f';
+                btn.style.backgroundColor = 'white';
+            }
+        })
+    }
+
+    paginationElement.append(btnNext);
+
+    function prevPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            changePage(currentPage);
+        }
+    }
+
+    function nextPage() {
+        if (currentPage < numOfPages) {
+            currentPage++;
+            changePage(currentPage);
+        }
+    }
+
+    changePage(currentPage);
+
+    function changePage(page) {
+        changeColorOfCurrentPageBox(page);
+        pagesCountElement.innerText = `Страница ${page} от ${numOfPages}`;
+
+        let listingTable = mainResultsElement;
+
+        if (page < 1) page = 1;
+        if (page > numOfPages) page = numOfPages;
+
+        listingTable.innerHTML = "";
+
+        for (let i = (page - 1) * recordsPerPage; i < (page * recordsPerPage); i++) {
+            if (i < resultsObj.length) {
+                renderAd(resultsObj[i]);
+            }
+        }
+
+        if (page == 1) {
+            btnPrev.disabled = true;
+        } else {
+            btnPrev.disabled = false;
+        }
+
+        if (page == numOfPages) {
+            btnNext.disabled = true;;
+        } else {
+            btnNext.disabled = false;
+        }
     }
 }
 
@@ -128,11 +203,15 @@ function renderAd(ad) {
 
     cardMoreDetails.append(anchMoreDetails, spanMoreDetails, anchAddInNotebook);
 
+    let markId = 0;
     let cardMark = createElement('div');
     let labelMark = createElement('label');
+    labelMark.setAttribute('for', `mark${markId}`);
     labelMark.innerText = 'Маркирай обявата'
     let checkboxMark = createElement('input');
     checkboxMark.type = 'checkbox';
+    checkboxMark.id = `mark${markId}`;
+    markId++;
 
     cardMark.append(labelMark, checkboxMark);
 
@@ -291,7 +370,7 @@ function renderResultsMainInfo() {
     function renderResultInfoHeading() {
         let totalAds = resultsObj.length;
 
-        resultInfoHeadingElement.innerText = `1 - 10 от общо ${totalAds} Обяви за ${brand} ${model} Автомобили и Джипове`
+        resultInfoHeadingElement.innerText = `1 - ${recordsPerPage} от общо ${totalAds} Обяви за ${brand} ${model} Автомобили и Джипове`
     }
 
 }

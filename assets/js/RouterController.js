@@ -93,7 +93,7 @@
                 searchPage.style.display = 'block';
                 dealersPage.style.display = 'none';
                 myAdPage.style.display = 'none';
-                searchResultsPage.style.display = 'block';
+                searchResultsPage.style.display = 'none';
                 break;
             case 'dealersPage':
                 mainPage.style.display = 'none';

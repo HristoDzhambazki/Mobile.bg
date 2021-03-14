@@ -6,14 +6,12 @@
 
 #searchResultsMainContent {
     width: 75%;
-    border: 2px solid salmon;
     height: 100%;
 }
 
 #searchResultsAsideContent {
     width: 30%;
     height: 100%;
-    border: 2px solid aqua;
 }
 
 #newSearch ul {
@@ -98,7 +96,6 @@
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     border-bottom: 1px solid #005aff;
     padding-bottom: 10px;
 }
@@ -109,33 +106,29 @@
     padding: 5px;
 }
 
-#searchResultsPagination,
-#searchResultsPagination ul {
-    display: flex;
-    align-items: center;
-
-}
-
-#searchResultsPagination li {
+#searchResultsPagination button {
+    cursor: pointer;
+    font-size: 14px;
     margin-left: 5px;
-}
-
-#searchResultsPagination li>a {
     padding: 5px;
     color: #09f;
-    text-decoration: none;
+    background-color: white;
     border: 1px solid #b3b3b3;
 }
 
-#searchResultsPagination a {
-    padding: 6.5px;
-    color: #09f;
-    text-decoration: none;
-    border: 1px solid #b3b3b3;
+#searchResultsPagination button:disabled {
+    opacity: 0.5;
+    color: black;
 }
 
-#napredAnchor {
-    margin-left: 5px;
+#searchResultsPagination :not(button:disabled):hover {
+    color: white;
+    background-color: #09f;
+}
+
+.activeBtn {
+    color: white;
+    background-color: #09f;
 }
 
 #mainResults {
