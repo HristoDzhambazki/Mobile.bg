@@ -1,6 +1,5 @@
 #searchResultsContainer {
     width: 100%;
-    height: 800px;
     display: flex;
     margin: 10px 0;
 }
@@ -143,53 +142,53 @@
     width: 100%;
 }
 
-#searchResultCard {
+.searchResultCard {
     margin-top: 15px;
     background-color: #e7eaf2;
     border-bottom: 1px solid #005aff;
 }
 
 
-#searchResultCard h1{
+.searchResultCard h1{
     font-weight: bold;
     font-size: 18px;
 }
 
-#cardUpperBody {
+.cardUpperBody {
     display: flex;
 }
 
-#cardContent {
+.cardContent {
     width: 55%;
 }
 
-#cardImageDiv {
+.cardImageDiv {
     background-color: white;
     padding: 5px;
     display: inline-block;
 }
 
-#cardMainImg {
+.cardMainImg {
     width: 280px;
     height: 185px;
 }
 
-#cardtitleAndPrice {
+.cardtitleAndPrice {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-left: 10px;
 }
 
-#priceAndFavsIcon {
+.priceAndFavsIcon {
     display: flex;
     align-items: center;
 }
 
-#favIconDiv {
+.favIconDiv {
     padding-top: 5px;
     margin-left: 10px;
-    max-height: 38px;
+    max-height: 30px;
     overflow: hidden;
 }
 
@@ -197,13 +196,13 @@
     width: 38px;
 }
 
-#cardDescription{
+.cardDescription{
     margin-left: 10px;
     margin-top: 50px;
     font-size: 15px;
 }
 
-#cardDetails {
+.cardDetails {
     margin-top: 5px;
     padding: 5px;
     font-size: 15px;
@@ -211,3 +210,18 @@
     justify-content: space-between;
 }
 
+.cardDetails label {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.cardFeatures {
+    overflow: hidden;
+    height: 45px;
+}
+
+.cardMoreDetails {
+    width: 410px;
+    display: flex;
+    justify-content: space-between;
+}
