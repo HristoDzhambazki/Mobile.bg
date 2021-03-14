@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/searchResultsPage.css">
     <link rel="stylesheet" href="assets/css/publishAdPage.css">
     <link rel="stylesheet" href="assets/css/showNewAdPage.css">
-
+    <link rel="stylesheet" href="assets/css/myAdPage.css">
 
     <style>
 
@@ -27,10 +27,16 @@
                     </div>
 
                     <div class="topWrapper" id="loginWrapper">
-                        <div id="logIn"><a href="#">Вход</a></div>
+                        <div id="logIn"><a href="#myAdPage">Вход</a></div>
                         <div id="line"></div>
-                        <div id="register"><a href="#">Нова Регистрация</a></div>
+                        <div id="register"><a href="#myAdPage">Нова Регистрация</a></div>
+                        <p id="welcomeText"></p>
+                        <p href="#mainPage" id="loggedInExit">
+                            [<span id="loggedInExitText">изход</span>]
+                        </p>
                     </div>
+
+
                 </div>
 
                 <div id="rightMainWrapper" class="topWrapper">
@@ -184,6 +190,36 @@
             </div>
 
             <div id="publishPage">
+
+                <div id="publishPageLogin">
+                    <div id="adsHeader">Публикуване на обява в mobile.bg</div>
+
+                    <div id="adsExplanation">
+                        <div id="adLeftText">
+                            Ако желаете да публикувате повече обяви
+                            и искате да ги управлявате по-лесно,
+                            влезте във Вашият акаунт <a href="#" target="_blank" id="adLinkToLogin">ВХОД</a> или
+                            си направете нов акаунт <a href="#" target="_blank" id="adLinkToReg">НОВА РЕГИСТРАЦИЯ</a>
+                        </div>
+                        <div id="adCenterText">
+                            <div class="adLine"></div>
+                            <div id="adOr">или</div>
+                            <div class="adLine"></div>
+                        </div>
+                        <div id="adRightText">
+                            <div>Ако желаете да публикувате единична обява
+                                с <span id="adBolded">верификация по телефон</span> кликнете тук:</div>
+                            <a href="#">
+                                <button id="adPathToPublish">Продължи</button>
+                            </a>
+                            <div id="adMoneyText">
+                                /Промотирането на тази обява ще Ви е по-скъпо
+                                (само с SMS) и няма да можете да я направите ТОП оферта/
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="publishOfferPage">
                     <div id="stepsToPublish">
                         <div class="steps">
@@ -751,7 +787,7 @@
                                     </div>
                                     <div id="publishProbeg">
                                         <p class="searchTitle">Пробег</p>
-                                        <input class="publishInputWidth" name="mileage" type="text" id="publishPrice">
+                                        <input class="publishInputWidth" name="miliage" type="text" id="publishPrice">
                                         <span>в километри</span>
                                     </div>
                                     <div id="publishExpiryDays">
@@ -1285,35 +1321,6 @@
                                     <button>ПРОДЪЛЖИ КЪМ ПРЕГЛЕД</button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="publishPageLogin">
-                <div id="adsHeader">Публикуване на обява в mobile.bg</div>
-
-                <div id="adsExplanation">
-                    <div id="adLeftText">
-                        Ако желаете да публикувате повече обяви
-                        и искате да ги управлявате по-лесно,
-                        влезте във Вашият акаунт <a href="#" target="_blank" id="adLinkToLogin">ВХОД</a> или
-                        си направете нов акаунт <a href="#" target="_blank" id="adLinkToReg">НОВА РЕГИСТРАЦИЯ</a>
-                    </div>
-                    <div id="adCenterText">
-                        <div class="adLine"></div>
-                        <div id="adOr">или</div>
-                        <div class="adLine"></div>
-                    </div>
-                    <div id="adRightText">
-                        <div>Ако желаете да публикувате единична обява
-                            с <span id="adBolded">верификация по телефон</span> кликнете тук:</div>
-                        <a href="#">
-                            <button id="adPathToPublish">Продължи</button>
-                        </a>
-                        <div id="adMoneyText">
-                            /Промотирането на тази обява ще Ви е по-скъпо
-                            (само с SMS) и няма да можете да я направите ТОП оферта/
                         </div>
                     </div>
                 </div>
@@ -2538,7 +2545,32 @@
                 </div>
             </div>
             <div id="dealersPage">dealersPage</div>
-            <div id="myAdPage">myAdPage</div>
+            <div id="myAdPage">
+                <form id="adPageLoginForm">
+                    <p class="myAdPageText">Вход:</p>
+                    <input class="myAdPageInput" type="email" name="loginInput" id="loginInput" placeholder="име">
+                    <input class="myAdPageInput" type="password" name="loginPass" id="loginPass" placeholder="парола">
+                    <div id="adPageLoginCont"></div>
+                    <p id="myAdPageLoginBtn" class="myAdPageButton">Вход</p>
+                </form>
+
+                <form id="adPageRegForm">
+                    <p class="myAdPageText">Регистрация с Email и парола:</p>
+                    <input class="myAdPageInput" type="email" name="regInput" id="regInput" placeholder="email">
+                    <div id="wrongEmailText"></div>
+                    <input class="myAdPageInput" type="password" name="regPass" id="regPass" placeholder="парола">
+                    <p id="wrongPassMessage">Паролата трябва да съдържа поне 8 символа</p>
+                    <input class="myAdPageInput" type="password" name="regRepeatPass" id="regRepeatPass"
+                        placeholder="повтори паролата">
+                    <div id="adPageRegCont"></div>
+                    <p id="myAdPageRegBtn" class="myAdPageButton">Регистрация с Email</p>
+                </form>
+
+                <div id="loggedInAdPage">
+                    <p>Списък и управление на публикуваните от Вас обяви:</p>
+                    <button id="adPageAdButton"><span id="nextPlus">+</span> ДОБАВИ ОБЯВА</button>
+                </div>
+            </div>
         </main>
 
         <footer>
@@ -2609,6 +2641,8 @@
     <script src="assets/js/SearchController.js"></script>
     <script src="assets/js/RouterController.js"></script>
     <script src="assets/js/HomePageController.js"></script>
+    <script src="assets/js/userService.js"></script>
+    <script src="assets/js/userController.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 

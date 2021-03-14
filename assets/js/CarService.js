@@ -130,7 +130,7 @@ arrayData.forEach(obj => {
         } else if (key === 'year') {
             car.productionYear.value = obj[key];
         } else {
-            console.log(key);
+            // console.log(key);
             car[key].value = obj[key];
         }
     }
@@ -138,5 +138,5 @@ arrayData.forEach(obj => {
     carStorage.addCar(car)
 })
 
-console.log(carStorage);
+// console.log(carStorage);
 
