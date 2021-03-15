@@ -48,6 +48,19 @@ div#loginWrapper a:hover {
     text-decoration: underline;
 }
 
+#loggedInExit {
+    display: block;
+}
+
+#loggedInExitText {
+    color: rgb(0, 153, 255);
+}
+
+#loggedInExit:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 a#leftBox:hover {
     background-color: rgba(0, 153, 255, 0.1);
 }
@@ -57,11 +70,11 @@ a#rightBox:hover {
 }
 
 #leftMainWrapper {
-    width: 370px;
+    width: fit-content;
 }
 
 div#loginWrapper {
-    width: 200px;
+    width: 220px;
 }
 
 div#logIn {

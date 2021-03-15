@@ -17,6 +17,11 @@ class CarStorage {
         return this.list.find(x => x.id == id);
     }
 
+    getFirstSixAds() {
+        let newArr = this.list.slice(0, 6);
+        return newArr;
+    }
+
     filter(obj) {
         this.newList = [...this.list];
         let sortList = false;
@@ -210,5 +215,3 @@ arrayData.forEach(obj => {
 
     carStorage.addCar(car)
 })
-
-
