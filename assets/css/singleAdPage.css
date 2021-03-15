@@ -1,0 +1,174 @@
+#singleAdPage {
+    width: 100%;
+}
+
+#mainContentSP {
+    width: 72%;
+    height: 100%;
+}
+
+#searchSP {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleSP {
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headingAndAnchSP h1 {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.headingAndAnchSP a {
+    font-size: 12px;
+}
+
+.priceAndFavSP {
+    display: flex;
+}
+
+.priceAndFavSP h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #09F;
+    align-self: center;
+}
+
+.priceAndFavSP p {
+    margin-right: 10px;
+}
+
+.secondPriceSP {
+    margin-right: 110px;
+}
+
+#imagesSP{
+    height: 200px;
+}
+
+.componentsSP {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.componentsSP h6 {
+    font-weight: bold;
+}
+
+.componentsSP li {
+    margin-bottom: 5px;
+}
+
+.extrasSP {
+    margin-top: 20px;
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+}
+
+.extrasSP div {
+    margin-right: 15px;
+}
+
+.extrasSP h1{
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+.extrasSP ul {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.spImagesDiv {
+    width: 100%;
+    height: 622px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #0099ff;
+}
+
+.mainImageSP {
+    position: relative;
+}
+
+.mainImageSP > img {
+    margin-top: 10px;
+    width: 100%;
+    height: 460px;
+}
+
+.spOtherImages {
+    margin-top: 10px;
+    width: 100%;
+    height: 150px;
+    overflow-x: auto;
+    white-space: nowrap;
+
+}
+
+.spOtherImages img{
+    display: inline-block;
+    height: 114px;
+    width: 165px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.spOtherImages img:hover{
+    cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.numbertext {
+    font-weight: bold;
+    color: white;
+    background-color:rgba(0, 0, 0, 0.6) ;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 0;
+    right: 48%;
+    margin-bottom: 5px;
+  }
+
+
+

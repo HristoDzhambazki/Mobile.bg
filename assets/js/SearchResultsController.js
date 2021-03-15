@@ -2,7 +2,7 @@
 let resultsObj = '';
 
 //DOM Selectors
-let newSearchElement = getById('newSearch');
+let newSearchElement = getById('newSearchRP');
 let newSearchAnchor = newSearchElement.getElementsByTagName('li')[0];
 let editSearchhAnchor = newSearchElement.getElementsByTagName('li')[1];
 let resultInfoHeadingElement = getById('resultsInfoHeading').children[0];
@@ -19,9 +19,9 @@ let searchBtn = getById('searchButton');
 
 //Events
 searchBtn.addEventListener('click', () => {
+    location.hash = '#searchResultsPage';
     resultsObj = carStorage.filter(searchObj);
     mainResultsElement.innerHTML = '';
-    location.hash = '#searchResultsPage';
     resultsObj = carStorage.filter(searchObj);
 
     renderResultsMainInfo();
@@ -61,12 +61,14 @@ function renderPagination() {
     function changeColorOfCurrentPageBox(page) {
         btns = Array.from(paginationElement.children);
         btns.forEach(btn => {
-            if (btn.value === page.toString()) {
-                btn.style.color = 'white';
-                btn.style.backgroundColor = '#09f';
-            } else {
-                btn.style.color = '#09f';
-                btn.style.backgroundColor = 'white';
+            if (btn.value) {
+                if (btn.value === page.toString()) {
+                    btn.style.color = 'white';
+                    btn.style.backgroundColor = '#09f';
+                } else {
+                    btn.style.color = '#09f';
+                    btn.style.backgroundColor = 'white';
+                }
             }
         })
     }
@@ -127,7 +129,9 @@ function renderAd(ad) {
 
     let cardImageDiv = createElement('div', 'cardImageDiv')
     let anchorImg = createElement('a');
+    anchorImg.href = '#singleAdPage';
     let cardMainImg = createElement('img', 'cardMainImg');
+    cardMainImg.id = ad.id;
     cardMainImg.src = 'assets/images/cars/' + ad.images.value[0];
 
     anchorImg.append(cardMainImg);
@@ -156,8 +160,6 @@ function renderAd(ad) {
     let cardDescription = createElement('div', 'cardDescription');
     let cardFeatures = createElement('p', 'cardFeatures');
     cardFeatures.innerText = 'Характеристики: '
-
-
 
     let cardExtras = createElement('p', 'cardFeatures');
     cardExtras.innerText = 'Особености: '
@@ -193,12 +195,14 @@ function renderAd(ad) {
     let cardDetails = createElement('div', 'cardDetails');
     let cardMoreDetails = createElement('div', 'cardMoreDetails');
     let anchMoreDetails = createElement('a');
-    anchMoreDetails.href = '#'
+    anchMoreDetails.href = '#singleAdPage'
+    anchMoreDetails.id = ad.id;
     anchMoreDetails.innerText = `Повече детайли и ${ad.images.value.length} снимки`;
     let spanMoreDetails = createElement('span');
     spanMoreDetails.innerText = '|';
     let anchAddInNotebook = createElement('a');
-    anchAddInNotebook.href = '#'
+    anchAddInNotebook.href = '#singleAdPage'
+    anchAddInNotebook.id = ad.id;
     anchAddInNotebook.innerText = 'Добави в бележника';
 
     cardMoreDetails.append(anchMoreDetails, spanMoreDetails, anchAddInNotebook);

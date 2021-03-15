@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="assets/css/searchResultsPage.css">
     <link rel="stylesheet" href="assets/css/publishAdPage.css">
     <link rel="stylesheet" href="assets/css/showNewAdPage.css">
+    <link rel="stylesheet" href="assets/css/singleAdPage.css">
+
 
 
     <style>
@@ -184,6 +186,7 @@
             </div>
 
             <div id="publishPage">
+
                 <div id="publishPageLogin">
                     <div id="adsHeader">Публикуване на обява в mobile.bg</div>
 
@@ -236,6 +239,7 @@
                                 <div id="offerImages" class="noImagesStyles">
 
                                 </div>
+
 
                             </div>
                             <div id="offerSecondFloor">
@@ -1317,17 +1321,136 @@
                 </div>
             </div>
 
-
-
-            <div id="searchResultsPage">
-                <div id="searchResultsContainer">
-                    <div id="searchResultsMainContent">
-                        <div id="newSearch">
+            <div id="singleAdPage">
+                <div id="mainContentSP">
+                    <div id="searchSP">
+                        <div class="newSearch">
                             <ul>
                                 <li>
                                     <a href="#searchPage">НОВО ТЪРСЕНЕ</a>
                                 </li>
-                                <li> | </li>
+                                <li class="cherta"> | </li>
+                                <li>
+                                    <a href="#searchPage">КОРЕКЦИЯ НА ТЪРСЕНЕТО</a>
+                                </li>
+                                <li class="cherta"> | </li>
+                                <li>
+                                    <a href="#searchPage">РЕЗУЛТАТИ ОТ ТЪРСЕНЕТО</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="newSearch">
+                            <ul>
+                                <li>
+                                    <a href="#searchPage">ПРЕДИШНА</a>
+                                </li>
+                                <li class="cherta"> | </li>
+                                <li>
+                                    <a href="#searchPage">СЛЕДВАЩА</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="singleAdCard">
+                        <div class="titleSP">
+                            <div class="headingAndAnchSP">
+                                <h1 id="headingAndAnchSP">Alfa Romeo 147 1.6 16V</h1>
+                                <a href="#signleAdPage">/Технически характеристики и разход на гориво/</a>
+                            </div>
+                            <div class="priceAndFavSP">
+                                <h1 id="priceAndFavSP">3999 лв.</h1>
+                                <div class="favIconDiv">
+                                    <img src="assets/images/icons/listFav.svg" alt="fav icon">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="imagesSP">
+                            <div class="spImagesDiv">
+                                <div id="mainImageSP" class="mainImageSP">
+                                    <img src="assets/images/cars/car1-1.jpg" alt="">
+                                    <div id="numberText" class="numbertext">0 / 0</div>
+                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                </div>
+                                <div id="spOtherImages" class="spOtherImages">
+                                    <img src="assets/images/cars/car1-3.jpg" alt="">
+                                    <img src="assets/images/cars/car1-1.jpg" alt="">
+                                    <img src="assets/images/cars/car1-2.jpg" alt="">
+                                    <img src="assets/images/cars/car1-3.jpg" alt="">
+                                    <img src="assets/images/cars/car1-1.jpg" alt="">
+                                    <img src="assets/images/cars/car1-2.jpg" alt="">
+                                    <img src="assets/images/cars/car1-3.jpg" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="titleSP">
+                            <div class="headingAndAnchSP">
+                                <h1 id="secondHASP">Alfa Romeo 147 1.6 16V</h1>
+                            </div>
+                            <div class="priceAndFavSP">
+                                <p>Цена: </p>
+                                <h1 id="secondPAFSP" class="secondPriceSP">3999 лв.</h1>
+                            </div>
+                        </div>
+                        <div id="componentsSP" class="componentsSP">
+                            <ul>
+                            </ul>
+                            <ul>
+                            </ul>
+                        </div>
+                        <div id="extrasSP" class="extrasSP">
+                            <div>
+                                <div id="safetySP">
+                                    <h1>Безопасност</h1>
+                                    <ul>
+                                    </ul>
+                                </div>
+                                <div id="othersSP">
+                                    <h1>Други</h1>
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="exteriorSP">
+                                    <h1>Екстериор</h1>
+                                    <ul>
+                                    </ul>
+                                </div>
+                                <div id="interiorSP">
+                                    <h1>Интериор</h1>
+                                    <ul>
+                                    </ul>
+                                </div>
+                                <div id="securitySP">
+                                    <h1>Защита</h1>
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="comfortSP">
+                                    <h1>Комфорт</h1>
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="searchResultsPage">
+
+                <div id="searchResultsContainer">
+                    <div id="searchResultsMainContent">
+                        <div class="newSearch" id="newSearchRP">
+                            <ul>
+                                <li>
+                                    <a href="#searchPage">НОВО ТЪРСЕНЕ</a>
+                                </li>
+                                <li class="cherta"> | </li>
                                 <li>
                                     <a href="#searchPage">КОРЕКЦИЯ НА ТЪРСЕНЕТО</a>
                                 </li>
@@ -2529,6 +2652,7 @@
                             </ul>
                         </div>
                     </div>
+
                     <div id="dealersPage">dealersPage</div>
                     <div id="myAdPage">myAdPage</div>
         </main>
@@ -2602,6 +2726,7 @@
     <script src="assets/js/SearchResultsController.js"></script>
     <script src="assets/js/RouterController.js"></script>
     <script src="assets/js/HomePageController.js"></script>
+    <script src="assets/js/SingleAdController.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 

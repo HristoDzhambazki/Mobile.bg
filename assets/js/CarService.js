@@ -13,6 +13,10 @@ class CarStorage {
         this.list.splice(index, 1);
     }
 
+    getAd(id) {
+        return this.list.find(x => x.id == id);
+    }
+
     filter(obj) {
         this.newList = [...this.list];
         let sortList = false;
@@ -81,10 +85,12 @@ class CarStorage {
     }
 };
 
-let id = 0;
+let count = 0;
 
 class Car {
     constructor() {
+        this.id = ++count;
+
         this.images = [];
 
         this.brand = {

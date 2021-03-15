@@ -6,6 +6,7 @@
     let dealersPage = getById('dealersPage');
     let myAdPage = getById('myAdPage');
     let searchResultsPage = getById('searchResultsPage');
+    let singleAdPage = getById('singleAdPage');
 
     let publishLogin = getById('publishPageLogin');
     let publishFirstStep = getById('publishFirstStep');
@@ -77,6 +78,7 @@
                 dealersPage.style.display = 'none';
                 myAdPage.style.display = 'none';
                 searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
                 break;
             case 'publishPage':
                 mainPage.style.display = 'none';
@@ -86,6 +88,7 @@
                 dealersPage.style.display = 'none';
                 myAdPage.style.display = 'none';
                 searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
                 break;
             case 'searchPage':
                 mainPage.style.display = 'none';
@@ -94,6 +97,7 @@
                 dealersPage.style.display = 'none';
                 myAdPage.style.display = 'none';
                 searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
                 break;
             case 'dealersPage':
                 mainPage.style.display = 'none';
@@ -102,6 +106,7 @@
                 dealersPage.style.display = 'block';
                 myAdPage.style.display = 'none';
                 searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
                 break;
             case 'myAdPage':
                 mainPage.style.display = 'none';
@@ -110,6 +115,7 @@
                 dealersPage.style.display = 'none';
                 myAdPage.style.display = 'block';
                 searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
                 break;
             case 'searchResultsPage':
                 mainPage.style.display = 'none';
@@ -118,6 +124,16 @@
                 dealersPage.style.display = 'none';
                 myAdPage.style.display = 'none';
                 searchResultsPage.style.display = 'block';
+                singleAdPage.style.display = 'none';
+                break;
+            case 'singleAdPage':
+                mainPage.style.display = 'none';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'none';
+                myAdPage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'block';
                 break;
             default:
                 mainPage.style.display = 'block';
@@ -126,6 +142,7 @@
                 dealersPage.style.display = 'none';
                 myAdPage.style.display = 'none';
                 searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
         }
     }
 
