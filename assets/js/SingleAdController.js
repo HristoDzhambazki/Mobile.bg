@@ -17,17 +17,24 @@ let interiorSP = getById('interiorSP');
 let securitySP = getById('securitySP');
 let comfortSP = getById('comfortSP');
 
+let homePageAds = getById('vehicleCardCont');
+
+homePageAds.addEventListener('click', checkTargetAndRender);
 
 //Buttons
 let searchResultsElement = getById('mainResults');
-searchResultsElement.addEventListener('click', (ev) => {
+searchResultsElement.addEventListener('click', checkTargetAndRender);
+
+function checkTargetAndRender(ev) {
     let targetTagName = ev.target.tagName;
     if (targetTagName === 'A' || targetTagName === 'IMG') {
         let id = ev.target.id;
         let ad = carStorage.getAd(id);
         renderSingleAd(ad);
+        location.hash = '#singleAdPage'
     }
-})
+
+}
 
 function renderSingleAd(ad) {
 

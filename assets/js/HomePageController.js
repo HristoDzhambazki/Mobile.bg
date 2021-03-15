@@ -40,11 +40,13 @@
             photo.classList.add('autoPhoto');
             photo.src = `assets/images/cars/car${i + 1}-1.jpg`;
             photo.alt = `car${i}`;
-            photoLink.href = "#";
+            photo.setAttribute('id', vehicles[i].id)
+            photoLink.href = "#singleAdPage";
+            photoLink.setAttribute('id', vehicles[i].id)
             photoLink.classList.add('autoPhotoLink');
 
             vehHeader.innerHTML = `${vehicles[i].brand.value + ' ' + vehicles[i].model.value}`;
-            vehPrice.innerHTML = `${vehicles[i].price.value} ${vehicles[i].currency}`;
+            vehPrice.innerHTML = `${vehicles[i].price.value} ${vehicles[i].currency.value}`;
             vehKm.innerHTML = `${vehicles[i].mileage.value} км`;
             vehCity.innerHTML = `${vehicles[i].region.value}`;
             adTime.innerHTML = new Date().toDateString();
