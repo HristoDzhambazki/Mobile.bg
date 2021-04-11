@@ -11,7 +11,7 @@
             let photoLink = createEl('a');
             let photo = createEl('img');
             let info = createEl('div');
-            let vehHeader = createEl('header');
+            let vehHeader = createEl('h1');
             let vehInfoHolder = createEl('div');
             let vehPrice = createEl('p');
             let vehKm = createEl('p');

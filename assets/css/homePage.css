@@ -1,0 +1,73 @@
+#mainSearchTitle {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#mainSearchBox {
+    width: 655px;
+    border: 1px solid #0099ff;
+    border-top: 3px solid #0099ff;
+    padding: 7px;
+}
+
+#leftRightSideOfSearchBox {
+    display: flex;
+}
+
+#leftSideSearchBox {
+    width: 50%;
+    margin-right: 25px;
+}
+
+#rightSideSearchBox {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* */
+
+.searchBoxBrandAndModel {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.searchBoxBrandAndModel div:first-child {
+    margin-right: 15px;
+}
+
+.searchBandM {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBandM p {
+    margin-bottom: 10px;
+}
+
+.searchBandM select:nth-child(3) {
+    margin: 19px 0;
+}
+
+.selectCommonWidth {
+    width: 150px;
+}
+
+.searchBoxSorting {
+    width: 315px;
+}
+
+#searchBoxBtnDiv {
+    width: 315px;
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.searchBoxButton {
+    width: 100%;
+    height: 70%;
+    font-weight: bold;
+}
+
