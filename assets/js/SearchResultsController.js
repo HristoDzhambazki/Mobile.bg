@@ -5,9 +5,6 @@ let resultsObj = '';
 let resultSearchObj = '';
 
 //DOM Selectors
-let newSearchElement = getById('newSearchRP');
-let newSearchAnchor = newSearchElement.getElementsByTagName('li')[0];
-let editSearchhAnchor = newSearchElement.getElementsByTagName('li')[1];
 let resultInfoHeadingElement = getById('resultsInfoHeading').children[0];
 let resultsCategory = getById('searchResultsCategory');
 let resultsOrderedBy = getById('searchResultsOrderedBy');
@@ -19,13 +16,11 @@ let pagesCountElement = getById('searchResultPagesCount').children[0];
 
 //Buttons
 let searchBtn = getById('searchButton');
-let searchBoxBtn = document.querySelector('#searchBoxBtnDiv button')
+let searchBoxBtn = document.querySelector('#searchBoxBtnDiv button');
 
 //Events
 searchBtn.addEventListener('click', () => loadResults(searchObj));
 searchBoxBtn.addEventListener('click', () => loadResults(searchBoxObj));
-
-newSearchAnchor.addEventListener('click', resetSearchMenu);
 
 // Functions
 function loadResults(searchObj) {
@@ -386,6 +381,3 @@ function renderResultsMainInfo() {
 
 }
 
-function resetSearchMenu() {
-    console.log('reseting...');
-}

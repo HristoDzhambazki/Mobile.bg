@@ -8,7 +8,14 @@ let searchBoxObj = (function () {
     let selectElements = mainSearchBox.getElementsByTagName('select');
     let inputElements = mainSearchBox.querySelectorAll('input[type=text]');
 
+    let newSearchElement = getById('newSearchRP');
+    let newSearchAnchor = newSearchElement.getElementsByTagName('li')[0];
+
     //Events
+
+    //Anchor from search results page
+    newSearchAnchor.addEventListener('click', resetSearchMenu);
+
 
     //Get value from Input Elements
     inputElements.forEach(el => el.addEventListener('change', getSelectValue));
@@ -30,6 +37,26 @@ let searchBoxObj = (function () {
             obj[name] = value;
         }
     }
+
+
+    function resetSearchMenu() {
+
+        //reset select elements
+        selectElementsArray.forEach(el => {
+
+            if (el.name === 'model') {
+                el.innerHTML = '<option selected value="0">Избери</option>';
+            }
+
+            el.value = '0'
+        })
+
+        //reset input elements 
+        inputElements.forEach(el => {
+            el.value = '';
+        })
+    }
+
 })();
 
 

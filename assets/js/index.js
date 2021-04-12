@@ -19,7 +19,7 @@
     searchBoxSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, searchBoxSelectModel));
 
     function showCurrentBrandModels(event, container) {
-        container.innerHTML = '<option value="">Избери</option>';
+        container.innerHTML = '<option selected value="0">Избери</option>';
         let brand = event.target.value || event.detail;
 
         if (brand !== '') {

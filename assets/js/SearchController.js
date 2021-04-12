@@ -19,7 +19,9 @@ let searchObj = (function () {
     let searchCheckboxOptions = getById('searchCheckboxOptions')
     let selectElements = searchMenu.getElementsByTagName('select');
     let inputElements = searchMenu.querySelectorAll('input[type=text]');
-    let checkboxElements = searchCheckboxOptions.querySelectorAll('input[type=checkbox]')
+    let checkboxElements = searchCheckboxOptions.querySelectorAll('input[type=checkbox]');
+    let newSearchElement = getById('newSearchRP');
+    let newSearchAnchor = newSearchElement.getElementsByTagName('li')[0];
 
     //Buttons
     //Button from Home Page
@@ -33,6 +35,10 @@ let searchObj = (function () {
 
         setElementsValue();
     })
+
+    //Anchor from search results page
+    newSearchAnchor.addEventListener('click', resetSearchMenu);
+
 
     //Get Value from Checkbox Elements
     let checkElementsArray = Array.from(checkboxElements);
@@ -98,6 +104,33 @@ let searchObj = (function () {
             })
         }
     }
+
+    function resetSearchMenu() {
+
+        //reset select elements
+        selectElementsArray.forEach(el => {
+
+            if (el.name !== 'currency') {
+
+                if (el.name === 'model') {
+                    el.innerHTML = '<option selected value="0">Избери</option>';
+                }
+
+                el.value = '0'
+            }
+        })
+
+        //reset input elements 
+        inputElements.forEach(el => {
+            el.value = '';
+        })
+
+        //reset checkbox elements
+        checkElementsArray.forEach(el => {
+            el.checked = false;
+        })
+    }
+
 })()
 
 
