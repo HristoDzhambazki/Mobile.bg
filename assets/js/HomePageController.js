@@ -1,3 +1,41 @@
+let searchBoxObj = (function () {
+    let obj = {
+
+    };
+
+    //DOM Selectors
+    let mainSearchBox = getById('mainSearchBox');
+    let selectElements = mainSearchBox.getElementsByTagName('select');
+    let inputElements = mainSearchBox.querySelectorAll('input[type=text]');
+
+    //Events
+
+    //Get value from Input Elements
+    inputElements.forEach(el => el.addEventListener('change', getSelectValue));
+
+    //Get value from Select Elements
+    let selectElementsArray = Array.from(selectElements).splice(1);
+    selectElementsArray.forEach(el => el.addEventListener('change', getSelectValue));
+
+
+    return obj;
+
+    function getSelectValue(ev) {
+        let name = ev.target.name;
+        let value = ev.target.value;
+
+        if (name in obj && value === '') {
+            delete obj[name];
+        } else {
+            obj[name] = value;
+        }
+    }
+})();
+
+
+
+
+
 (function () {
     let vehicleCardCont = getById('vehicleCardCont');
     let adManager = carStorage;

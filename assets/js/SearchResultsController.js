@@ -1,5 +1,8 @@
 //Using search object from SearchController.js
+//Using search BOX object from HomePageController.js
+
 let resultsObj = '';
+let resultSearchObj = '';
 
 //DOM Selectors
 let newSearchElement = getById('newSearchRP');
@@ -16,21 +19,25 @@ let pagesCountElement = getById('searchResultPagesCount').children[0];
 
 //Buttons
 let searchBtn = getById('searchButton');
+let searchBoxBtn = document.querySelector('#searchBoxBtnDiv button')
 
 //Events
-searchBtn.addEventListener('click', () => {
-    location.hash = '#searchResultsPage';
-    resultsObj = carStorage.filter(searchObj);
-    mainResultsElement.innerHTML = '';
-    resultsObj = carStorage.filter(searchObj);
-
-    renderResultsMainInfo();
-    renderPagination();
-})
+searchBtn.addEventListener('click', () => loadResults(searchObj));
+searchBoxBtn.addEventListener('click', () => loadResults(searchBoxObj));
 
 newSearchAnchor.addEventListener('click', resetSearchMenu);
 
 // Functions
+function loadResults(searchObj) {
+    resultSearchObj = { ...searchObj };
+    location.hash = '#searchResultsPage';
+    resultsObj = carStorage.filter(searchObj);
+    mainResultsElement.innerHTML = '';
+
+    renderResultsMainInfo();
+    renderPagination();
+}
+
 let recordsPerPage = 4;
 function renderPagination() {
     let currentPage = 1;
@@ -235,13 +242,13 @@ function createElement(type, className) {
 
 function renderResultsMainInfo() {
     let brand = '';
-    if (searchObj.brand) {
-        brand = searchObj.brand;
+    if (resultSearchObj.brand) {
+        brand = resultSearchObj.brand;
     }
 
     let model = '';
-    if (searchObj.model) {
-        model = searchObj.model;
+    if (resultSearchObj.model) {
+        model = resultSearchObj.model;
     }
 
     renderResultInfoHeading();
@@ -252,7 +259,7 @@ function renderResultsMainInfo() {
     function renderResultFeatures() {
         let ad = new Car();
 
-        for (const key in searchObj) {
+        for (const key in resultSearchObj) {
 
             if (key === 'brand' || key === 'model' || key === 'currency') {
                 continue;
@@ -270,17 +277,17 @@ function renderResultsMainInfo() {
                     paragraph.id = 'resultYearInfo';
 
                     if (key === 'productionYearFrom') {
-                        paragraph.innerText = 'от ' + searchObj[key];
+                        paragraph.innerText = 'от ' + resultSearchObj[key];
                     } else if (key === 'productionYearTo') {
-                        paragraph.innerText = 'до ' + searchObj[key];
+                        paragraph.innerText = 'до ' + resultSearchObj[key];
                     }
                 } else {
-                    yearInfo.innerText = `от ${searchObj.productionYearFrom} до ${searchObj.productionYearTo}`
+                    yearInfo.innerText = `от ${resultSearchObj.productionYearFrom} до ${resultSearchObj.productionYearTo}`
                     continue;
                 }
             } else if (key === 'mileage') {
                 heading.innerText = 'Макс. пробег в км.:';
-                paragraph.innerText = 'до ' + searchObj[key];
+                paragraph.innerText = 'до ' + resultSearchObj[key];
             } else if (key === 'powerFrom' || key === 'powerTo') {
                 let powerInfo = getById('resultPowerInfo')
                 if (!powerInfo) {
@@ -288,12 +295,12 @@ function renderResultsMainInfo() {
                     paragraph.id = 'resultPowerInfo';
 
                     if (key === 'powerFrom') {
-                        paragraph.innerText = 'от ' + searchObj[key];
+                        paragraph.innerText = 'от ' + resultSearchObj[key];
                     } else if (key === 'powerTo') {
-                        paragraph.innerText = 'до ' + searchObj[key];
+                        paragraph.innerText = 'до ' + resultSearchObj[key];
                     }
                 } else {
-                    powerInfo.innerText = `от ${searchObj.powerFrom} до ${searchObj.powerTo}`
+                    powerInfo.innerText = `от ${resultSearchObj.powerFrom} до ${resultSearchObj.powerTo}`
                     continue;
                 }
             } else if (key === 'priceFrom' || key === 'priceTo') {

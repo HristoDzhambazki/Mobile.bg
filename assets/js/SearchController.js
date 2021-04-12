@@ -21,7 +21,18 @@ let searchObj = (function () {
     let inputElements = searchMenu.querySelectorAll('input[type=text]');
     let checkboxElements = searchCheckboxOptions.querySelectorAll('input[type=checkbox]')
 
+    //Buttons
+    //Button from Home Page
+    let detailedSearchBtn = getById('detailedSearchBtn')
+
     //Events
+
+    //Get Selections from Home page search box
+    detailedSearchBtn.addEventListener('click', () => {
+        obj = { ...obj, ...searchBoxObj }
+
+        setElementsValue();
+    })
 
     //Get Value from Checkbox Elements
     let checkElementsArray = Array.from(checkboxElements);
@@ -52,12 +63,39 @@ let searchObj = (function () {
 
     function getSelectValue(ev) {
         let name = ev.target.name;
-        let value = ev.target.value;
+        let value = ev.target.value || ev.detail;
 
         if (name in obj && value === '') {
             delete obj[name];
         } else {
             obj[name] = value;
+        }
+    }
+
+    function setElementsValue() {
+        for (const key in searchBoxObj) {
+            let value = searchBoxObj[key];
+
+            if (key === 'price') {
+                let priceToElement = getById('priceTo');
+
+                priceToElement.value = value;
+            } else if (key === 'brand') {
+                let event = new CustomEvent('change', { detail: value })
+
+                let searchSelectBrand = document.getElementById('searchSelectBrand');
+
+                searchSelectBrand.dispatchEvent(event);
+            }
+
+            selectElementsArray.forEach(el => {
+
+                if (key === 'productionYear' && el.name === 'productionYearFrom') {
+                    el.value = value;
+                } else if (el.name === key) {
+                    el.value = value;
+                }
+            })
         }
     }
 })()

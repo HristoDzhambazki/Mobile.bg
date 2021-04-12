@@ -9,15 +9,18 @@
     let publishSelectModel = getById('publishSelectModel');
     let searchSelectBrand = getById('searchSelectBrand');
     let searchSelectModel = getById('searchSelectModel');
+    let searchBoxSelectBrand = getById('searchBoxSelectBrand');
+    let searchBoxSelectModel = getById('searchBoxSelectModel');
 
 
     //Events
     publishSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, publishSelectModel));
     searchSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, searchSelectModel));
+    searchBoxSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, searchBoxSelectModel));
 
     function showCurrentBrandModels(event, container) {
         container.innerHTML = '<option value="">Избери</option>';
-        let brand = event.target.value;
+        let brand = event.target.value || event.detail;
 
         if (brand !== '') {
             carModels[brand].forEach(model => {

@@ -14,7 +14,6 @@ let newAd = (function () {
 
     publishAdBtnElement.addEventListener('click', () => {
         carStorage.addCar(ad);
-        console.log(carStorage);
     })
 
     //Get uploaded image 
