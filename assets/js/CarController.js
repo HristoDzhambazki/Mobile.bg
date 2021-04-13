@@ -14,6 +14,7 @@ let newAd = (function () {
 
     publishAdBtnElement.addEventListener('click', () => {
         carStorage.addCar(ad);
+        console.log(carStorage);
     })
 
     //Get uploaded image 
@@ -34,9 +35,23 @@ let newAd = (function () {
     //Functions for events
     function uploadImages(ev) {
         let files = Array.from(ev.target.files);
-        ad.images = files;
+        ad.images = [];
 
-        readAndPreviewImage(files, showUploadedImagesElement);
+        // Read, Preview Images on first publish page and push image sources to image property of ad object
+        files.forEach(file => {
+            let imgElement = document.createElement('img');
+            imgElement.alt = 'ad image';
+
+            const reader = new FileReader();
+            reader.addEventListener('load', (event) => {
+                ad.images.push(event.target.result)
+
+                imgElement.src = event.target.result;
+                showUploadedImagesElement.append(imgElement);
+            });
+
+            reader.readAsDataURL(file);
+        })
     }
 
     function getCheckboxValue(ev) {

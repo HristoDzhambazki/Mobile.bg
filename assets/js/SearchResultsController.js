@@ -134,7 +134,11 @@ function renderAd(ad) {
     anchorImg.href = '#singleAdPage';
     let cardMainImg = createElement('img', 'cardMainImg');
     cardMainImg.id = ad.id;
-    cardMainImg.src = 'assets/images/cars/' + ad.images.value[0];
+    if (ad.images[0] && ad.images[0].length > 11) {
+        cardMainImg.src = ad.images[0]
+    } else {
+        cardMainImg.src = 'assets/images/cars/' + ad.images[0];
+    }
 
     anchorImg.append(cardMainImg);
     cardImageDiv.append(anchorImg);
@@ -199,7 +203,7 @@ function renderAd(ad) {
     let anchMoreDetails = createElement('a');
     anchMoreDetails.href = '#singleAdPage'
     anchMoreDetails.id = ad.id;
-    anchMoreDetails.innerText = `Повече детайли и ${ad.images.value.length} снимки`;
+    anchMoreDetails.innerText = `Повече детайли и ${ad.images.length} снимки`;
     let spanMoreDetails = createElement('span');
     spanMoreDetails.innerText = '|';
     let anchAddInNotebook = createElement('a');

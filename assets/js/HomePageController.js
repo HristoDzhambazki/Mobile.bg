@@ -59,10 +59,6 @@ let searchBoxObj = (function () {
 
 })();
 
-
-
-
-
 (function () {
     let vehicleCardCont = getById('vehicleCardCont');
     let adManager = carStorage;

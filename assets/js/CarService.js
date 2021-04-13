@@ -1,11 +1,25 @@
+let adsCount = 0;
+
 class CarStorage {
     constructor() {
         this.list = [];
         this.newList = [...this.list]
+
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        if (localAds && localAds.length > 0) {
+            this.list = [...localAds]
+            adsCount = localAds.length - 1;
+        } else {
+            localStorage.setItem('ADS_DATA', JSON.stringify([]));
+        }
     }
 
     addCar(car) {
         this.list.push(car);
+
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        localAds.push(car)
+        localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
     }
 
     removeCar(id) {
@@ -90,11 +104,11 @@ class CarStorage {
     }
 };
 
-let count = 0;
+
 
 class Car {
     constructor() {
-        this.id = ++count;
+        this.id = ++adsCount;
 
         this.images = [];
 
@@ -156,6 +170,7 @@ class Car {
 
         this.currency = {
             category: 'Валута',
+            value: 'лв.'
         };
 
         this.expiryDays = {
@@ -198,20 +213,27 @@ class Car {
 let carStorage = new CarStorage();
 
 //GET local data and add it to Car Storage
-arrayData.forEach(obj => {
-    let car = new Car();
+let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+if (localAds.length === 0) {
+    arrayData.forEach(obj => {
+        let car = new Car();
 
-    for (const key in obj) {
-        if (key === 'extras') {
-            for (const extrasKey in obj.extras) {
-                car.extras[extrasKey].content = obj.extras[extrasKey];
+        for (const key in obj) {
+            if (key === 'extras') {
+                for (const extrasKey in obj.extras) {
+                    car.extras[extrasKey].content = obj.extras[extrasKey];
+                }
+            } else if (key === 'year') {
+                car.productionYear.value = obj[key];
+            } else if (key === 'images') {
+                car.images = [...obj.images]
+            } else {
+                car[key].value = obj[key];
             }
-        } else if (key === 'year') {
-            car.productionYear.value = obj[key];
-        } else {
-            car[key].value = obj[key];
         }
-    }
 
-    carStorage.addCar(car)
-})
+        carStorage.addCar(car)
+    })
+}
+
+

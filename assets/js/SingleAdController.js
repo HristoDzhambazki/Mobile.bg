@@ -62,16 +62,27 @@ function renderSingleAd(ad) {
         secondPrice.innerText = `${ad.price.value} ${ad.currency.value}`;
     }
 
-    if (ad.images.value) {
-        numberText.innerText = '1 / ' + ad.images.value.length;
-        mainImgElement.src = 'assets/images/cars/' + ad.images.value[0];
-        mainImgElement.alt = ad.images.value[0];
+    if (ad.images) {
+        numberText.innerText = '1 / ' + ad.images.length;
+        if (ad.images[0] && ad.images[0].length > 11) {
+            mainImgElement.src = ad.images[0]
+        } else {
+            mainImgElement.src = 'assets/images/cars/' + ad.images[0];
+        }
+
+        mainImgElement.alt = ad.brand.value + ' ' + ad.model.value;
 
         otherImagesElement.innerHTML = '';
-        ad.images.value.forEach(x => {
+        ad.images.forEach(imgName => {
             let img = createElement('img');
-            img.src = 'assets/images/cars/' + x;
-            img.alt = x;
+            console.log(imgName);
+            if (imgName.length > 11) {
+                img.src = imgName;
+            } else {
+                img.src = 'assets/images/cars/' + imgName;
+            }
+
+            img.alt = ad.brand.value + ' ' + ad.model.value;;
 
             otherImagesElement.append(img);
         })
