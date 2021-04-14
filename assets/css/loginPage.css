@@ -44,16 +44,16 @@
 }
 
 #loginAndRegFormsContainer {
-    height: 200px;
+    height: 230px;
     padding: 10px 75px;
     border: 2px solid #d5d5d5;
     border-top: none;
 }
 
-.loginFormsStyles p {
+.loginFormsStyles > p {
     font-weight: 600;
     font-size: 13px;
-    margin-top: 25px;
+    margin-top: 16px;
 }
 
 .loginFormsStyles form {
@@ -92,6 +92,6 @@
 }
 
 #loginWarningMessage,
-#regWarningMessage {
+#registerWarningMessage {
     display: none;
 }

@@ -1,6 +1,6 @@
 (function () {
     //DOM Selectors
-    let mainPage = getById('mainPage');
+    let homePage = getById('homePage');
     let publishPage = getById('publishPage');
     let searchPage = getById('searchPage');
     let dealersPage = getById('dealersPage');
@@ -70,10 +70,11 @@
 
     function showPage() {
         let page = location.hash.slice(1);
+        console.log(page);
 
         switch (page) {
-            case 'mainPage':
-                mainPage.style.display = 'block';
+            case 'homePage':
+                homePage.style.display = 'block';
                 publishPage.style.display = 'none';
                 searchPage.style.display = 'none';
                 dealersPage.style.display = 'none';
@@ -83,7 +84,7 @@
                 loginPage.style.display = 'none';
                 break;
             case 'publishPage':
-                mainPage.style.display = 'none';
+                homePage.style.display = 'none';
                 publishPage.style.display = 'block';
                 showAccuratePublishPage('firstStep');
                 searchPage.style.display = 'none';
@@ -94,7 +95,7 @@
                 loginPage.style.display = 'none';
                 break;
             case 'searchPage':
-                mainPage.style.display = 'none';
+                homePage.style.display = 'none';
                 publishPage.style.display = 'none';
                 searchPage.style.display = 'block';
                 dealersPage.style.display = 'none';
@@ -104,7 +105,7 @@
                 loginPage.style.display = 'none';
                 break;
             case 'dealersPage':
-                mainPage.style.display = 'none';
+                homePage.style.display = 'none';
                 publishPage.style.display = 'none';
                 searchPage.style.display = 'none';
                 dealersPage.style.display = 'block';
@@ -114,17 +115,22 @@
                 loginPage.style.display = 'none';
                 break;
             case 'profilePage':
-                mainPage.style.display = 'none';
+                homePage.style.display = 'none';
                 publishPage.style.display = 'none';
                 searchPage.style.display = 'none';
                 dealersPage.style.display = 'none';
-                profilePage.style.display = 'block';
                 searchResultsPage.style.display = 'none';
                 singleAdPage.style.display = 'none';
-                loginPage.style.display = 'none';
+
+                if (userStorage.getCurrentUser()) {
+                    profilePage.style.display = 'block';
+                    loginPage.style.display = 'none';
+                } else {
+                    location.hash = '#loginPage';
+                }
                 break;
             case 'searchResultsPage':
-                mainPage.style.display = 'none';
+                homePage.style.display = 'none';
                 publishPage.style.display = 'none';
                 searchPage.style.display = 'none';
                 dealersPage.style.display = 'none';
@@ -134,7 +140,7 @@
                 loginPage.style.display = 'none';
                 break;
             case 'singleAdPage':
-                mainPage.style.display = 'none';
+                homePage.style.display = 'none';
                 publishPage.style.display = 'none';
                 searchPage.style.display = 'none';
                 dealersPage.style.display = 'none';
@@ -144,7 +150,7 @@
                 loginPage.style.display = 'none';
                 break;
             case 'loginPage':
-                mainPage.style.display = 'none';
+                homePage.style.display = 'none';
                 publishPage.style.display = 'none';
                 searchPage.style.display = 'none';
                 dealersPage.style.display = 'none';
@@ -154,13 +160,14 @@
                 loginPage.style.display = 'block';
                 break;
             default:
-                mainPage.style.display = 'block';
+                homePage.style.display = 'block';
                 publishPage.style.display = 'none';
                 searchPage.style.display = 'none';
                 dealersPage.style.display = 'none';
                 profilePage.style.display = 'none';
                 searchResultsPage.style.display = 'none';
                 singleAdPage.style.display = 'none';
+                loginPage.style.display = 'none';
         }
     }
 

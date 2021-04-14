@@ -15,31 +15,36 @@
     <link rel="stylesheet" href="assets/css/singleAdPage.css">
     <link rel="stylesheet" href="assets/css/myAdPage.css">
     <link rel="stylesheet" href="assets/css/loginPage.css">
+    <link rel="stylesheet" href="assets/css/profilePage.css">
 
 </head>
 
 <body>
     <div id="mainHolder">
         <header id="mainHeader">
-            <div id="mainIconWrapper" class="topWrapper">
-                <div id="leftMainWrapper" class="topWrapper">
+            <div id="mainIconWrapper" class="ds-flex-jc-center">
+                <div id="leftMainWrapper" class="ds-flex-jc-center">
                     <div id="mainIcon"><a href="#mainPage"><img src="assets/images/icons/logo.svg" alt="mobile.bg"></a>
                     </div>
 
-                    <div class="topWrapper" id="loginWrapper">
-                        <div id="loginHeaderBtn"><a href="#loginPage">Вход</a></div>
-                        <div id="line"></div>
-                        <div id="registerHeaderBtn"><a href="#loginPage">Нова Регистрация</a></div>
-                        <p id="welcomeText"></p>
-                        <p href="#mainPage" id="loggedInExit">
-                            [<span id="loggedInExitText">изход</span>]
-                        </p>
+                    <div class="ds-flex-jc-center" id="loginWrapper">
+                        <div id="logRegHeaderContainer">
+                            <div id="loginHeaderBtn"><a href="#loginPage">Вход</a></div>
+                            <div id="line"></div>
+                            <div id="registerHeaderBtn"><a href="#loginPage">Нова Регистрация</a></div>
+                        </div>
+                        <div id="welcomeUserContainer">
+                            <p id="welcomeText"></p>
+                            <a href="#mainPage" id="logOut">
+                                <span>[</span>изход<span>]</span>
+                            </a>
+                        </div>
                     </div>
 
 
                 </div>
 
-                <div id="rightMainWrapper" class="topWrapper">
+                <div id="rightMainWrapper" class="ds-flex-jc-center">
                     <a href="#profilePage" class="rightMainBox" id="leftBox">Редакция на обява</a>
                     <a href="#publishPage" class="rightMainBox" id="rightBox"><span id="plus">+</span> <span> ДОБАВИ
                             ОБЯВА</span></a>
@@ -48,12 +53,12 @@
 
             <nav id="mainNavigation">
                 <div id="topNavigation">
-                    <a href="#mainPage">Начало</a>
+                    <a href="#homePage">Начало</a>
                     <a href="#publishPage">Публикуване</a>
                     <a href="#searchPage">Търсене</a>
                     <a href="https://fakti.bg/dnes" target="_blank">Новини</a>
                     <a href="https://toprentacar.bg/" target="_blank">Rent-a-car</a>
-                    <a href="#loginPage">Дилъри</a>
+                    <a href="#">Дилъри</a>
                 </div>
 
                 <a href="#profilePage">Моите обяви</a>
@@ -61,7 +66,7 @@
         </header>
 
         <main>
-            <div id="mainPage">
+            <div id="homePage">
                 <nav id="mainSearchNav">
                     <a href="#mainPage/Автомобили и Джипове" class="normalDrive"><img
                             src="assets/images/icons/Автомобили и Джипове.gif" alt="Автомобили и Джипове"
@@ -1811,7 +1816,6 @@
             </div>
 
             <div id="searchResultsPage">
-
                 <div id="searchResultsContainer">
                     <div id="searchResultsMainContent">
                         <div class="newSearch" id="newSearchRP">
@@ -3060,20 +3064,21 @@
                             <div id="loginContainer" class="loginFormsStyles">
                                 <p>Вход:</p>
                                 <form id="loginForm">
-                                    <input type="email" name="" id="" placeholder="E-mail">
-                                    <input type="password" name="" id="" placeholder="Парола">
-                                    <p id="loginWarningMessage" class="loginFormsWarningMessage">Невалидно поле Email
+                                    <input type="email" name="" id="loginEmailInput" placeholder="E-mail">
+                                    <input type="password" name="" id="loginPasswordInput" placeholder="Парола">
+                                    <p id="loginWarningMessage" class="loginFormsWarningMessage">Невалиден Email
                                         или Парола</p>
-                                    <button class="loginFormsBtn" id="registerBtn">Вход</button>
+                                    <button class="loginFormsBtn" id="loginBtn">Вход</button>
                                 </form>
                             </div>
                             <div id="registraionContainer" class="loginFormsStyles">
                                 <p>Регистрация с Email и парола:</p>
                                 <form id="registrationForm">
-                                    <input type="email" name="" id="" placeholder="E-mail">
-                                    <input type="password" name="" id="" placeholder="Парола">
-                                    <input type="password" name="" id="" placeholder="Повтори паролата">
-                                    <p id="regWarningMessage" class="loginFormsWarningMessage"></p>
+                                    <input type="email" name="" id="registerEmailInput" placeholder="E-mail">
+                                    <input type="password" name="" id="registerPasswordInput" placeholder="Парола">
+                                    <input type="password" name="" id="registerRepeatedPassword"
+                                        placeholder="Повтори паролата">
+                                    <p id="registerWarningMessage" class="loginFormsWarningMessage"></p>
                                     <button class="loginFormsBtn" id="registerBtn">Регистрация с Email</button>
                                 </form>
                             </div>
@@ -3082,27 +3087,7 @@
                 </div>
             </div>
             <div id="profilePage">
-                <form id="adPageLoginForm">
-                    <p class="myAdPageText">Вход:</p>
-                    <input class="myAdPageInput" type="email" name="loginInput" id="loginInput" placeholder="име">
-                    <input class="myAdPageInput" type="password" name="loginPass" id="loginPass" placeholder="парола">
-                    <div id="adPageLoginCont"></div>
-                    <p id="myAdPageLoginBtn" class="myAdPageButton">Вход</p>
-                </form>
-
-                <form id="adPageRegForm">
-                    <p class="myAdPageText">Регистрация с Email и парола:</p>
-                    <input class="myAdPageInput" type="email" name="regInput" id="regInput" placeholder="email">
-                    <div id="wrongEmailText"></div>
-                    <input class="myAdPageInput" type="password" name="regPass" id="regPass" placeholder="парола">
-                    <p id="wrongPassMessage">Паролата трябва да съдържа поне 8 символа</p>
-                    <input class="myAdPageInput" type="password" name="regRepeatPass" id="regRepeatPass"
-                        placeholder="повтори паролата">
-                    <div id="adPageRegCont"></div>
-                    <p id="myAdPageRegBtn" class="myAdPageButton">Регистрация с Email</p>
-                </form>
-
-                <div id="loggedInAdPage">
+                <div id="noAdsContainer">
                     <p>Списък и управление на публикуваните от Вас обяви:</p>
                     <button id="adPageAdButton"><span id="nextPlus">+</span> ДОБАВИ ОБЯВА</button>
                 </div>
@@ -3173,7 +3158,7 @@
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/userService.js"></script>
     <script src="assets/js/userController.js"></script>
-    <script src="assets/js//LoginPageController.js"></script>
+    <script src="assets/js//LoginController.js"></script>
     <script src="assets/js/CarService.js"></script>
     <script src="assets/js/CarController.js"></script>
     <script src="assets/js/HomePageController.js"></script>

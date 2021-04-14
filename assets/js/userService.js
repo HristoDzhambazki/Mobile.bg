@@ -1,8 +1,17 @@
+let userId = 2;
+
+let localUsers = JSON.parse(localStorage.getItem('users'));
+if (localUsers) {
+    userId = localUsers.length;
+}
+
 let userStorage = (function () {
     class User {
         constructor(username, password) {
+            this.id = ++userId;
             this.username = username;
             this.password = password;
+            this.uploads = [];
             this.isLoggedin = false;
         }
     }
@@ -12,8 +21,10 @@ let userStorage = (function () {
             if (localStorage.getItem('users')) {
                 this.users = JSON.parse(localStorage.getItem('users'));
             } else {
-                this.users = [{ username: "test1@", password: "1", isLoggedin: false, uploads: [] },
-                { username: "test2@", password: "2", isLoggedin: false, uploads: [] }];
+                this.users = [
+                    { id: 1, username: "test1@", password: "1", isLoggedin: false, uploads: [] },
+                    { id: 2, username: "test2@", password: "2", isLoggedin: false, uploads: [] }
+                ];
                 localStorage.setItem('users', JSON.stringify(this.users));
             }
         }
@@ -29,17 +40,29 @@ let userStorage = (function () {
             let currentUser = this.users.find(user => user.username === username
                 && user.password === password);
 
+            if (currentUser) {
+                this.users.forEach(user => {
+                    if (user.id === currentUser.id) {
+                        user.isLoggedin = true;
+                    } else {
+                        user.isLoggedin = false;
+                    }
+                });
+            }
+
+            localStorage.setItem('users', JSON.stringify(this.users));
+
+            return !!currentUser;
+        }
+
+        logOutUser() {
             this.users.forEach(user => {
-                if (user.username === username && user.password === password) {
-                    user.isLoggedin = true;
-                } else {
+                if (user.isLoggedin) {
                     user.isLoggedin = false;
                 }
             });
 
             localStorage.setItem('users', JSON.stringify(this.users));
-
-            return !!currentUser;
         }
 
         getCurrentUser() {
@@ -54,6 +77,10 @@ let userStorage = (function () {
             })
 
             localStorage.setItem('users', JSON.stringify(this.users));
+        }
+
+        checkUsername(email) {
+            return this.users.find(user => user.username === email);
         }
     }
 
