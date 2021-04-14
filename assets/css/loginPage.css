@@ -1,0 +1,63 @@
+#loginPage {
+    width: 100%;
+    height: 300px;
+    border: 2px solid red;
+}
+
+#loginPageContainer {
+    height: 100%;
+    border: 2px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginFormsAndBtnsContainer {
+    width: 50%;
+}
+
+#displayBtnsContainer{
+    display: flex;
+}
+
+.displayBtns {
+    all: unset;
+    padding: 15px 45px;
+    background-color: inherit;
+    border-bottom: 2px solid #d5d5d5;
+    font-weight: 600;
+    cursor: pointer;
+    color: #0099ff;
+}
+
+#displayRegFormBtn {
+    margin-left: -2px;
+}
+
+#displayBtnsEmptySpace {
+    width: 100%;
+    border-bottom: 2px solid #d5d5d5;
+}
+
+#loginFormsContainer {
+    border: 2px solid #d5d5d5;
+    border-top: none;
+}
+
+.selectedBtn {
+    border: 2px solid #d5d5d5;
+    border-bottom: none;
+    color: black;
+}
+
+
+
+
+#loginForm, 
+#registraionForm{
+    height: 150px;
+}
+
+#registraionForm {
+    display: none;
+}

@@ -8,7 +8,7 @@ class CarStorage {
         let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
         if (localAds && localAds.length > 0) {
             this.list = [...localAds]
-            adsCount = localAds.length - 1;
+            adsCount = localAds.length;
         } else {
             localStorage.setItem('ADS_DATA', JSON.stringify([]));
         }

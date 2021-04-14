@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/showNewAdPage.css">
     <link rel="stylesheet" href="assets/css/singleAdPage.css">
     <link rel="stylesheet" href="assets/css/myAdPage.css">
+    <link rel="stylesheet" href="assets/css/loginPage.css">
 
 </head>
 
@@ -26,9 +27,9 @@
                     </div>
 
                     <div class="topWrapper" id="loginWrapper">
-                        <div id="logIn"><a href="#myAdPage">Вход</a></div>
+                        <div id="logIn"><a href="#profilePage">Вход</a></div>
                         <div id="line"></div>
-                        <div id="register"><a href="#myAdPage">Нова Регистрация</a></div>
+                        <div id="register"><a href="#profilePage">Нова Регистрация</a></div>
                         <p id="welcomeText"></p>
                         <p href="#mainPage" id="loggedInExit">
                             [<span id="loggedInExitText">изход</span>]
@@ -39,7 +40,7 @@
                 </div>
 
                 <div id="rightMainWrapper" class="topWrapper">
-                    <a href="#myAdPage" class="rightMainBox" id="leftBox">Редакция на обява</a>
+                    <a href="#profilePage" class="rightMainBox" id="leftBox">Редакция на обява</a>
                     <a href="#publishPage" class="rightMainBox" id="rightBox"><span id="plus">+</span> <span> ДОБАВИ
                             ОБЯВА</span></a>
                 </div>
@@ -52,10 +53,10 @@
                     <a href="#searchPage">Търсене</a>
                     <a href="https://fakti.bg/dnes" target="_blank">Новини</a>
                     <a href="https://toprentacar.bg/" target="_blank">Rent-a-car</a>
-                    <a href="#dealersPage">Дилъри</a>
+                    <a href="#loginPage">Дилъри</a>
                 </div>
 
-                <a href="#myAdPage">Моите обяви</a>
+                <a href="#profilePage">Моите обяви</a>
             </nav>
         </header>
 
@@ -3046,8 +3047,27 @@
                     </div>
                 </div>
             </div>
-            <div id="dealersPage">dealersPage</div>
-            <div id="myAdPage">
+            <div id="dealersPage"></div>
+            <div id="loginPage">
+                <div id="loginPageContainer">
+                    <div id="loginFormsAndBtnsContainer">
+                        <div id="displayBtnsContainer">
+                            <button id="displayLoginFormBtn" class="displayBtns selectedBtn">Вход</button>
+                            <button id="displayRegFormBtn" class="displayBtns">Регистрация</button>
+                            <div id="displayBtnsEmptySpace"></div>
+                        </div>
+                        <div id="loginFormsContainer">
+                            <div id="loginForm">
+                                show login
+                            </div>
+                            <div id="registraionForm">
+                                show registeration
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="profilePage">
                 <form id="adPageLoginForm">
                     <p class="myAdPageText">Вход:</p>
                     <input class="myAdPageInput" type="email" name="loginInput" id="loginInput" placeholder="име">
@@ -3137,6 +3157,9 @@
     <script src="assets/data/NewsData.js"></script>
     <script src="assets/data/CarModelsData.js"></script>
     <script src="assets/js/utils.js"></script>
+    <script src="assets/js/userService.js"></script>
+    <script src="assets/js/userController.js"></script>
+    <script src="assets/js//LoginPageController.js"></script>
     <script src="assets/js/CarService.js"></script>
     <script src="assets/js/CarController.js"></script>
     <script src="assets/js/HomePageController.js"></script>
@@ -3145,8 +3168,6 @@
     <script src="assets/js/SearchResultsController.js"></script>
     <script src="assets/js/RouterController.js"></script>
     <script src="assets/js/SingleAdController.js"></script>
-    <script src="assets/js/userService.js"></script>
-    <script src="assets/js/userController.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 

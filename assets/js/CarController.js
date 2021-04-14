@@ -13,8 +13,10 @@ let newAd = (function () {
     let publishAdBtnElement = getById('publishNewAd');
 
     publishAdBtnElement.addEventListener('click', () => {
+        setNoImagePhoto();
+
         carStorage.addCar(ad);
-        console.log(carStorage);
+        userStorage.addAdToUserAcc(ad.id)
     })
 
     //Get uploaded image 
@@ -69,6 +71,12 @@ let newAd = (function () {
         let value = ev.target.value;
 
         ad[name].value = value;
+    }
+
+    function setNoImagePhoto() {
+        if (ad.images.length === 0) {
+            ad.images.push('assets/images/icons/noimage.jpg')
+        }
     }
 
     return ad;

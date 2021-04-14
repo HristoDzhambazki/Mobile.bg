@@ -12,8 +12,8 @@ let userStorage = (function () {
             if (localStorage.getItem('users')) {
                 this.users = JSON.parse(localStorage.getItem('users'));
             } else {
-                this.users = [{ username: "test1@", password: "1", isLoggedin: false, },
-                { username: "test2@", password: "2", isLoggedin: false, }];
+                this.users = [{ username: "test1@", password: "1", isLoggedin: false, uploads: [] },
+                { username: "test2@", password: "2", isLoggedin: false, uploads: [] }];
                 localStorage.setItem('users', JSON.stringify(this.users));
             }
         }
@@ -44,6 +44,16 @@ let userStorage = (function () {
 
         getCurrentUser() {
             return this.users.find(user => user.isLoggedin);
+        }
+
+        addAdToUserAcc(id) {
+            this.users.forEach(user => {
+                if (user.isLoggedin) {
+                    user.uploads.push(id)
+                }
+            })
+
+            localStorage.setItem('users', JSON.stringify(this.users));
         }
     }
 

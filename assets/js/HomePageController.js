@@ -59,6 +59,7 @@ let searchBoxObj = (function () {
 
 })();
 
+//Render Vehicle Cards and News
 (function () {
     let vehicleCardCont = getById('vehicleCardCont');
     let adManager = carStorage;

@@ -4,8 +4,8 @@
     let loginLine = getById('line');
     let loginButton = getById('myAdPageLoginBtn');
     let registerButton = getById('myAdPageRegBtn');
-    let loginCont = getById('adPageLoginForm');
-    let regCont = getById('adPageRegForm');
+    let loginForm = getById('adPageLoginForm');
+    let regForm = getById('adPageRegForm');
     let loggedInCont = getById('loggedInAdPage');
     let loggedInExit = getById('loggedInExit');
     let loggedOutWrapper = getById('loginWrapper');
@@ -19,13 +19,13 @@
     let regRepeatPass = getById('regRepeatPass');
 
     newLoginBtn.addEventListener('click', function (event) {
-        loginCont.style.display = 'block';
-        regCont.style.display = 'none';
+        loginForm.style.display = 'block';
+        regForm.style.display = 'none';
     });
 
     newRegBtn.addEventListener('click', function (event) {
-        loginCont.style.display = 'none';
-        regCont.style.display = 'block';
+        loginForm.style.display = 'none';
+        regForm.style.display = 'block';
     });
 
     registerButton.addEventListener('click', function (event) {
@@ -33,11 +33,10 @@
         let password = regPass.value;
         let repeatedPass = regRepeatPass.value;
 
-        if (password.match(".{8,}") &&
-            password === repeatedPass && username.includes('@')) {
+        if (password.match(".{8,}") && password === repeatedPass && username.includes('@')) {
             userStorage.registerUser(username, password);
-            loginCont.style.display = 'block';
-            regCont.style.display = 'none';
+            loginForm.style.display = 'block';
+            regForm.style.display = 'none';
         } else if (!username.includes('@')) {
             let message = createEl('p');
             let container = getById('wrongEmailText');
@@ -52,7 +51,7 @@
             message.style.display = 'block';
         } else if (password !== repeatedPass) {
             let message = createEl('p');
-            let container = getById('adPageRegCont');
+            let container = getById('adPageRegForm');
             container.innerHTML = ' ';
             container.append(message);
             message.innerText = 'несъответсваща парола';
@@ -70,13 +69,12 @@
     });
 
     function manageLogin() {
-        let users = JSON.parse(localStorage.users);
         let currentUser = userStorage.getCurrentUser();
 
-        if (users.find(user => !!user.isLoggedin)) {
+        if (currentUser) {
             loggedInExit.style.display = 'block';
-            loginCont.style.display = 'none';
-            regCont.style.display = 'none';
+            loginForm.style.display = 'none';
+            regForm.style.display = 'none';
             loggedInCont.style.display = 'block';
             newLoginBtn.style.display = 'none';
             newRegBtn.style.display = 'none';
