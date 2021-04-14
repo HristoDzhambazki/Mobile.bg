@@ -27,9 +27,9 @@
                     </div>
 
                     <div class="topWrapper" id="loginWrapper">
-                        <div id="logIn"><a href="#profilePage">Вход</a></div>
+                        <div id="loginHeaderBtn"><a href="#loginPage">Вход</a></div>
                         <div id="line"></div>
-                        <div id="register"><a href="#profilePage">Нова Регистрация</a></div>
+                        <div id="registerHeaderBtn"><a href="#loginPage">Нова Регистрация</a></div>
                         <p id="welcomeText"></p>
                         <p href="#mainPage" id="loggedInExit">
                             [<span id="loggedInExitText">изход</span>]
@@ -3056,12 +3056,26 @@
                             <button id="displayRegFormBtn" class="displayBtns">Регистрация</button>
                             <div id="displayBtnsEmptySpace"></div>
                         </div>
-                        <div id="loginFormsContainer">
-                            <div id="loginForm">
-                                show login
+                        <div id="loginAndRegFormsContainer">
+                            <div id="loginContainer" class="loginFormsStyles">
+                                <p>Вход:</p>
+                                <form id="loginForm">
+                                    <input type="email" name="" id="" placeholder="E-mail">
+                                    <input type="password" name="" id="" placeholder="Парола">
+                                    <p id="loginWarningMessage" class="loginFormsWarningMessage">Невалидно поле Email
+                                        или Парола</p>
+                                    <button class="loginFormsBtn" id="registerBtn">Вход</button>
+                                </form>
                             </div>
-                            <div id="registraionForm">
-                                show registeration
+                            <div id="registraionContainer" class="loginFormsStyles">
+                                <p>Регистрация с Email и парола:</p>
+                                <form id="registrationForm">
+                                    <input type="email" name="" id="" placeholder="E-mail">
+                                    <input type="password" name="" id="" placeholder="Парола">
+                                    <input type="password" name="" id="" placeholder="Повтори паролата">
+                                    <p id="regWarningMessage" class="loginFormsWarningMessage"></p>
+                                    <button class="loginFormsBtn" id="registerBtn">Регистрация с Email</button>
+                                </form>
                             </div>
                         </div>
                     </div>

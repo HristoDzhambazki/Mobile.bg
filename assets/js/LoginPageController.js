@@ -1,26 +1,35 @@
 (function () {
     //DOM Selectors
-    const loginForm = getById('loginForm');
-    const registraionForm = getById('registraionForm');
+    const loginContainer = getById('loginContainer');
+    const registraionContainer = getById('registraionContainer');
+    const loginHeaderBtn = getById('loginHeaderBtn');
+    const registerHeaderBtn = getById('registerHeaderBtn');
 
     //Buttons
     const displayLoginFormBtn = getById('displayLoginFormBtn');
     const displayRegFormBtn = getById('displayRegFormBtn');
 
-    displayLoginFormBtn.addEventListener('click', () => {
-        loginForm.style.display = 'block';
-        registraionForm.style.display = 'none';
+    //Change forms and display btns styles
+    displayLoginFormBtn.addEventListener('click', displayLoginForm)
+    loginHeaderBtn.addEventListener('click', displayLoginForm)
 
-        displayLoginFormBtn.classList.toggle("selectedBtn");
-        displayRegFormBtn.classList.toggle("selectedBtn");
-    })
+    displayRegFormBtn.addEventListener('click', displayRegisterForm)
+    registerHeaderBtn.addEventListener('click', displayRegisterForm)
 
-    displayRegFormBtn.addEventListener('click', () => {
-        loginForm.style.display = 'none';
-        registraionForm.style.display = 'block';
+    function displayLoginForm() {
+        loginContainer.style.display = 'block';
+        registraionContainer.style.display = 'none';
 
-        displayLoginFormBtn.classList.toggle("selectedBtn");
-        displayRegFormBtn.classList.toggle("selectedBtn");
-    })
+        displayLoginFormBtn.classList.add("selectedBtn");
+        displayRegFormBtn.classList.remove("selectedBtn");
+    }
+
+    function displayRegisterForm() {
+        loginContainer.style.display = 'none';
+        registraionContainer.style.display = 'block';
+
+        displayLoginFormBtn.classList.remove("selectedBtn");
+        displayRegFormBtn.classList.add("selectedBtn");
+    }
 
 })()

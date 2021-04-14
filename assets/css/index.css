@@ -51,7 +51,7 @@ div#loginWrapper a:hover {
 }
 
 #loggedInExit {
-    display: block;
+    display: none;
 }
 
 #loggedInExitText {
@@ -79,7 +79,7 @@ div#loginWrapper {
     width: 220px;
 }
 
-div#logIn {
+div#loginHeaderBtn {
     font-weight: 600;
 }
 
