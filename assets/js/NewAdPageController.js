@@ -53,7 +53,7 @@ function renderComponent(component) {
 
 function renderAdImages(images) {
 
-    if (images) {
+    if (images.length > 0) {
         let mainImage = images[0];
         offerImageElement.innerHTML = '';
         offerImageElement.classList.replace('noImagesStyles', 'offerImages')
@@ -69,7 +69,7 @@ function renderAdImages(images) {
             otherImagesDiv.addEventListener('click', changeMainImage)
         }
 
-    } else if (!images) {
+    } else {
         offerImageElement.innerHTML = '<h1> Няма качени снимки </h1>';
         offerImageElement.classList.replace('offerImages', 'noImagesStyles')
     }

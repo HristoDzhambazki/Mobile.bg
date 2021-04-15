@@ -7,11 +7,11 @@ let regexEmail = /^[a-z]+[a-z]*([\-\.\_]?[a-z0-9])*@[a-z]{2,}.[a-z]{2,}(.[a-z]{2
     const logRegHeaderContainer = getById('logRegHeaderContainer')
     const loginHeaderBtn = getById('loginHeaderBtn');
     const registerHeaderBtn = getById('registerHeaderBtn');
+    const publishPageLoginLink = getById('publishPageLoginLink')
+    const publishPageRegLink = getById('publishPageRegLink');
     const welcomeUserContainer = getById('welcomeUserContainer');
     const welcomeText = getById('welcomeText');
     const logOutBtn = getById('logOut');
-
-
 
     //Register form selectors
     const registerEmailInput = getById('registerEmailInput');
@@ -31,17 +31,27 @@ let regexEmail = /^[a-z]+[a-z]*([\-\.\_]?[a-z0-9])*@[a-z]{2,}.[a-z]{2,}(.[a-z]{2
     const loginBtn = getById('loginBtn');
 
     //Change forms and display btns styles
-    displayLoginFormBtn.addEventListener('click', displayLoginForm)
-    loginHeaderBtn.addEventListener('click', displayLoginForm)
+    displayLoginFormBtn.addEventListener('click', displayLoginForm);
+    loginHeaderBtn.addEventListener('click', displayLoginForm);
+    publishPageLoginLink.addEventListener('click', displayLoginForm);
 
-    displayRegFormBtn.addEventListener('click', displayRegisterForm)
-    registerHeaderBtn.addEventListener('click', displayRegisterForm)
+    displayRegFormBtn.addEventListener('click', displayRegisterForm);
+    registerHeaderBtn.addEventListener('click', displayRegisterForm);
+    publishPageRegLink.addEventListener('click', displayRegisterForm);
 
-    registerBtn.addEventListener('click', registerUser)
-    loginBtn.addEventListener('click', loginUser)
-    logOutBtn.addEventListener('click', logOutUser)
+    registerBtn.addEventListener('click', registerUser);
+    loginBtn.addEventListener('click', loginUser);
+    logOutBtn.addEventListener('click', logOutUser);
 
+    //On refreshed page check if user is logged in and show welcomeUserContainer on header
+    let userOnLoad = userStorage.getCurrentUser();
+    if (userOnLoad) {
+        logRegHeaderContainer.style.display = 'none';
+        welcomeUserContainer.style.display = 'flex';
 
+        let username = userOnLoad.username.split('@')[0];
+        welcomeText.innerText = `Здравейте, ${username}`
+    }
 
     //Functions
     function logOutUser() {

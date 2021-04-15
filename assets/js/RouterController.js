@@ -9,14 +9,19 @@
     let singleAdPage = getById('singleAdPage');
     let loginPage = getById('loginPage');
 
+    //Publish page selectors
     let publishLogin = getById('publishPageLogin');
     let publishFirstStep = getById('publishFirstStep');
     let publishSecondStep = getById('publishSecondStep');
     let publishAdPage = getById('publishAd')
-
     let stepsToPublishElement = getById('stepsToPublish');
     let stepOneInfoElement = stepsToPublishElement.children[0];
     let stepTwoInfoElement = stepsToPublishElement.children[2];
+
+    //Navigation links selectors
+    let navigationLinks = [...getById('topNavigation').children].slice(0, 3);
+    let myAdsLink = getById('mainNavigation').children[1];
+    let navLinksArr = [...navigationLinks, myAdsLink];
 
     //Buttons
     let publishNavBtn = document.getElementById('topNavigation').children[1];
@@ -36,11 +41,12 @@
     function showAccuratePublishPage(page) {
 
         switch (page) {
-            case 'firstStep' || 'loggedIn':
+            case 'firstStep':
+                stepsToPublishElement.style.display = 'flex';
                 publishFirstStep.style.display = 'block';
                 publishSecondStep.style.display = 'none';
-                publishLogin.style.display = 'none';
                 publishAdPage.style.display = 'none'
+                publishLogin.style.display = 'none';
 
                 stepOneInfoElement.classList.add('activeStep')
                 stepTwoInfoElement.classList.remove('activeStep')
@@ -48,8 +54,8 @@
             case 'secondStep':
                 publishFirstStep.style.display = 'none';
                 publishSecondStep.style.display = 'block';
-                publishLogin.style.display = 'none';
                 publishAdPage.style.display = 'none'
+                publishLogin.style.display = 'none';
 
                 stepOneInfoElement.classList.remove('activeStep')
                 stepTwoInfoElement.classList.add('activeStep')
@@ -57,20 +63,22 @@
             case 'publishStep':
                 publishFirstStep.style.display = 'none';
                 publishSecondStep.style.display = 'none';
-                publishLogin.style.display = 'none';
                 publishAdPage.style.display = 'block'
+                publishLogin.style.display = 'none';
                 break;
             default:
-            // publishFirstStep.style.display = 'none';
-            // publishSecondStep.style.display = 'none';
-            // publishLogin.style.display = 'block';
+                stepsToPublishElement.style.display = 'none';
+                publishFirstStep.style.display = 'none';
+                publishSecondStep.style.display = 'none';
+                publishAdPage.style.display = 'none'
+                publishLogin.style.display = 'block';
         }
     }
 
-
     function showPage() {
         let page = location.hash.slice(1);
-        console.log(page);
+
+        changeNavLinksColor(page);
 
         switch (page) {
             case 'homePage':
@@ -86,7 +94,13 @@
             case 'publishPage':
                 homePage.style.display = 'none';
                 publishPage.style.display = 'block';
-                showAccuratePublishPage('firstStep');
+
+                if (userStorage.getCurrentUser()) {
+                    showAccuratePublishPage('firstStep');
+                } else {
+                    showAccuratePublishPage();
+                }
+
                 searchPage.style.display = 'none';
                 dealersPage.style.display = 'none';
                 profilePage.style.display = 'none';
@@ -171,6 +185,18 @@
         }
     }
 
+    function changeNavLinksColor(hash) {
+        navLinksArr.forEach(link => {
+            let currPage = link.hash.slice(1);
 
+            if (currPage === 'searchPage' && (hash === 'searchPage' || hash === 'searchResultsPage' || hash === 'singleAdPage')) {
+                link.style.backgroundColor = '#0099ff';
+            } else if (currPage === hash) {
+                link.style.backgroundColor = '#0099ff';
+            } else {
+                link.style.backgroundColor = '#605d5d';
+            }
 
+        })
+    }
 }());
