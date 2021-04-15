@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="assets/css/publishAdPage.css">
     <link rel="stylesheet" href="assets/css/showNewAdPage.css">
     <link rel="stylesheet" href="assets/css/singleAdPage.css">
-    <link rel="stylesheet" href="assets/css/myAdPage.css">
     <link rel="stylesheet" href="assets/css/loginPage.css">
     <link rel="stylesheet" href="assets/css/profilePage.css">
 
@@ -61,7 +60,7 @@
                     <a href="#">Дилъри</a>
                 </div>
 
-                <a href="#profilePage">Моите обяви</a>
+                <a href="#profilePage" id="myAdsHeaderBtn">Моите обяви</a>
             </nav>
         </header>
 
@@ -3087,10 +3086,76 @@
                 </div>
             </div>
             <div id="profilePage">
-                <div id="noAdsContainer">
-                    <p>Списък и управление на публикуваните от Вас обяви:</p>
-                    <button id="adPageAdButton"><span id="nextPlus">+</span> ДОБАВИ ОБЯВА</button>
+                <div id="profileNavBar">
+                    <p id="profileMyAds" class="selectedProfileLink">Моите обяви</p>
+                    <span>|</span>
+                    <p id="profileMyFavAds">Бележник обяви</p>
+                    <span>|</span>
+                    <p id="profileSettings">Настройки</p>
                 </div>
+
+                <div id="myAdsContainer">
+                    <div id="noAdsContainer">
+                        <p>Списък и управление на публикуваните от Вас обяви:</p>
+                        <h6>Няма намерени обяви във вашият профил!</h6>
+                        <button id="newAdButton"><span>+</span> ДОБАВИ ОБЯВА</button>
+                    </div>
+                    <div id="userAdsContainer">
+                        <div class="userAdCard">
+                            <div class="userAdMainContent">
+                                <div class="userAdImgContainer">
+                                    <img src="assets/images/cars/car1-1.jpg">
+                                </div>
+                                <div class="userAdInfoContainer">
+                                    <h1>Toyota Corola</h1>
+                                    <h2>7000 лв.</h2>
+                                </div>
+                            </div>
+                            <div class="userAdBtnsContainer">
+                                <button>Редактирай</button>
+                                <button>Изтрий</button>
+                            </div>
+                        </div>
+                        <div class="userAdCard">
+                            <div class="userAdMainContent">
+                                <div class="userAdImgContainer">
+                                    <img src="assets/images/cars/car1-1.jpg">
+                                </div>
+                                <div class="userAdInfoContainer">
+                                    <h1>Toyota Corola</h1>
+                                    <h2>7000 лв.</h2>
+                                </div>
+                            </div>
+                            <div class="userAdBtnsContainer">
+                                <button>Редактирай</button>
+                                <button>Изтрий</button>
+                            </div>
+                        </div>
+                        <div class="userAdCard">
+                            <div class="userAdMainContent">
+                                <div class="userAdImgContainer">
+                                    <img src="assets/images/cars/car1-1.jpg">
+                                </div>
+                                <div class="userAdInfoContainer">
+                                    <h1>Toyota Corola</h1>
+                                    <h2>7000 лв.</h2>
+                                </div>
+                            </div>
+                            <div class="userAdBtnsContainer">
+                                <button>Редактирай</button>
+                                <button>Изтрий</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="myFavAdsContainer">
+                    favs container
+                </div>
+                <div id="profileSettingsContainer">
+                    profile settings
+                </div>
+
             </div>
         </main>
 
@@ -3156,12 +3221,12 @@
     <script src="assets/data/NewsData.js"></script>
     <script src="assets/data/CarModelsData.js"></script>
     <script src="assets/js/utils.js"></script>
-    <script src="assets/js/userService.js"></script>
-    <script src="assets/js/userController.js"></script>
+    <script src="assets/js/UserService.js"></script>
     <script src="assets/js//LoginController.js"></script>
     <script src="assets/js/CarService.js"></script>
     <script src="assets/js/CarController.js"></script>
     <script src="assets/js/HomePageController.js"></script>
+    <script src="assets/js/ProfilePageController.js"></script>
     <script src="assets/js/NewAdPageController.js"></script>
     <script src="assets/js/SearchController.js"></script>
     <script src="assets/js/SearchResultsController.js"></script>
