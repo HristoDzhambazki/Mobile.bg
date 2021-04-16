@@ -53,10 +53,7 @@
         price.innerText = `${ad.price.value} ${ad.currency.value}`;
         editBtn.innerText = 'Редактирай';
         deleteBtn.innerText = 'Изтрий';
-
-        editBtn.addEventListener('click', () => { console.log('id', ad.id) });
-        deleteBtn.addEventListener('click', () => { console.log('id', ad.id) });
-        console.log('id', ad.id);
+        editBtn.id = ad.id;
 
         userAdImgContainer.append(img);
         userAdInfoContainer.append(title, price);

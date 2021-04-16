@@ -27,12 +27,32 @@ class CarStorage {
         this.list.splice(index, 1);
     }
 
+    replaceAd(id, newAd) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+
+        if (!localAds.find(ad => ad.id === id)) {
+            return false;
+        }
+
+        localAds = localAds.map(ad => {
+            if (ad.id === id) {
+                return { ...newAd };
+            }
+
+            return ad;
+        })
+        localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
+
+        return true;
+    }
+
     getAd(id) {
         return this.list.find(x => x.id == id);
     }
 
     getFirstSixAds() {
-        let newArr = this.list.slice(0, 6);
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        let newArr = localAds.slice(0, 6);
         return newArr;
     }
 

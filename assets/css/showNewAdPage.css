@@ -135,7 +135,7 @@
     height: 35px;
 }
 
-#publishAd {
+.finishedAd {
     font-weight: bold;
     font-size: 22px;
     color: #0099ff;

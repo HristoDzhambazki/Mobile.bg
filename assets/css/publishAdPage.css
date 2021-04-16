@@ -1,16 +1,16 @@
-#publishMainCategory {
+.publishMainCategory {
     margin-bottom: 15px;
     display: flex;
 }
 
-#publishMainCategory img {
+.publishMainCategory img {
     width: 48px;
     height: 33px;
     align-self: center;
     margin-left: 24px;
 }
 
-#publishMainCategory select {
+.publishMainCategory select {
     padding-right: 35px;
 }
 
@@ -36,33 +36,33 @@
     margin: 0 10px;
 }
 
-#firstStepHeading {
+.firstStepHeading {
     font-weight: bold;
 }
 
-#firstStepHeading span {
+.firstStepHeading span {
     font-weight: normal;
     color: #0099ff;
 }
 
-#offerDescription {
+.offerDescription {
     padding: 20px;
     border: 1px solid #0099ff;
     border-top: 3px solid #0099ff;
     margin-top: 10px;
 }
 
-#publishSecondFloor {
+.publishSecondFloor {
     display: flex;
     flex-wrap: wrap;
     ;
 }
 
-#publishSecondFloor p {
+.publishSecondFloor p {
     color: #0099ff;
 }
 
-#publishFirstColumn {
+.publishFirstColumn {
     width: 315px;
     display: flex;
     flex-wrap: wrap;
@@ -79,12 +79,12 @@
     width: 140px;
 }
 
-#publishColor select,
-#publishGear select {
+.publishColor select,
+.publishGear select {
     width: 315px;
 }
 
-#publishSecondColumn {
+.publishSecondColumn {
     margin: 0 10px;
     width: 315px;
     display: flex;
@@ -100,79 +100,80 @@
     margin-top: 8px;
 }
 
-#publishDateOfProduction {
+.publishDateOfProduction {
     margin-bottom: 3px;
 }
 
-#publishDateOfProduction p {
+.publishDateOfProduction p {
     margin-top: 13px;
 }
 
-#publishRegion p {
+.publishRegion p {
     margin-top: 9px;
 }
 
-#publishDateOfProduction {
+.publishDateOfProduction {
     width: 100%;
 }
 
-#publishDateOfProduction div:last-child {
+.publishDateOfProduction div:last-child {
     display: flex;
     justify-content: space-between;
 }
 
-#publishThirdColumn {
+.publishThirdColumn {
     width: 300px;
     display: flex;
     flex-wrap: wrap;
     height: 220px;
 }
 
-#publishState label {
+.publishState label {
     font-size: 12px;
 }
 
-#publishCategory select,
-#publishExpiryDays select {
+.publishCategory select,
+.publishExpiryDays select {
     width: 300px;
 }
 
-#publishProbeg span {
+.publishProbeg span {
     font-size: 12px;
 }
 
-#publishThirdFloor {
+.publishThirdFloor {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 
-#publishCheckboxOptions {
+.publishCheckboxOptions {
     width: 100%;
     display: flex;
 }
 
-#publishCheckboxOptions ul {
+.publishCheckboxOptions ul {
     font-size: 11px;
 }
 
-#publishImage {
+.publishImage {
     margin-top: 40px;
     width: 100%;
 }
 
-#publishImage input {
+.publishImage input {
     margin: 30px 0;
 }
 
-#publishShowImages {
+.publishShowImages {
     width: 100%;
 }
 
-#publishShowImages p {
+.publishShowImages p {
     margin-bottom: 15px;
 }
 
-#showUploadedImages {
+.showUploadedImages {
     display: flex;
     flex-wrap: wrap;
 }
@@ -197,14 +198,22 @@
     cursor: pointer;
 }
 
-#publishButtonDiv {
+.publishButtonDiv {
     width: 100%;
     margin-top: 40px;
     display: flex;
     justify-content: center;
 }
 
-#publishButtonDiv button {
+.publishButtonDiv button {
     font-weight: bold;
     padding: 10px;
+}
+
+.editStateVisibility {
+    visibility: hidden;
+}
+
+#editFinishedAd {
+    display: none;
 }

@@ -1,6 +1,6 @@
 let newAd = (function () {
     let ad = new Car();
-    //Pubish an Ad
+    //CREATE new Ad and ADD specs
 
     //DOM Selectors
     //Elements
@@ -9,7 +9,7 @@ let newAd = (function () {
     let inputElements = publishFirstStepElement.querySelectorAll('input[type=text]');
     let checkboxElements = publishFirstStepElement.querySelectorAll('input[type=checkbox]')
     let uploadImageInputElement = getById('publishImageInput');
-    let showUploadedImagesElement = getById('showUploadedImages');
+    let showUploadedImagesElement = publishFirstStepElement.querySelector('.showUploadedImages');
     let publishAdBtnElement = getById('publishNewAd');
 
     publishAdBtnElement.addEventListener('click', () => {

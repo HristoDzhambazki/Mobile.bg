@@ -11,16 +11,21 @@
     let searchSelectModel = getById('searchSelectModel');
     let searchBoxSelectBrand = getById('searchBoxSelectBrand');
     let searchBoxSelectModel = getById('searchBoxSelectModel');
+    let editSelectBrand = getById('editSelectBrand');
+    let editSelectModel = getById('editSelectModel');
 
 
     //Events
     publishSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, publishSelectModel));
     searchSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, searchSelectModel));
     searchBoxSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, searchBoxSelectModel));
+    editSelectBrand.addEventListener('change', (ev) => showCurrentBrandModels(ev, editSelectModel));
+
+
 
     function showCurrentBrandModels(event, container) {
         container.innerHTML = '<option selected value="0">Избери</option>';
-        let brand = event.target.value || event.detail;
+        let brand = event.detail || event.target.value;
 
         if (brand !== '') {
             carModels[brand].forEach(model => {
@@ -32,6 +37,5 @@
         }
     }
 
-    //Buttons
 })()
 
