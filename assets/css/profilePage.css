@@ -31,7 +31,7 @@
 #noAdsContainer {
     width: 46%;
     margin: 50px auto;
-    display: block;
+    display: none;
 }
 
 #noAdsContainer h6 {
@@ -72,11 +72,14 @@
 #userAdsContainer {
     border: 2px solid green;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .userAdCard {
     border: 1px solid black;
-    width: 340px;
+    width: 317px;
     height: 100px;
     margin-bottom: 10px;
     display: flex;
@@ -85,21 +88,22 @@
 
 .userAdMainContent{
     height: 100%;
+    width: 225px;
     display: flex;
     align-items: center;
     background-color: #e7eaf2;
 }
 
 .userAdImgContainer {
-    width: 40%;
+    width: 45%;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
 .userAdImgContainer img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 105px;
+    max-height: 80px;
     cursor: pointer;
 }
 
@@ -140,6 +144,11 @@
 
 .userAdBtnsContainer button:last-of-type {
     color: red;
+}
+
+#myFavAdsContainer,
+#profileSettingsContainer {
+    display: none;
 }
 
 /* Favourite ADS Container */

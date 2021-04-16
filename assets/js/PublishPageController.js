@@ -41,19 +41,36 @@ let newAd = (function () {
 
         // Read, Preview Images on first publish page and push image sources to image property of ad object
         files.forEach(file => {
+            let uploadedImageCard = document.createElement('div');
+            uploadedImageCard.classList.add('uploadedImageCard');
+            let closeBtnIcon = document.createElement('img');
+            closeBtnIcon.src = 'assets/images/icons/close.png';
+
+
             let imgElement = document.createElement('img');
             imgElement.alt = 'ad image';
 
             const reader = new FileReader();
             reader.addEventListener('load', (event) => {
-                ad.images.push(event.target.result)
+                const src = event.target.result;
+                ad.images.push(src)
 
-                imgElement.src = event.target.result;
-                showUploadedImagesElement.append(imgElement);
+                imgElement.src = src;
+                closeBtnIcon.addEventListener('click', () => removeImage(src))
+
+                uploadedImageCard.append(imgElement, closeBtnIcon);
+                showUploadedImagesElement.append(uploadedImageCard);
             });
 
             reader.readAsDataURL(file);
         })
+    }
+
+    function removeImage(src) {
+        ad.images = ad.images.filter(img => img !== src);
+
+        let indexOfImg = [...showUploadedImagesElement.children].findIndex(card => [...card.children][0].src === src);
+        showUploadedImagesElement.removeChild(showUploadedImagesElement.children[indexOfImg])
     }
 
     function getCheckboxValue(ev) {

@@ -27,13 +27,12 @@ searchResultsElement.addEventListener('click', checkTargetAndRender);
 
 function checkTargetAndRender(ev) {
     let targetTagName = ev.target.tagName;
-    if (targetTagName === 'A' || targetTagName === 'IMG') {
+    if (targetTagName === 'A' || targetTagName === 'IMG' || targetTagName === 'H1') {
         let id = ev.target.id;
         let ad = carStorage.getAd(id);
         renderSingleAd(ad);
         location.hash = '#singleAdPage'
     }
-
 }
 
 function renderSingleAd(ad) {
@@ -75,7 +74,6 @@ function renderSingleAd(ad) {
         otherImagesElement.innerHTML = '';
         ad.images.forEach(imgName => {
             let img = createElement('img');
-            console.log(imgName);
             if (imgName.length > 11) {
                 img.src = imgName;
             } else {

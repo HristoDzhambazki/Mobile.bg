@@ -5,6 +5,8 @@
     const myFavAdsContainer = getById('myFavAdsContainer');
     const profileSettingsContainer = getById('profileSettingsContainer');
 
+    const userAdsContainer = getById('userAdsContainer')
+
     //Buttons
     const newAdButton = getById('newAdButton');
     const myAdsHeaderBtn = getById('myAdsHeaderBtn');
@@ -15,10 +17,55 @@
     const profileSettings = getById('profileSettings');
 
     newAdButton.addEventListener('click', () => { location.hash = 'publishPage' })
+
     myAdsHeaderBtn.addEventListener('click', changeProfileSection)
     profileMyAds.addEventListener('click', () => changeProfileSection('myAds'))
     profileMyFavAds.addEventListener('click', () => changeProfileSection('myFavAds'))
     profileSettings.addEventListener('click', () => changeProfileSection('profileSettings'))
+
+    let ads = carStorage.getFirstSixAds();
+
+    ads.forEach(ad => {
+        let currCard = generateAdCard(ad);
+        userAdsContainer.append(currCard);
+    })
+
+    function generateAdCard(ad) {
+        let userAdCard = document.createElement('div');
+        let userAdMainContent = document.createElement('div');
+        let userAdImgContainer = document.createElement('div');
+        let img = document.createElement('img');
+        let userAdInfoContainer = document.createElement('div');
+        let title = document.createElement('h1');
+        let price = document.createElement('h2');
+        let userAdBtnsContainer = document.createElement('div');
+        let editBtn = document.createElement('button');
+        let deleteBtn = document.createElement('button');
+
+        userAdCard.classList.add('userAdCard');
+        userAdMainContent.classList.add('userAdMainContent');
+        userAdImgContainer.classList.add('userAdImgContainer');
+        userAdInfoContainer.classList.add('userAdInfoContainer');
+        userAdBtnsContainer.classList.add('userAdBtnsContainer');
+
+        img.src = 'assets/images/cars/' + ad.images[0];
+        title.innerText = `${ad.brand.value} ${ad.model.value}`;
+        price.innerText = `${ad.price.value} ${ad.currency.value}`;
+        editBtn.innerText = 'Редактирай';
+        deleteBtn.innerText = 'Изтрий';
+
+        editBtn.addEventListener('click', () => { console.log('id', ad.id) });
+        deleteBtn.addEventListener('click', () => { console.log('id', ad.id) });
+        console.log('id', ad.id);
+
+        userAdImgContainer.append(img);
+        userAdInfoContainer.append(title, price);
+        userAdMainContent.append(userAdImgContainer, userAdInfoContainer)
+        userAdBtnsContainer.append(editBtn, deleteBtn);
+        userAdCard.append(userAdMainContent, userAdBtnsContainer)
+
+        return userAdCard;
+    }
 
     function changeProfileSection(section) {
         changeLinkColor(section);

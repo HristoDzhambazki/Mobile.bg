@@ -201,6 +201,7 @@ div#vehicleCardCont {
     text-decoration: underline;
     font-style: oblique;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .autoPrice {
