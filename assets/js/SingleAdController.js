@@ -18,12 +18,13 @@ let securitySP = getById('securitySP');
 let comfortSP = getById('comfortSP');
 
 let homePageAds = getById('vehicleCardCont');
-
-homePageAds.addEventListener('click', checkTargetAndRender);
-
-//Buttons
 let searchResultsElement = getById('mainResults');
+let profilePageAds = getById('profilePage')
+
+//Events
+homePageAds.addEventListener('click', checkTargetAndRender);
 searchResultsElement.addEventListener('click', checkTargetAndRender);
+profilePageAds.addEventListener('click', checkTargetAndRender);
 
 function checkTargetAndRender(ev) {
     let targetTagName = ev.target.tagName;

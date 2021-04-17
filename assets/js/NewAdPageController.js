@@ -3,8 +3,8 @@ let offerImageElement = getById('offerImages');
 let componentsListElement = getById('offerComponentsList');
 let extrasListElement = getById('offerExtrasList');
 
-let publishBtn = document.querySelector('#publishButtonDiv button');
-publishBtn.addEventListener('click', renderNewAd);
+let firstStepButtonDiv = document.querySelector('#firstStepButtonDiv button');
+firstStepButtonDiv.addEventListener('click', renderNewAd);
 
 function renderNewAd() {
     componentsListElement.innerHTML = '';

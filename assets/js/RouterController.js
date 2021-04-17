@@ -8,6 +8,7 @@
     let searchResultsPage = getById('searchResultsPage');
     let singleAdPage = getById('singleAdPage');
     let loginPage = getById('loginPage');
+    let editPage = getById('editPage');
 
     //Publish page selectors
     let publishLogin = getById('publishPageLogin');
@@ -23,20 +24,169 @@
     let myAdsLink = getById('mainNavigation').children[1];
     let navLinksArr = [...navigationLinks, myAdsLink];
 
+    //Edit page selectors
+    let editMenuContainer = getById('editMenuContainer');
+    let editFinishedAd = getById('editFinishedAd');
+
+    //Profile page selectors
+    let userAdsContainer = getById('userAdsContainer');
+
     //Buttons
     let publishNavBtn = document.getElementById('topNavigation').children[1];
-    let publishFirstStepBtn = document.querySelector('#publishButtonDiv button');
+    let publishFirstStepBtn = document.querySelector('#firstStepButtonDiv button');
     let backToFirstStepBtn = getById('backToFirstStep');
     let publishAdBtn = getById('publishNewAd')
 
     //Events
-    publishNavBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'firstStep'))
+    publishNavBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'firstStep'));
     backToFirstStepBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'firstStep'));
     publishFirstStepBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'secondStep'));
-    publishAdBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'publishStep'))
+    publishAdBtn.addEventListener('click', showAccuratePublishPage.bind(this, 'publishStep'));
+    userAdsContainer.addEventListener('click', (ev) => {
+        if (ev.target.innerText === 'Редактирай') {
+            location.hash = 'editPage'
+        }
+    })
 
     window.addEventListener('DOMContentLoaded', showPage);
     window.addEventListener('hashchange', showPage);
+
+    let userAdsCount = carStorage.getAll().length;
+
+    function showPage() {
+        let page = location.hash.slice(1);
+
+        changeNavLinksColor(page);
+        changeEditPageDisplayedSection();
+        switch (page) {
+            case 'homePage':
+                homePage.style.display = 'block';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'none';
+                profilePage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
+                loginPage.style.display = 'none';
+                editPage.style.display = 'none';
+                break;
+            case 'publishPage':
+                homePage.style.display = 'none';
+                publishPage.style.display = 'block';
+
+                if (userStorage.getCurrentUser()) {
+                    showAccuratePublishPage('firstStep');
+                } else {
+                    showAccuratePublishPage();
+                }
+
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'none';
+                profilePage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
+                loginPage.style.display = 'none';
+                editPage.style.display = 'none';
+                break;
+            case 'searchPage':
+                homePage.style.display = 'none';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'block';
+                dealersPage.style.display = 'none';
+                profilePage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
+                loginPage.style.display = 'none';
+                editPage.style.display = 'none';
+                break;
+            case 'dealersPage':
+                homePage.style.display = 'none';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'block';
+                profilePage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
+                loginPage.style.display = 'none';
+                editPage.style.display = 'none';
+                break;
+            case 'profilePage':
+                homePage.style.display = 'none';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
+
+                if (userStorage.getCurrentUser()) {
+                    profilePage.style.display = 'block';
+                    loginPage.style.display = 'none';
+
+                    if (userAdsCount !== carStorage.getAll().length) {
+                        location.reload();
+                    }
+                } else {
+                    location.hash = '#loginPage';
+                }
+
+                editPage.style.display = 'none';
+                break;
+            case 'searchResultsPage':
+                homePage.style.display = 'none';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'none';
+                profilePage.style.display = 'none';
+                searchResultsPage.style.display = 'block';
+                singleAdPage.style.display = 'none';
+                loginPage.style.display = 'none';
+                editPage.style.display = 'none';
+                break;
+            case 'singleAdPage':
+                homePage.style.display = 'none';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'none';
+                profilePage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'block';
+                loginPage.style.display = 'none';
+                editPage.style.display = 'none';
+                break;
+            case 'loginPage':
+                homePage.style.display = 'none';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'none';
+                profilePage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
+                loginPage.style.display = 'block';
+                editPage.style.display = 'none';
+                break;
+            case 'editPage':
+                homePage.style.display = 'none';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'none';
+                profilePage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
+                loginPage.style.display = 'none';
+                editPage.style.display = 'block';
+                break;
+            default:
+                homePage.style.display = 'block';
+                publishPage.style.display = 'none';
+                searchPage.style.display = 'none';
+                dealersPage.style.display = 'none';
+                profilePage.style.display = 'none';
+                searchResultsPage.style.display = 'none';
+                singleAdPage.style.display = 'none';
+                loginPage.style.display = 'none';
+                editPage.style.display = 'none';
+        }
+    }
 
     function showAccuratePublishPage(page) {
 
@@ -75,114 +225,9 @@
         }
     }
 
-    function showPage() {
-        let page = location.hash.slice(1);
-
-        changeNavLinksColor(page);
-
-        switch (page) {
-            case 'homePage':
-                homePage.style.display = 'block';
-                publishPage.style.display = 'none';
-                searchPage.style.display = 'none';
-                dealersPage.style.display = 'none';
-                profilePage.style.display = 'none';
-                searchResultsPage.style.display = 'none';
-                singleAdPage.style.display = 'none';
-                loginPage.style.display = 'none';
-                break;
-            case 'publishPage':
-                homePage.style.display = 'none';
-                publishPage.style.display = 'block';
-
-                if (userStorage.getCurrentUser()) {
-                    showAccuratePublishPage('firstStep');
-                } else {
-                    showAccuratePublishPage();
-                }
-
-                searchPage.style.display = 'none';
-                dealersPage.style.display = 'none';
-                profilePage.style.display = 'none';
-                searchResultsPage.style.display = 'none';
-                singleAdPage.style.display = 'none';
-                loginPage.style.display = 'none';
-                break;
-            case 'searchPage':
-                homePage.style.display = 'none';
-                publishPage.style.display = 'none';
-                searchPage.style.display = 'block';
-                dealersPage.style.display = 'none';
-                profilePage.style.display = 'none';
-                searchResultsPage.style.display = 'none';
-                singleAdPage.style.display = 'none';
-                loginPage.style.display = 'none';
-                break;
-            case 'dealersPage':
-                homePage.style.display = 'none';
-                publishPage.style.display = 'none';
-                searchPage.style.display = 'none';
-                dealersPage.style.display = 'block';
-                profilePage.style.display = 'none';
-                searchResultsPage.style.display = 'none';
-                singleAdPage.style.display = 'none';
-                loginPage.style.display = 'none';
-                break;
-            case 'profilePage':
-                homePage.style.display = 'none';
-                publishPage.style.display = 'none';
-                searchPage.style.display = 'none';
-                dealersPage.style.display = 'none';
-                searchResultsPage.style.display = 'none';
-                singleAdPage.style.display = 'none';
-
-                if (userStorage.getCurrentUser()) {
-                    profilePage.style.display = 'block';
-                    loginPage.style.display = 'none';
-                } else {
-                    location.hash = '#loginPage';
-                }
-                break;
-            case 'searchResultsPage':
-                homePage.style.display = 'none';
-                publishPage.style.display = 'none';
-                searchPage.style.display = 'none';
-                dealersPage.style.display = 'none';
-                profilePage.style.display = 'none';
-                searchResultsPage.style.display = 'block';
-                singleAdPage.style.display = 'none';
-                loginPage.style.display = 'none';
-                break;
-            case 'singleAdPage':
-                homePage.style.display = 'none';
-                publishPage.style.display = 'none';
-                searchPage.style.display = 'none';
-                dealersPage.style.display = 'none';
-                profilePage.style.display = 'none';
-                searchResultsPage.style.display = 'none';
-                singleAdPage.style.display = 'block';
-                loginPage.style.display = 'none';
-                break;
-            case 'loginPage':
-                homePage.style.display = 'none';
-                publishPage.style.display = 'none';
-                searchPage.style.display = 'none';
-                dealersPage.style.display = 'none';
-                profilePage.style.display = 'none';
-                searchResultsPage.style.display = 'none';
-                singleAdPage.style.display = 'none';
-                loginPage.style.display = 'block';
-                break;
-            default:
-                homePage.style.display = 'block';
-                publishPage.style.display = 'none';
-                searchPage.style.display = 'none';
-                dealersPage.style.display = 'none';
-                profilePage.style.display = 'none';
-                searchResultsPage.style.display = 'none';
-                singleAdPage.style.display = 'none';
-                loginPage.style.display = 'none';
-        }
+    function changeEditPageDisplayedSection() {
+        editMenuContainer.style.display = 'block';
+        editFinishedAd.style.display = 'none';
     }
 
     function changeNavLinksColor(hash) {

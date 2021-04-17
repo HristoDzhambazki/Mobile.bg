@@ -1682,7 +1682,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="publishButtonDiv" class="publishButtonDiv">
+                                <div id="firstStepButtonDiv" class="publishButtonDiv">
                                     <button>ПРОДЪЛЖИ КЪМ ПРЕГЛЕД</button>
                                 </div>
                             </div>
@@ -3049,7 +3049,87 @@
                 </div>
             </div>
 
-            <div id="dealersPage">
+            <div id="dealersPage"></div>
+
+            <div id="loginPage">
+                <div id="loginPageContainer">
+                    <div id="loginFormsAndBtnsContainer">
+                        <div id="displayBtnsContainer">
+                            <button id="displayLoginFormBtn" class="displayBtns selectedBtn">Вход</button>
+                            <button id="displayRegFormBtn" class="displayBtns">Регистрация</button>
+                            <div id="displayBtnsEmptySpace"></div>
+                        </div>
+                        <div id="loginAndRegFormsContainer">
+                            <div id="loginContainer" class="loginFormsStyles">
+                                <p>Вход:</p>
+                                <form id="loginForm">
+                                    <input type="email" name="" id="loginEmailInput" placeholder="E-mail">
+                                    <input type="password" name="" id="loginPasswordInput" placeholder="Парола">
+                                    <p id="loginWarningMessage" class="loginFormsWarningMessage">Невалиден Email
+                                        или Парола</p>
+                                    <button class="loginFormsBtn" id="loginBtn">Вход</button>
+                                </form>
+                            </div>
+                            <div id="registraionContainer" class="loginFormsStyles">
+                                <p>Регистрация с Email и парола:</p>
+                                <form id="registrationForm">
+                                    <input type="email" name="" id="registerEmailInput" placeholder="E-mail">
+                                    <input type="password" name="" id="registerPasswordInput" placeholder="Парола">
+                                    <input type="password" name="" id="registerRepeatedPassword"
+                                        placeholder="Повтори паролата">
+                                    <p id="registerWarningMessage" class="loginFormsWarningMessage"></p>
+                                    <button class="loginFormsBtn" id="registerBtn">Регистрация с Email</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="profilePage">
+                <div id="profileNavBar">
+                    <p id="profileMyAds" class="selectedProfileLink">Моите обяви</p>
+                    <span>|</span>
+                    <p id="profileMyFavAds">Бележник обяви</p>
+                    <span>|</span>
+                    <p id="profileSettings">Настройки</p>
+                </div>
+
+                <div id="myAdsContainer">
+                    <div id="noAdsContainer">
+                        <p>Списък и управление на публикуваните от Вас обяви:</p>
+                        <h6>Няма намерени обяви във вашият профил!</h6>
+                        <button id="newAdButton"><span>+</span> ДОБАВИ ОБЯВА</button>
+                    </div>
+                    <div id="userAdsContainer">
+                        <!-- <div class="userAdCard">
+                            <div class="userAdMainContent">
+                                <div class="userAdImgContainer">
+                                    <img src="assets/images/cars/car1-1.jpg">
+                                </div>
+                                <div class="userAdInfoContainer">
+                                    <h1>Toyota Corola</h1>
+                                    <h2>7000 лв.</h2>
+                                </div>
+                            </div>
+                            <div class="userAdBtnsContainer">
+                                <button>Редактирай</button>
+                                <button>Изтрий</button>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+                <div id="myFavAdsContainer">
+                    favs container
+                </div>
+                <div id="profileSettingsContainer">
+                    profile settings
+                </div>
+
+            </div>
+
+            <div id="editPage">
                 <div>
                     <div id="editFinishedAd" class="finishedAd">
                         <h1>Обявата Ви беше редактирана успешно!</h1>
@@ -4102,87 +4182,6 @@
                 </div>
             </div>
 
-            <div id="loginPage">
-                <div id="loginPageContainer">
-                    <div id="loginFormsAndBtnsContainer">
-                        <div id="displayBtnsContainer">
-                            <button id="displayLoginFormBtn" class="displayBtns selectedBtn">Вход</button>
-                            <button id="displayRegFormBtn" class="displayBtns">Регистрация</button>
-                            <div id="displayBtnsEmptySpace"></div>
-                        </div>
-                        <div id="loginAndRegFormsContainer">
-                            <div id="loginContainer" class="loginFormsStyles">
-                                <p>Вход:</p>
-                                <form id="loginForm">
-                                    <input type="email" name="" id="loginEmailInput" placeholder="E-mail">
-                                    <input type="password" name="" id="loginPasswordInput" placeholder="Парола">
-                                    <p id="loginWarningMessage" class="loginFormsWarningMessage">Невалиден Email
-                                        или Парола</p>
-                                    <button class="loginFormsBtn" id="loginBtn">Вход</button>
-                                </form>
-                            </div>
-                            <div id="registraionContainer" class="loginFormsStyles">
-                                <p>Регистрация с Email и парола:</p>
-                                <form id="registrationForm">
-                                    <input type="email" name="" id="registerEmailInput" placeholder="E-mail">
-                                    <input type="password" name="" id="registerPasswordInput" placeholder="Парола">
-                                    <input type="password" name="" id="registerRepeatedPassword"
-                                        placeholder="Повтори паролата">
-                                    <p id="registerWarningMessage" class="loginFormsWarningMessage"></p>
-                                    <button class="loginFormsBtn" id="registerBtn">Регистрация с Email</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="profilePage">
-                <div id="profileNavBar">
-                    <p id="profileMyAds" class="selectedProfileLink">Моите обяви</p>
-                    <span>|</span>
-                    <p id="profileMyFavAds">Бележник обяви</p>
-                    <span>|</span>
-                    <p id="profileSettings">Настройки</p>
-                </div>
-
-                <div id="myAdsContainer">
-                    <div id="noAdsContainer">
-                        <p>Списък и управление на публикуваните от Вас обяви:</p>
-                        <h6>Няма намерени обяви във вашият профил!</h6>
-                        <button id="newAdButton"><span>+</span> ДОБАВИ ОБЯВА</button>
-                    </div>
-                    <div id="userAdsContainer">
-                        <!-- <div class="userAdCard">
-                            <div class="userAdMainContent">
-                                <div class="userAdImgContainer">
-                                    <img src="assets/images/cars/car1-1.jpg">
-                                </div>
-                                <div class="userAdInfoContainer">
-                                    <h1>Toyota Corola</h1>
-                                    <h2>7000 лв.</h2>
-                                </div>
-                            </div>
-                            <div class="userAdBtnsContainer">
-                                <button>Редактирай</button>
-                                <button>Изтрий</button>
-                            </div>
-                        </div> -->
-
-                    </div>
-                </div>
-                <div id="myFavAdsContainer">
-                    favs container
-                </div>
-                <div id="profileSettingsContainer">
-                    profile settings
-                </div>
-
-            </div>
-
-            <!-- <div id="editPage">
-
-            </div> -->
         </main>
 
         <footer>

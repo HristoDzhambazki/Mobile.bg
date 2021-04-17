@@ -27,15 +27,13 @@
 
     //Events
     editImageInputElement.addEventListener('change', uploadImages);
-    checkElementsArray.forEach(x => x.addEventListener('change', getCheckboxValue));
     selectElementsArray.forEach(el => el.addEventListener('change', getSelectValue));
+    checkElementsArray.forEach(x => x.addEventListener('change', getCheckboxValue));
 
     editAdBtn.addEventListener('click', () => {
         //izliza error v dolnata funkciq ako nqma obekt
         setNoImagePhoto();
         const isReplaced = carStorage.replaceAd(ad.id, ad);
-
-
 
         if (isReplaced) {
             editMenuContainer.style.display = 'none';

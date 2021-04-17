@@ -23,7 +23,7 @@
     profileMyFavAds.addEventListener('click', () => changeProfileSection('myFavAds'))
     profileSettings.addEventListener('click', () => changeProfileSection('profileSettings'))
 
-    let ads = carStorage.getFirstSixAds();
+    let ads = carStorage.getAll();
 
     ads.forEach(ad => {
         let currCard = generateAdCard(ad);
@@ -49,7 +49,9 @@
         userAdBtnsContainer.classList.add('userAdBtnsContainer');
 
         img.src = 'assets/images/cars/' + ad.images[0];
+        img.id = ad.id;
         title.innerText = `${ad.brand.value} ${ad.model.value}`;
+        title.id = ad.id;
         price.innerText = `${ad.price.value} ${ad.currency.value}`;
         editBtn.innerText = 'Редактирай';
         deleteBtn.innerText = 'Изтрий';

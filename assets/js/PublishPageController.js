@@ -10,7 +10,16 @@ let newAd = (function () {
     let checkboxElements = publishFirstStepElement.querySelectorAll('input[type=checkbox]')
     let uploadImageInputElement = getById('publishImageInput');
     let showUploadedImagesElement = publishFirstStepElement.querySelector('.showUploadedImages');
+
+    //Buttons
+    let firstStepBtn = publishFirstStepElement.querySelector('#firstStepButtonDiv button');
     let publishAdBtnElement = getById('publishNewAd');
+
+    //Events
+
+    firstStepBtn.addEventListener('click', () => {
+        console.log('yes');
+    })
 
     publishAdBtnElement.addEventListener('click', () => {
         setNoImagePhoto();

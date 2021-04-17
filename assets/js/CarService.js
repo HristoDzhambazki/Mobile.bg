@@ -56,6 +56,12 @@ class CarStorage {
         return newArr;
     }
 
+    getAll() {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+
+        return localAds;
+    }
+
     filter(obj) {
         this.newList = [...this.list];
         let sortList = false;
