@@ -217,3 +217,25 @@
 #editFinishedAd {
     display: none;
 }
+
+.notValidAd {
+    margin: 0 auto;
+    margin-top: 16px;
+    display: none;
+}
+
+.notValidAdWarningMessage {
+    background-color: #f9d9d9;
+    padding: 7px;
+    font-size: 14px;
+    color: red;
+    border: 1px solid red;
+    border-radius: 3px;
+    text-align: center;
+    font-style: italic;
+}
+
+.notValidAdWarningMessage span {
+    font-weight: bold;
+    font-size: 16px;
+}

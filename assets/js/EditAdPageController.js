@@ -1,5 +1,9 @@
 (function () {
-    //CREATE new Ad and ADD specs
+    localStorage.setItem('isAdEdited', 'false')
+
+    let isValidEdit = false;
+
+    //Assing existing ad to this variable so i can edit its values
     let ad = '';
 
     //DOM Selectors
@@ -22,25 +26,19 @@
     let editImageInputElement = getById('editImageInput');
     let showUploadedImagesElement = editMenuContainer.querySelector('.showUploadedImages');
 
+    let notValidAdElement = editMenuContainer.querySelector('.notValidAd');
+
     //Buttons
     let editAdBtn = getById('editAdBtn');
 
     //Events
+
+    editAdBtn.addEventListener('click', checkIsAdValid)
+
     editImageInputElement.addEventListener('change', uploadImages);
     selectElementsArray.forEach(el => el.addEventListener('change', getSelectValue));
+    inputElementsArray.forEach(el => el.addEventListener('change', getSelectValue));
     checkElementsArray.forEach(x => x.addEventListener('change', getCheckboxValue));
-
-    editAdBtn.addEventListener('click', () => {
-        //izliza error v dolnata funkciq ako nqma obekt
-        setNoImagePhoto();
-        const isReplaced = carStorage.replaceAd(ad.id, ad);
-
-        if (isReplaced) {
-            editMenuContainer.style.display = 'none';
-            editFinishedAd.style.display = 'block';
-        }
-
-    })
 
     //Edit BTN from my profile page
     userAdsContainer.addEventListener('click', (ev) => {
@@ -48,6 +46,24 @@
             ad = { ...carStorage.getAd(ev.target.id) };
             getAdInfo();
         }
+    })
+
+    editAdBtn.addEventListener('click', () => {
+        //izliza error v dolnata funkciq ako nqma obekt
+        setNoImagePhoto();
+        carStorage.replaceAd(ad.id, ad);
+
+        isValidEdit = ad.brand.value && ad.model.value && ad.price.value && ad.price.value > 0;
+
+        if (isValidEdit) {
+            localStorage.setItem('isAdEdited', 'true')
+            notValidAdElement.style.display = 'none';
+            editMenuContainer.style.display = 'none';
+            editFinishedAd.style.display = 'block';
+        } else {
+            notValidAdElement.style.display = 'block';
+        }
+
     })
 
     function getAdInfo() {
@@ -179,7 +195,19 @@
         let name = ev.target.name;
         let value = ev.target.value;
 
+        console.log('vlaue', value);
+
         ad[name].value = value;
+    }
+
+    function checkIsAdValid() {
+        if (!ad.brand.value && !ad.model.value && !ad.price.value) {
+            localStorage.setItem('isValidEdit', 'false');
+            notValidAdElement.style.display = 'block'
+        } else {
+            localStorage.setItem('isValidEdit', 'true');
+            notValidAdElement.style.display = 'none'
+        }
     }
 
 })()

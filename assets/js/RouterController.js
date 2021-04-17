@@ -122,7 +122,8 @@
                     profilePage.style.display = 'block';
                     loginPage.style.display = 'none';
 
-                    if (userAdsCount !== carStorage.getAll().length) {
+                    let isAdEdited = JSON.parse(localStorage.getItem('isAdEdited'));
+                    if (isAdEdited) {
                         location.reload();
                     }
                 } else {
@@ -202,6 +203,11 @@
                 stepTwoInfoElement.classList.remove('activeStep')
                 break;
             case 'secondStep':
+                let isValidPublish = JSON.parse(localStorage.getItem('isValidPublish'));
+                if (!isValidPublish) {
+                    break;
+                }
+
                 publishFirstStep.style.display = 'none';
                 publishSecondStep.style.display = 'block';
                 publishAdPage.style.display = 'none'

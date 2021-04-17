@@ -1,4 +1,6 @@
 let newAd = (function () {
+    localStorage.setItem('isValidPublish', 'true');
+
     let ad = new Car();
     //CREATE new Ad and ADD specs
 
@@ -7,9 +9,10 @@ let newAd = (function () {
     let publishFirstStepElement = getById('publishFirstStep');
     let selectElements = publishFirstStepElement.getElementsByTagName('select');
     let inputElements = publishFirstStepElement.querySelectorAll('input[type=text]');
-    let checkboxElements = publishFirstStepElement.querySelectorAll('input[type=checkbox]')
+    let checkboxElements = publishFirstStepElement.querySelectorAll('input[type=checkbox]');
     let uploadImageInputElement = getById('publishImageInput');
     let showUploadedImagesElement = publishFirstStepElement.querySelector('.showUploadedImages');
+    let notValidAdElement = publishFirstStepElement.querySelector('.notValidAd');
 
     //Buttons
     let firstStepBtn = publishFirstStepElement.querySelector('#firstStepButtonDiv button');
@@ -17,9 +20,7 @@ let newAd = (function () {
 
     //Events
 
-    firstStepBtn.addEventListener('click', () => {
-        console.log('yes');
-    })
+    firstStepBtn.addEventListener('click', checkIsAdValid)
 
     publishAdBtnElement.addEventListener('click', () => {
         setNoImagePhoto();
@@ -102,6 +103,18 @@ let newAd = (function () {
     function setNoImagePhoto() {
         if (ad.images.length === 0) {
             ad.images.push('assets/images/icons/noimage.jpg')
+        }
+    }
+
+    function checkIsAdValid() {
+        let isValidAd = ad.brand.value && ad.model.value && ad.price.value && ad.price.value > 0;
+
+        if (isValidAd) {
+            localStorage.setItem('isValidPublish', 'true');
+            notValidAdElement.style.display = 'none'
+        } else {
+            localStorage.setItem('isValidPublish', 'false');
+            notValidAdElement.style.display = 'block';
         }
     }
 

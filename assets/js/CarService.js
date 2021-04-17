@@ -30,10 +30,6 @@ class CarStorage {
     replaceAd(id, newAd) {
         let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
 
-        if (!localAds.find(ad => ad.id === id)) {
-            return false;
-        }
-
         localAds = localAds.map(ad => {
             if (ad.id === id) {
                 return { ...newAd };
@@ -42,8 +38,6 @@ class CarStorage {
             return ad;
         })
         localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
-
-        return true;
     }
 
     getAd(id) {
