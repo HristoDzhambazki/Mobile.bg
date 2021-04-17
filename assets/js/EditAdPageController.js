@@ -95,7 +95,7 @@
     function showImages(images) {
         showUploadedImagesElement.innerHTML = '';
 
-        images.forEach(file => {
+        images.forEach(imgSrc => {
             let uploadedImageCard = document.createElement('div');
             uploadedImageCard.classList.add('uploadedImageCard');
             let closeBtnIcon = document.createElement('img');
@@ -106,8 +106,8 @@
             imgElement.alt = 'ad image';
 
             //SRC na novite obqvi shte e razlichen!
-            const src = 'assets/images/cars/' + file;
-            imgElement.src = src;
+            // const src = 'assets/images/cars/' + imgSrc;
+            imgElement.src = imgSrc;
             closeBtnIcon.addEventListener('click', () => removeImage(src))
 
             uploadedImageCard.append(imgElement, closeBtnIcon);

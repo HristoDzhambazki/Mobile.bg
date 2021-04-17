@@ -31,7 +31,7 @@
 #noAdsContainer {
     width: 46%;
     margin: 50px auto;
-    display: none;
+    text-align: center;
 }
 
 #noAdsContainer h6 {
@@ -43,7 +43,7 @@
     height: inherit;
     width: 190px;
     margin-top: 20px;
-    margin-left: 125px;
+    margin-left: 135px;
     display: flex;
     justify-content: center;
     border: none;
@@ -65,12 +65,10 @@
 /* Profile user ADS Container */
 
 #myAdsContainer {
-    border: 2px solid red;
     width: 100%;
 }
 
 #userAdsContainer {
-    border: 2px solid green;
     width: 100%;
     display: flex;
     flex-wrap: wrap;

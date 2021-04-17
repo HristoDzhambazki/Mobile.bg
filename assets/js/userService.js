@@ -79,6 +79,21 @@ let userStorage = (function () {
             localStorage.setItem('users', JSON.stringify(this.users));
         }
 
+        removeAdFromUserAcc(id) {
+            let newUsersArr = this.users.map(user => {
+                if (user.isLoggedin) {
+                    let index = user.uploads.findIndex(currId => currId === id)
+                    if (index > -1) {
+                        user.uploads.splice(index, 1)
+                    }
+                }
+
+                return user;
+            })
+
+            localStorage.setItem('users', JSON.stringify(newUsersArr));
+        }
+
         checkUsername(email) {
             return this.users.find(user => user.username === email);
         }

@@ -25,8 +25,9 @@ let newAd = (function () {
     publishAdBtnElement.addEventListener('click', () => {
         setNoImagePhoto();
 
-        carStorage.addCar(ad);
+        carStorage.addAd(ad);
         userStorage.addAdToUserAcc(ad.id)
+        localStorage.setItem('isAdEdited', 'true')
     })
 
     //Get uploaded image 

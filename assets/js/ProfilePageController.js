@@ -5,6 +5,7 @@
     const myFavAdsContainer = getById('myFavAdsContainer');
     const profileSettingsContainer = getById('profileSettingsContainer');
 
+    const noAdsContainer = getById('noAdsContainer');
     const userAdsContainer = getById('userAdsContainer')
 
     //Buttons
@@ -23,12 +24,21 @@
     profileMyFavAds.addEventListener('click', () => changeProfileSection('myFavAds'))
     profileSettings.addEventListener('click', () => changeProfileSection('profileSettings'))
 
-    let ads = carStorage.getAll();
+    let currentUser = userStorage.getCurrentUser();
+    if (currentUser.uploads.length > 0) {
+        userAdsContainer.style.display = 'block'
+        noAdsContainer.style.display = 'none';
 
-    ads.forEach(ad => {
-        let currCard = generateAdCard(ad);
-        userAdsContainer.append(currCard);
-    })
+        currentUser.uploads.forEach(id => {
+            let ad = carStorage.getAd(id);
+            let currCard = generateAdCard(ad);
+            userAdsContainer.append(currCard);
+        })
+    } else {
+        userAdsContainer.style.display = 'none';
+        noAdsContainer.style.display = 'block';
+    }
+
 
     function generateAdCard(ad) {
         let userAdCard = document.createElement('div');
@@ -48,7 +58,7 @@
         userAdInfoContainer.classList.add('userAdInfoContainer');
         userAdBtnsContainer.classList.add('userAdBtnsContainer');
 
-        img.src = 'assets/images/cars/' + ad.images[0];
+        img.src = ad.images[0];
         img.id = ad.id;
         title.innerText = `${ad.brand.value} ${ad.model.value}`;
         title.id = ad.id;
@@ -59,6 +69,7 @@
 
         deleteBtn.addEventListener('click', () => {
             carStorage.removeAd(ad.id);
+            userStorage.removeAdFromUserAcc(ad.id);
             location.reload();
         })
 

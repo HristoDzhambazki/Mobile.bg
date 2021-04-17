@@ -1,4 +1,3 @@
-let adsCount = 0;
 
 class CarStorage {
     constructor() {
@@ -14,7 +13,7 @@ class CarStorage {
         }
     }
 
-    addCar(car) {
+    addAd(car) {
         this.list.push(car);
 
         let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
@@ -45,7 +44,8 @@ class CarStorage {
     }
 
     getAd(id) {
-        return this.list.find(x => x.id == id);
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        return localAds.find(x => x.id == id);
     }
 
     getFirstSixAds() {
@@ -58,6 +58,11 @@ class CarStorage {
         let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
 
         return localAds;
+    }
+
+    getLastAdId() {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        return localAds[localAds.length - 1].id;
     }
 
     filter(obj) {
@@ -128,7 +133,7 @@ class CarStorage {
     }
 };
 
-
+let adsCount = 0;
 
 class Car {
     constructor() {
@@ -256,7 +261,7 @@ if (localAds.length === 0) {
             }
         }
 
-        carStorage.addCar(car)
+        carStorage.addAd(car)
     })
 }
 
