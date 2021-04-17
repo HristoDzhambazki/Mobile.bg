@@ -1,8 +1,6 @@
 (function () {
     localStorage.setItem('isAdEdited', 'false')
 
-    let isValidEdit = false;
-
     //Assing existing ad to this variable so i can edit its values
     let ad = '';
 
@@ -33,7 +31,7 @@
 
     //Events
 
-    editAdBtn.addEventListener('click', checkIsAdValid)
+    editAdBtn.addEventListener('click', editAd)
 
     editImageInputElement.addEventListener('change', uploadImages);
     selectElementsArray.forEach(el => el.addEventListener('change', getSelectValue));
@@ -46,24 +44,6 @@
             ad = { ...carStorage.getAd(ev.target.id) };
             getAdInfo();
         }
-    })
-
-    editAdBtn.addEventListener('click', () => {
-        //izliza error v dolnata funkciq ako nqma obekt
-        setNoImagePhoto();
-        carStorage.replaceAd(ad.id, ad);
-
-        isValidEdit = ad.brand.value && ad.model.value && ad.price.value && ad.price.value > 0;
-
-        if (isValidEdit) {
-            localStorage.setItem('isAdEdited', 'true')
-            notValidAdElement.style.display = 'none';
-            editMenuContainer.style.display = 'none';
-            editFinishedAd.style.display = 'block';
-        } else {
-            notValidAdElement.style.display = 'block';
-        }
-
     })
 
     function getAdInfo() {
@@ -200,13 +180,20 @@
         ad[name].value = value;
     }
 
-    function checkIsAdValid() {
-        if (!ad.brand.value && !ad.model.value && !ad.price.value) {
-            localStorage.setItem('isValidEdit', 'false');
-            notValidAdElement.style.display = 'block'
+    function editAd() {
+
+        let isValidEdit = ad.brand.value && ad.model.value && ad.price.value && ad.price.value > 0;
+
+        if (isValidEdit) {
+            setNoImagePhoto();
+            carStorage.replaceAd(ad.id, ad);
+
+            localStorage.setItem('isAdEdited', 'true')
+            notValidAdElement.style.display = 'none';
+            editMenuContainer.style.display = 'none';
+            editFinishedAd.style.display = 'block';
         } else {
-            localStorage.setItem('isValidEdit', 'true');
-            notValidAdElement.style.display = 'none'
+            notValidAdElement.style.display = 'block';
         }
     }
 

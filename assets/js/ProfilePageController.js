@@ -57,6 +57,11 @@
         deleteBtn.innerText = 'Изтрий';
         editBtn.id = ad.id;
 
+        deleteBtn.addEventListener('click', () => {
+            carStorage.removeAd(ad.id);
+            location.reload();
+        })
+
         userAdImgContainer.append(img);
         userAdInfoContainer.append(title, price);
         userAdMainContent.append(userAdImgContainer, userAdInfoContainer)

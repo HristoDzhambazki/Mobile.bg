@@ -22,9 +22,13 @@ class CarStorage {
         localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
     }
 
-    removeCar(id) {
-        let index = this.list.findIndex(car => car.id == id);
-        this.list.splice(index, 1);
+    removeAd(id) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+
+        let index = localAds.findIndex(ad => ad.id == id);
+        localAds.splice(index, 1);
+
+        localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
     }
 
     replaceAd(id, newAd) {
