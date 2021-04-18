@@ -56,6 +56,20 @@ class CarStorage {
         return localAds.find(x => x.id == id);
     }
 
+    getAdIndex(id) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        return localAds.findIndex(ad => ad.id === id)
+    }
+
+    getAdByIndex(index) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        return localAds[index];
+    }
+
+    getLength() {
+        return JSON.parse(localStorage.getItem('ADS_DATA')).length;
+    }
+
     getFirstSixAds() {
         let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
         let newArr = localAds.slice(0, 6);

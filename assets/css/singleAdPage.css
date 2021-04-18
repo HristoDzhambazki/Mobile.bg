@@ -26,6 +26,10 @@
 }
 
 .headingAndAnchSP a {
+    all: unset;
+    color:#0099ff;
+    text-decoration: underline;
+    cursor: pointer;
     font-size: 12px;
 }
 
@@ -170,5 +174,16 @@
     margin-bottom: 5px;
   }
 
+.changeAdBtns,
+.newSearch ul>li>a { 
+    all: unset;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
 
+.changeAdBtns:hover,
+.newSearch ul>li>a:hover {
+    color: #0099ff;
+}
 

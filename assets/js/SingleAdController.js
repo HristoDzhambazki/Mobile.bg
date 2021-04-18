@@ -1,5 +1,6 @@
 (function () {
     let ad = '';
+    let currImageIndex = 0;
 
     //DOM Selectors
     let headingTitle = getById('headingAndAnchSP');
@@ -34,6 +35,8 @@
     let profilePageFavAds = getById('userFavAdsContainer');
 
     //Events
+    nextAdBtn.addEventListener('click', () => plusAd(1));
+    prevAdBtn.addEventListener('click', () => plusAd(-1));
     nextBtn.addEventListener('click', () => plusSlide(1));
     prevBtn.addEventListener('click', () => plusSlide(-1));
     favIconElement.addEventListener('click', addAdToUserFavs);
@@ -42,7 +45,18 @@
     profilePageAds.addEventListener('click', checkTargetAndRender);
     profilePageFavAds.addEventListener('click', checkTargetAndRender);
 
-    let currIndex = 0;
+    function plusAd(index) {
+        let storageLength = carStorage.getLength();
+        let currAdIndex = carStorage.getAdIndex(ad.id);
+        let newIndex = currAdIndex + index;
+
+        if (newIndex >= 0 && newIndex < storageLength) {
+            ad = carStorage.getAdByIndex(newIndex);
+            renderSingleAd(ad);
+            checkCurrentUserFavAds(ad.id);
+        }
+    }
+
     function changeMainImg(imgName, index) {
         if (imgName.length > 11) {
             mainImgElement.src = imgName;
@@ -52,11 +66,11 @@
         changeSelectedImageOpacity(imgName)
 
         numberText.innerText = `${index + 1} / ${ad.images.length}`;
-        currIndex = index;
+        currImageIndex = index;
     }
 
     function plusSlide(index) {
-        let newIndex = currIndex + index;
+        let newIndex = currImageIndex + index;
         let adImages = ad.images;
         if (newIndex >= 0 && newIndex < adImages.length) {
             if (adImages[newIndex].length > 11) {
@@ -67,7 +81,7 @@
 
             numberText.innerText = `${newIndex + 1} / ${adImages.length}`;
             changeSelectedImageOpacity(mainImgElement.src);
-            currIndex = newIndex;
+            currImageIndex = newIndex;
         }
 
     }
@@ -102,6 +116,16 @@
         localStorage.setItem('isAdEdited', 'true');
     }
 
+    function checkCurrentUserFavAds(id) {
+        let currentUser = userStorage.getCurrentUser();
+
+        if (currentUser && currentUser.favs.includes(id)) {
+            favIconElement.src = 'assets/images/icons/starFilled.png';
+        } else {
+            favIconElement.src = 'assets/images/icons/starEmpty.png';
+        }
+    }
+
     function checkTargetAndRender(ev) {
         let targetTagName = ev.target.tagName;
         let targetInnerText = ev.target.innerText;
@@ -114,17 +138,8 @@
         }
     }
 
-    function checkCurrentUserFavAds(id) {
-        let currentUser = userStorage.getCurrentUser();
-
-        if (currentUser && currentUser.favs.includes(id)) {
-            favIconElement.src = 'assets/images/icons/starFilled.png';
-        } else {
-            favIconElement.src = 'assets/images/icons/starEmpty.png';
-        }
-    }
-
     function renderSingleAd(ad) {
+        currImageIndex = 0;
 
         headingTitle.innerText = '';
         secondHeadingTitle.innerText = '';
