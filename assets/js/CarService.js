@@ -7,17 +7,23 @@ class CarStorage {
         let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
         if (localAds && localAds.length > 0) {
             this.list = [...localAds]
-            adsCount = localAds.length;
         } else {
             localStorage.setItem('ADS_DATA', JSON.stringify([]));
         }
     }
 
     addAd(car) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+
+        let lastId = 0;
+        if (this.list[this.list.length - 1]) {
+            lastId = this.list[this.list.length - 1].id;
+        }
+        car.id = lastId + 1;
+
+        localAds.push(car)
         this.list.push(car);
 
-        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
-        localAds.push(car)
         localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
     }
 
@@ -26,6 +32,8 @@ class CarStorage {
 
         let index = localAds.findIndex(ad => ad.id == id);
         localAds.splice(index, 1);
+        this.list.splice(index, 1);
+
 
         localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
     }
@@ -133,11 +141,9 @@ class CarStorage {
     }
 };
 
-let adsCount = 0;
-
 class Car {
-    constructor() {
-        this.id = ++adsCount;
+    constructor(id = 0) {
+        this.id = id;
 
         this.images = [];
 

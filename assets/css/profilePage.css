@@ -126,6 +126,7 @@
     font-size: 14px;
     margin-left: 4px;
     margin-right: 2px;
+    text-align: center;
 }
 
 .userAdBtnsContainer button {
@@ -151,5 +152,57 @@
 }
 
 /* Favourite ADS Container */
+#myFavAdsContainer p {
+    margin-bottom: 10px;
+}
+
+#noFavAdsContainer h6 {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+#userFavAdsContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.userFavAdCard {
+    border: 1px solid black;
+    width: 335px;
+    height: 100px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.userFavAdBtnsContainer{
+    width: 28%;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.userFavAdBtnsContainer button {
+    all: unset;
+    cursor: pointer;
+} 
+
+.userFavAdBtnsContainer button:hover {
+    text-decoration: underline;
+} 
+
+.userFavAdBtnsContainer button:first-of-type {
+    margin-bottom: 12px;
+}
+
+.userFavAdBtnsContainer button:last-of-type {
+    text-align: center;
+    color: red;
+}
 
 /* My Profile Settings Container */
+#profileSettings,
+#profileSettingsContainer {
+    display: none;
+}

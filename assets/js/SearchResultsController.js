@@ -147,17 +147,45 @@ function renderAd(ad) {
 
     let cardTitleAndPrice = createElement('div', 'cardtitleAndPrice');
 
+    const id = ad.id.toString();
+
     let title = createElement('h1');
     title.innerText = `${ad.brand.value} ${ad.model.value}`
+    title.id = id;
+
+    title.addEventListener('click', () => location.hash = 'singleAdPage')
 
     let priceAndFavsIcon = createElement('div', 'priceAndFavsIcon');
     let price = createElement('h1');
     price.innerText = `${ad.price.value} ${ad.currency.value}`
 
     let favIconDiv = createElement('div', 'favIconDiv');
-    let favIcon = createElement('img')
-    favIcon.src = 'assets/images/icons/listFav.svg';
-    favIcon.alt = 'fav icon image'
+    let favIcon = createElement('img');
+    favIcon.alt = 'favIcon'
+
+    let currentUser = userStorage.getCurrentUser();
+    if (currentUser && currentUser.favs.includes(id)) {
+        favIcon.src = 'assets/images/icons/starFilled.png';
+    } else {
+        favIcon.src = 'assets/images/icons/starEmpty.png';
+    }
+
+    favIcon.addEventListener('click', () => {
+        if (currentUser) {
+
+            if (!currentUser.favs.includes(id)) {
+                userStorage.addFavAd(id);
+                favIcon.src = 'assets/images/icons/starFilled.png';
+                addInNotebook.innerText = 'Премахни от бележник';
+            } else {
+                userStorage.removeFavAd(id)
+                favIcon.src = 'assets/images/icons/starEmpty.png';
+                addInNotebook.innerText = 'Добави в бележник';
+            }
+        } else {
+            location.hash('loginPage')
+        }
+    })
 
     favIconDiv.append(favIcon);
     priceAndFavsIcon.append(price, favIconDiv);
@@ -206,12 +234,31 @@ function renderAd(ad) {
     anchMoreDetails.innerText = `Повече детайли и ${ad.images.length} снимки`;
     let spanMoreDetails = createElement('span');
     spanMoreDetails.innerText = '|';
-    let anchAddInNotebook = createElement('a');
-    anchAddInNotebook.href = '#singleAdPage'
-    anchAddInNotebook.id = ad.id;
-    anchAddInNotebook.innerText = 'Добави в бележника';
+    let addInNotebook = createElement('p');
 
-    cardMoreDetails.append(anchMoreDetails, spanMoreDetails, anchAddInNotebook);
+    if (currentUser && currentUser.favs.includes(id)) {
+        addInNotebook.innerText = 'Премахни от бележника';
+    } else {
+        addInNotebook.innerText = 'Добави в бележник';
+    }
+
+    addInNotebook.addEventListener('click', () => {
+        if (currentUser) {
+            if (!currentUser.favs.includes(id)) {
+                userStorage.addFavAd(id);
+                addInNotebook.innerText = 'Премахни от бележник';
+                favIcon.src = 'assets/images/icons/starFilled.png';
+            } else {
+                userStorage.removeFavAd(id);
+                addInNotebook.innerText = 'Добави в бележник';
+                favIcon.src = 'assets/images/icons/starEmpty.png';
+            }
+        } else {
+            location.hash = 'loginPage'
+        }
+    })
+
+    cardMoreDetails.append(anchMoreDetails, spanMoreDetails, addInNotebook);
 
     let markId = 0;
     let cardMark = createElement('div');

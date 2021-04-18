@@ -81,6 +81,7 @@ let searchBoxObj = (function () {
             let vehKm = createEl('p');
             let vehCity = createEl('p');
             let adTime = createEl('p');
+
             container.append(wrapper);
             wrapper.append(photoLink);
             photoLink.append(photo);

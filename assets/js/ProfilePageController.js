@@ -5,8 +5,13 @@
     const myFavAdsContainer = getById('myFavAdsContainer');
     const profileSettingsContainer = getById('profileSettingsContainer');
 
+    //My Ads Page
     const noAdsContainer = getById('noAdsContainer');
-    const userAdsContainer = getById('userAdsContainer')
+    const userAdsContainer = getById('userAdsContainer');
+
+    //Fav Ads Page
+    const noFavAdsContainer = getById('noFavAdsContainer');
+    const userFavAdsContainer = getById('userFavAdsContainer');
 
     //Buttons
     const newAdButton = getById('newAdButton');
@@ -19,26 +24,112 @@
 
     newAdButton.addEventListener('click', () => { location.hash = 'publishPage' })
 
-    myAdsHeaderBtn.addEventListener('click', changeProfileSection)
-    profileMyAds.addEventListener('click', () => changeProfileSection('myAds'))
-    profileMyFavAds.addEventListener('click', () => changeProfileSection('myFavAds'))
+
+
+    myAdsHeaderBtn.addEventListener('click', () => {
+        changeProfileSection();
+        showMyAdsPage();
+    })
+
+    profileMyAds.addEventListener('click', () => {
+        changeProfileSection('myAds');
+        showMyAdsPage();
+    })
+
+    profileMyFavAds.addEventListener('click', () => {
+        changeProfileSection('myFavAds')
+        showMyFavAdsPage();
+    })
+
     profileSettings.addEventListener('click', () => changeProfileSection('profileSettings'))
 
     let currentUser = userStorage.getCurrentUser();
-    if (currentUser.uploads.length > 0) {
-        userAdsContainer.style.display = 'block'
-        noAdsContainer.style.display = 'none';
 
-        currentUser.uploads.forEach(id => {
-            let ad = carStorage.getAd(id);
-            let currCard = generateAdCard(ad);
-            userAdsContainer.append(currCard);
-        })
-    } else {
-        userAdsContainer.style.display = 'none';
-        noAdsContainer.style.display = 'block';
+    showMyAdsPage();
+
+    function showMyAdsPage() {
+        if (currentUser && currentUser.uploads.length > 0) {
+            userAdsContainer.innerHTML = '';
+
+            userAdsContainer.style.display = 'block'
+            noAdsContainer.style.display = 'none';
+
+            currentUser.uploads.forEach(id => {
+                let ad = carStorage.getAd(id);
+                let currCard = generateAdCard(ad);
+                userAdsContainer.append(currCard);
+            })
+        } else {
+            userAdsContainer.style.display = 'none';
+            noAdsContainer.style.display = 'block';
+        }
     }
 
+    function showMyFavAdsPage() {
+        if (currentUser && currentUser.favs.length > 0) {
+            userFavAdsContainer.innerHTML = '';
+
+            userFavAdsContainer.style.display = 'block'
+            noFavAdsContainer.style.display = 'none';
+
+            currentUser.favs.forEach(id => {
+                let ad = carStorage.getAd(id);
+                let currCard = generateFavAdCard(ad);
+                userFavAdsContainer.append(currCard);
+            })
+        } else {
+            userFavAdsContainer.style.display = 'none';
+            noFavAdsContainer.style.display = 'block';
+        }
+    }
+
+    function generateFavAdCard(ad) {
+        let userFavAdCard = document.createElement('div');
+        let userAdMainContent = document.createElement('div');
+        let userAdImgContainer = document.createElement('div');
+        let img = document.createElement('img');
+        let userAdInfoContainer = document.createElement('div');
+        let title = document.createElement('h1');
+        let price = document.createElement('h2');
+        let userAdBtnsContainer = document.createElement('div');
+        let showAdBtn = document.createElement('button');
+        let deleteBtn = document.createElement('button');
+
+        userFavAdCard.classList.add('userFavAdCard');
+        userAdMainContent.classList.add('userAdMainContent');
+        userAdImgContainer.classList.add('userAdImgContainer');
+        userAdInfoContainer.classList.add('userAdInfoContainer');
+        userAdBtnsContainer.classList.add('userFavAdBtnsContainer');
+
+        let mainImgSrc = ad.images[0];
+
+        if (mainImgSrc.length < 11) {
+            img.src = "assets/images/cars/" + mainImgSrc;
+        } else {
+            img.src = mainImgSrc;
+        }
+
+        img.id = ad.id;
+        title.innerText = `${ad.brand.value} ${ad.model.value}`;
+        title.id = ad.id;
+        price.innerText = `${ad.price.value} ${ad.currency.value}`;
+        showAdBtn.innerText = 'Виж обявата';
+        deleteBtn.innerText = 'Премахни от бележник';
+        showAdBtn.id = ad.id;
+
+        deleteBtn.addEventListener('click', () => {
+            userStorage.removeFavAd(ad.id);
+            location.reload();
+        })
+
+        userAdImgContainer.append(img);
+        userAdInfoContainer.append(title, price);
+        userAdMainContent.append(userAdImgContainer, userAdInfoContainer)
+        userAdBtnsContainer.append(showAdBtn, deleteBtn);
+        userFavAdCard.append(userAdMainContent, userAdBtnsContainer)
+
+        return userFavAdCard;
+    }
 
     function generateAdCard(ad) {
         let userAdCard = document.createElement('div');
@@ -103,6 +194,7 @@
                 break;
             default:
                 myAdsContainer.style.display = 'block';
+                showMyAdsPage();
                 myFavAdsContainer.style.display = 'none';
                 profileSettingsContainer.style.display = 'none';
         }
@@ -125,10 +217,6 @@
                 profileMyFavAds.style.color = 'white';
                 profileSettings.style.color = '#b7d7eb';
                 break;
-            default:
-                profileMyAds.style.color = '#b7d7eb';
-                profileMyFavAds.style.color = 'white';
-                profileSettings.style.color = 'white';
         }
     }
 })()
