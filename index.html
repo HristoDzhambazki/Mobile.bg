@@ -57,7 +57,7 @@
                     <a href="#searchPage">Търсене</a>
                     <a href="https://fakti.bg/dnes" target="_blank">Новини</a>
                     <a href="https://toprentacar.bg/" target="_blank">Rent-a-car</a>
-                    <a href="#dealersPage">Дилъри</a>
+                    <a href="#homePage">Дилъри</a>
                 </div>
 
                 <a href="#profilePage" id="myAdsHeaderBtn">Моите обяви</a>
@@ -1715,13 +1715,14 @@
                             </ul>
                         </div>
                         <div class="newSearch">
+                            //TODO:
                             <ul>
                                 <li>
-                                    <a href="#searchPage">ПРЕДИШНА</a>
+                                    <a id="prevAdBtn" href="#searchPage">ПРЕДИШНА</a>
                                 </li>
                                 <li class="cherta"> | </li>
                                 <li>
-                                    <a href="#searchPage">СЛЕДВАЩА</a>
+                                    <a id="nextAdBtn" href="#searchPage">СЛЕДВАЩА</a>
                                 </li>
                             </ul>
                         </div>
@@ -1730,7 +1731,7 @@
                         <div class="titleSP">
                             <div class="headingAndAnchSP">
                                 <h1 id="headingAndAnchSP"></h1>
-                                <a href="#signleAdPage">/Технически характеристики и разход на гориво/</a>
+                                <a href="#singleAdPage">/Технически характеристики и разход на гориво/</a>
                             </div>
                             <div class="priceAndFavSP">
                                 <h1 id="priceAndFavSP"></h1>
@@ -1744,8 +1745,8 @@
                                 <div id="mainImageSP" class="mainImageSP">
                                     <img src="assets/images/icons/noimage.jpg" alt="">
                                     <div id="numberText" class="numbertext">0 / 0</div>
-                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                    <a class="prev" id="prevBtn">&#10094;</a>
+                                    <a class="next" id="nextBtn">&#10095;</a>
                                 </div>
                                 <div id="spOtherImages" class="spOtherImages">
 

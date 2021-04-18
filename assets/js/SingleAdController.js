@@ -1,4 +1,6 @@
 (function () {
+    let ad = '';
+
     //DOM Selectors
     let headingTitle = getById('headingAndAnchSP');
     let firstPrice = getById('priceAndFavSP');
@@ -19,28 +21,78 @@
     let securitySP = getById('securitySP');
     let comfortSP = getById('comfortSP');
 
+    //Buttons
+    let nextBtn = getById('nextBtn');
+    let prevBtn = getById('prevBtn');
+    let prevAdBtn = getById('prevAdBtn');
+    let nextAdBtn = getById('nextAdBtn');
+
+    //Pages
     let homePageAds = getById('vehicleCardCont');
     let searchResultsElement = getById('mainResults');
     let profilePageAds = getById('profilePage');
     let profilePageFavAds = getById('userFavAdsContainer');
 
-    let curr_id = '';
-
     //Events
+    nextBtn.addEventListener('click', () => plusSlide(1));
+    prevBtn.addEventListener('click', () => plusSlide(-1));
+    favIconElement.addEventListener('click', addAdToUserFavs);
     homePageAds.addEventListener('click', checkTargetAndRender);
     searchResultsElement.addEventListener('click', checkTargetAndRender);
     profilePageAds.addEventListener('click', checkTargetAndRender);
     profilePageFavAds.addEventListener('click', checkTargetAndRender);
-    favIconElement.addEventListener('click', addAdToUserFavs);
+
+    let currIndex = 0;
+    function changeMainImg(imgName, index) {
+        if (imgName.length > 11) {
+            mainImgElement.src = imgName;
+        } else {
+            mainImgElement.src = 'assets/images/cars/' + imgName;
+        }
+        changeSelectedImageOpacity(imgName)
+
+        numberText.innerText = `${index + 1} / ${ad.images.length}`;
+        currIndex = index;
+    }
+
+    function plusSlide(index) {
+        let newIndex = currIndex + index;
+        let adImages = ad.images;
+        if (newIndex >= 0 && newIndex < adImages.length) {
+            if (adImages[newIndex].length > 11) {
+                mainImgElement.src = adImages[newIndex]
+            } else {
+                mainImgElement.src = 'assets/images/cars/' + adImages[newIndex];
+            }
+
+            numberText.innerText = `${newIndex + 1} / ${adImages.length}`;
+            changeSelectedImageOpacity(mainImgElement.src);
+            currIndex = newIndex;
+        }
+
+    }
+
+    function changeSelectedImageOpacity(name) {
+        let imageElementsArray = [...otherImagesElement.children];
+
+        imageElementsArray.forEach(el => {
+            if (el.src.includes(name)) {
+                el.style.opacity = '0.4';
+            } else {
+                el.style.opacity = '1';
+            }
+        })
+
+    }
 
     function addAdToUserFavs() {
         let currentUser = userStorage.getCurrentUser();
         if (currentUser) {
-            if (!currentUser.favs.includes(curr_id)) {
-                userStorage.addFavAd(curr_id);
+            if (!currentUser.favs.includes(ad.id)) {
+                userStorage.addFavAd(ad.id);
                 favIconElement.src = 'assets/images/icons/starFilled.png';
             } else {
-                userStorage.removeFavAd(curr_id);
+                userStorage.removeFavAd(ad.id);
                 favIconElement.src = 'assets/images/icons/starEmpty.png';
             }
         } else {
@@ -55,8 +107,7 @@
         let targetInnerText = ev.target.innerText;
         if ((targetTagName === 'A' && targetInnerText !== 'Добави в бележника') || (targetTagName === 'IMG' && ev.target.alt !== 'favIcon') || targetTagName === 'H1' || targetInnerText === 'Виж обявата') {
             let id = ev.target.id;
-            curr_id = id;
-            let ad = carStorage.getAd(id);
+            ad = carStorage.getAd(id);
             renderSingleAd(ad);
             checkCurrentUserFavAds(id);
             location.hash = '#singleAdPage'
@@ -110,7 +161,7 @@
             mainImgElement.alt = ad.brand.value + ' ' + ad.model.value;
 
             otherImagesElement.innerHTML = '';
-            ad.images.forEach(imgName => {
+            ad.images.forEach((imgName, index) => {
                 let img = createElement('img');
                 if (imgName.length > 11) {
                     img.src = imgName;
@@ -120,8 +171,12 @@
 
                 img.alt = ad.brand.value + ' ' + ad.model.value;;
 
+                img.addEventListener('click', () => changeMainImg(imgName, index))
+
                 otherImagesElement.append(img);
             })
+
+            changeSelectedImageOpacity(mainImgElement.src)
         }
 
         componentTitles.innerHTML = '';
