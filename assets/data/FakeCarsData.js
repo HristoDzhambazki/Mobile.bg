@@ -52,40 +52,14 @@ let arrayData = [
         },
     },
     {
-        price: 60000,
-        currency: 'лв.',
-        region: 'Русе',
-
-        images: [
-            'car2-1.jpg',
-            'car2-2.jpg',
-            'car2-3.jpg',
-        ],
-
-
-        brand: 'Mercedes-Benz',
-        model: 'S 350',
-        year: 2014,
-        engine: 'Дизелов',
-        power: 258,
-        euroSt: 'Евро 4',
-        gear: 'Автоматична',
-        category: 'Седан',
-        mileage: 199000,
-        color: 'Хамелеон',
-        extras: {
-            others: ['Бартер'],
-        },
-    },
-    {
         price: 9990,
         currency: 'лв.',
         region: 'Дупница',
 
         images: [
-            'car4-1.jpg',
-            'car4-2.jpg',
-            'car4-3.jpg',
+            'car3-1.jpg',
+            'car3-2.jpg',
+            'car3-3.jpg',
         ],
 
 
@@ -110,9 +84,9 @@ let arrayData = [
         region: 'Пловдив',
 
         images: [
-            'car5-1.jpg',
-            'car5-2.jpg',
-            'car5-3.jpg',
+            'car4-1.jpg',
+            'car4-2.jpg',
+            'car4-3.jpg',
         ],
 
         brand: 'VW',
@@ -136,9 +110,9 @@ let arrayData = [
         region: 'Бургас',
 
         images: [
-            'car6-1.jpg',
-            'car6-2.jpg',
-            'car6-3.jpg',
+            'car5-1.jpg',
+            'car5-2.jpg',
+            'car5-3.jpg',
         ],
 
 
@@ -157,55 +131,31 @@ let arrayData = [
             others: ['Бартер', 'С регистрация', 'Сервизна книжка']
         },
     }, {
-        price: 5000,
+        price: 59990,
         currency: 'лв.',
         region: 'София',
 
         images: [
-            'car1-1.jpg',
-            'car1-2.jpg',
-            'car1-3.jpg',
-        ],
-
-
-        brand: 'Toyota',
-        model: 'Yaris',
-        year: 2009,
-        engine: 'Бензинов',
-        power: 69,
-        euroSt: 'Евро 4',
-        gear: 'Ръчна',
-        category: 'Хечбек',
-        mileage: 144000,
-        color: 'Черен',
-        extras: {
-            comfort: ['Бордкомпютър', 'Ел. огледала', 'Ел. стъкла'],
-        },
-    },
-    {
-        price: 60000,
-        currency: 'лв.',
-        region: 'Русе',
-
-        images: [
-            'car2-1.jpg',
-            'car2-2.jpg',
-            'car2-3.jpg',
+            'car6-1.jpg',
+            'car6-2.jpg',
+            'car6-3.jpg',
         ],
 
 
         brand: 'Mercedes-Benz',
-        model: 'S 350',
-        year: 2014,
+        model: 'E 220',
+        year: 2018,
         engine: 'Дизелов',
-        power: 258,
-        euroSt: 'Евро 4',
+        power: 194,
+        euroSt: 'Евро 6',
         gear: 'Автоматична',
         category: 'Седан',
-        mileage: 199000,
-        color: 'Хамелеон',
+        mileage: 187000,
+        color: 'Черен',
         extras: {
-            others: ['Бартер'],
+            comfort: ['Бордкомпютър', 'Ел. огледала', 'Ел. стъкла', 'Bluetooth - handsfree система'],
+            security: ['Аларма', 'Имобилайзер', 'Централно заключване'],
+            others: ['4х4', 'Бартер', 'Сервизна книжка'],
         },
     },
     {
@@ -338,32 +288,6 @@ let arrayData = [
         color: 'Черен',
         extras: {
             comfort: ['Бордкомпютър', 'Ел. огледала', 'Ел. стъкла'],
-        },
-    },
-    {
-        price: 60000,
-        currency: 'лв.',
-        region: 'Русе',
-
-        images: [
-            'car2-1.jpg',
-            'car2-2.jpg',
-            'car2-3.jpg',
-        ],
-
-
-        brand: 'Mercedes-Benz',
-        model: 'S 350',
-        year: 2014,
-        engine: 'Дизелов',
-        power: 258,
-        euroSt: 'Евро 4',
-        gear: 'Автоматична',
-        category: 'Седан',
-        mileage: 199000,
-        color: 'Хамелеон',
-        extras: {
-            others: ['Бартер'],
         },
     },
     {

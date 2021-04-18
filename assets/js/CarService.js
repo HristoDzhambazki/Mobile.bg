@@ -1,25 +1,90 @@
+
 class CarStorage {
     constructor() {
         this.list = [];
         this.newList = [...this.list]
+
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        if (localAds && localAds.length > 0) {
+            this.list = [...localAds]
+        } else {
+            localStorage.setItem('ADS_DATA', JSON.stringify([]));
+        }
     }
 
-    addCar(car) {
+    addAd(car) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+
+        let lastId = 0;
+        if (this.list[this.list.length - 1]) {
+            lastId = this.list[this.list.length - 1].id;
+        }
+        car.id = lastId + 1;
+
+        localAds.push(car)
         this.list.push(car);
+
+        localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
     }
 
-    removeCar(id) {
-        let index = this.list.findIndex(car => car.id == id);
+    removeAd(id) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+
+        let index = localAds.findIndex(ad => ad.id == id);
+        localAds.splice(index, 1);
         this.list.splice(index, 1);
+
+
+        localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
+    }
+
+    replaceAd(id, newAd) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+
+        localAds = localAds.map(ad => {
+            if (ad.id === id) {
+                return { ...newAd };
+            }
+
+            return ad;
+        })
+        localStorage.setItem('ADS_DATA', JSON.stringify(localAds));
     }
 
     getAd(id) {
-        return this.list.find(x => x.id == id);
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        return localAds.find(x => x.id == id);
+    }
+
+    getAdIndex(id) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        return localAds.findIndex(ad => ad.id === id)
+    }
+
+    getAdByIndex(index) {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        return localAds[index];
+    }
+
+    getLength() {
+        return JSON.parse(localStorage.getItem('ADS_DATA')).length;
     }
 
     getFirstSixAds() {
-        let newArr = this.list.slice(0, 6);
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        let newArr = localAds.slice(0, 6);
         return newArr;
+    }
+
+    getAll() {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+
+        return localAds;
+    }
+
+    getLastAdId() {
+        let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+        return localAds[localAds.length - 1].id;
     }
 
     filter(obj) {
@@ -90,11 +155,9 @@ class CarStorage {
     }
 };
 
-let count = 0;
-
 class Car {
-    constructor() {
-        this.id = ++count;
+    constructor(id = 0) {
+        this.id = id;
 
         this.images = [];
 
@@ -156,6 +219,7 @@ class Car {
 
         this.currency = {
             category: 'Валута',
+            value: 'лв.'
         };
 
         this.expiryDays = {
@@ -198,20 +262,27 @@ class Car {
 let carStorage = new CarStorage();
 
 //GET local data and add it to Car Storage
-arrayData.forEach(obj => {
-    let car = new Car();
+let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
+if (localAds.length === 0) {
+    arrayData.forEach(obj => {
+        let car = new Car();
 
-    for (const key in obj) {
-        if (key === 'extras') {
-            for (const extrasKey in obj.extras) {
-                car.extras[extrasKey].content = obj.extras[extrasKey];
+        for (const key in obj) {
+            if (key === 'extras') {
+                for (const extrasKey in obj.extras) {
+                    car.extras[extrasKey].content = obj.extras[extrasKey];
+                }
+            } else if (key === 'year') {
+                car.productionYear.value = obj[key];
+            } else if (key === 'images') {
+                car.images = [...obj.images]
+            } else {
+                car[key].value = obj[key];
             }
-        } else if (key === 'year') {
-            car.productionYear.value = obj[key];
-        } else {
-            car[key].value = obj[key];
         }
-    }
 
-    carStorage.addCar(car)
-})
+        carStorage.addAd(car)
+    })
+}
+
+

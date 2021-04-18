@@ -36,27 +36,34 @@ function readAndPreviewImage(files, container, type = 'append') {
 function readAndPreview(file, container) {
 
     let imgElement = document.createElement('img');
-    imgElement.alt = file.name;
+    imgElement.alt = 'ad image';
 
-    const reader = new FileReader();
-    reader.addEventListener('load', (event) => {
-        imgElement.src = event.target.result;
-        container.append(imgElement);
-    });
-    reader.readAsDataURL(file);
+    imgElement.src = file;
+    container.append(imgElement);
 
+    // const reader = new FileReader();
+    // reader.addEventListener('load', (event) => {
+    //     imgElement.src = event.target.result;
+    //     container.append(imgElement);
+    // });
+
+    // reader.readAsDataURL(file);
 }
 
 function readAndPreviewPrepend(file, container) {
 
     let imgElement = document.createElement('img');
-    imgElement.alt = file.name;
+    imgElement.alt = 'ad image';
 
-    const reader = new FileReader();
-    reader.addEventListener('load', (event) => {
-        imgElement.src = event.target.result;
-        container.prepend(imgElement);
-    });
-    reader.readAsDataURL(file);
+
+    imgElement.src = file;
+    container.prepend(imgElement);
+
+    // const reader = new FileReader();
+    // reader.addEventListener('load', (event) => {
+    //     imgElement.src = event.target.result;
+    //     container.prepend(imgElement);
+    // });
+    // reader.readAsDataURL(file);
 
 }

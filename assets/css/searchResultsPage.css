@@ -160,6 +160,11 @@
     background-color: white;
     padding: 5px;
     display: inline-block;
+    border: 1px solid white;
+}
+
+.cardImageDiv:hover {
+    border: 1px solid #09f;
 }
 
 .cardMainImg {
@@ -174,6 +179,11 @@
     margin-left: 10px;
 }
 
+.cardtitleAndPrice h1:hover {
+    cursor: pointer;
+    color: #09f;
+}
+
 .priceAndFavsIcon {
     display: flex;
     align-items: center;
@@ -182,12 +192,11 @@
 .favIconDiv {
     padding-top: 5px;
     margin-left: 10px;
-    max-height: 30px;
-    overflow: hidden;
+    cursor: pointer;
 }
 
-#favIconDiv img {
-    width: 38px;
+.favIconDiv img {
+    max-width: 35px;
 }
 
 .cardDescription{
@@ -215,7 +224,22 @@
 }
 
 .cardMoreDetails {
-    width: 410px;
-    display: flex;
-    justify-content: space-between;
+    width: 440px;
 }
+
+.cardMoreDetails span{
+    margin: 0 10px;
+}
+
+.cardMoreDetails a, 
+.cardMoreDetails p {
+    all: unset;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.cardMoreDetails a:hover, 
+.cardMoreDetails p:hover {
+    color: #09F;
+} 

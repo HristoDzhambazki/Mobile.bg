@@ -19,7 +19,7 @@ body {
     border: 1px solid black;
 }
 
-#mainHolder {
+#main {
     width: 1000px;
     margin: auto;
 }
@@ -35,32 +35,52 @@ body {
     font-size: 15px;
 }
 
-div.topWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 #mainIconWrapper a {
     text-decoration: none;
     color: rgb(0, 153, 255);
+}
+
+.ds-flex-jc-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 div#loginWrapper a:hover {
     text-decoration: underline;
 }
 
-#loggedInExit {
-    display: block;
+#logRegHeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#loggedInExitText {
-    color: rgb(0, 153, 255);
+#logRegHeaderContainer > div {
+    margin-right: 10px;
 }
 
-#loggedInExit:hover {
+#welcomeUserContainer {
+    display: none;
+}
+
+#welcomeUserContainer span {
+    color: black;
+}
+
+#logOut:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+div#loginHeaderBtn {
+    font-weight: 600;
+}
+
+div#line {
+    height: 16px;
+    width: 1px;
+    background-color: rgb(0, 153, 255);
 }
 
 a#leftBox:hover {
@@ -75,19 +95,6 @@ a#rightBox:hover {
     width: fit-content;
 }
 
-div#loginWrapper {
-    width: 220px;
-}
-
-div#logIn {
-    font-weight: 600;
-}
-
-div#line {
-    height: 16px;
-    width: 1px;
-    background-color: rgb(0, 153, 255);
-}
 
 #rightMainWrapper {
     width: 390px;
@@ -194,6 +201,7 @@ div#vehicleCardCont {
     text-decoration: underline;
     font-style: oblique;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .autoPrice {

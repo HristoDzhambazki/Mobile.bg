@@ -59,10 +59,7 @@ let searchBoxObj = (function () {
 
 })();
 
-
-
-
-
+//Render Vehicle Cards and News
 (function () {
     let vehicleCardCont = getById('vehicleCardCont');
     let adManager = carStorage;
@@ -77,11 +74,14 @@ let searchBoxObj = (function () {
             let photo = createEl('img');
             let info = createEl('div');
             let vehHeader = createEl('h1');
+            vehHeader.addEventListener('click', () => location.hash = "singleAdPage")
+            vehHeader.setAttribute('id', vehicles[i].id)
             let vehInfoHolder = createEl('div');
             let vehPrice = createEl('p');
             let vehKm = createEl('p');
             let vehCity = createEl('p');
             let adTime = createEl('p');
+
             container.append(wrapper);
             wrapper.append(photoLink);
             photoLink.append(photo);
@@ -92,6 +92,14 @@ let searchBoxObj = (function () {
             vehInfoHolder.append(vehPrice);
             vehInfoHolder.append(vehKm);
             vehInfoHolder.append(vehCity);
+
+            wrapper.addEventListener('mouseover', () => {
+                vehHeader.style.color = '#0099ff';
+            })
+
+            wrapper.addEventListener('mouseout', () => {
+                vehHeader.style.color = 'black';
+            })
 
             wrapper.classList.add('autoCont');
             info.classList.add('autoInfoCont');

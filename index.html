@@ -13,61 +13,59 @@
     <link rel="stylesheet" href="assets/css/publishAdPage.css">
     <link rel="stylesheet" href="assets/css/showNewAdPage.css">
     <link rel="stylesheet" href="assets/css/singleAdPage.css">
-    <link rel="stylesheet" href="assets/css/myAdPage.css">
+    <link rel="stylesheet" href="assets/css/loginPage.css">
+    <link rel="stylesheet" href="assets/css/profilePage.css">
 
-    <style>
-        #underConstruction {
-            height: 400px;
-            border: 2px solid black;
-            margin-right: 5px;
-        }
-    </style>
 </head>
 
 <body>
-    <div id="mainHolder">
+    <div id="main">
         <header id="mainHeader">
-            <div id="mainIconWrapper" class="topWrapper">
-                <div id="leftMainWrapper" class="topWrapper">
-                    <div id="mainIcon"><a href="#mainPage"><img src="assets/images/icons/logo.svg" alt="mobile.bg"></a>
+            <div id="mainIconWrapper" class="ds-flex-jc-center">
+                <div id="leftMainWrapper" class="ds-flex-jc-center">
+                    <div id="mainIcon"><a href="#homePage"><img src="assets/images/icons/logo.svg" alt="mobile.bg"></a>
                     </div>
 
-                    <div class="topWrapper" id="loginWrapper">
-                        <div id="logIn"><a href="#myAdPage">Вход</a></div>
-                        <div id="line"></div>
-                        <div id="register"><a href="#myAdPage">Нова Регистрация</a></div>
-                        <p id="welcomeText"></p>
-                        <p href="#mainPage" id="loggedInExit">
-                            [<span id="loggedInExitText">изход</span>]
-                        </p>
+                    <div class="ds-flex-jc-center" id="loginWrapper">
+                        <div id="logRegHeaderContainer">
+                            <div id="loginHeaderBtn"><a href="#loginPage">Вход</a></div>
+                            <div id="line"></div>
+                            <div id="registerHeaderBtn"><a href="#loginPage">Нова Регистрация</a></div>
+                        </div>
+                        <div id="welcomeUserContainer">
+                            <p id="welcomeText"></p>
+                            <a href="#homePage" id="logOut">
+                                <span>[</span>изход<span>]</span>
+                            </a>
+                        </div>
                     </div>
 
 
                 </div>
 
-                <div id="rightMainWrapper" class="topWrapper">
-                    <a href="#" class="rightMainBox" id="leftBox">Редакция на обява</a>
-                    <a href="#" class="rightMainBox" id="rightBox"><span id="plus">+</span> <span> ДОБАВИ
+                <div id="rightMainWrapper" class="ds-flex-jc-center">
+                    <a href="#profilePage" class="rightMainBox" id="leftBox">Редакция на обява</a>
+                    <a href="#publishPage" class="rightMainBox" id="rightBox"><span id="plus">+</span> <span> ДОБАВИ
                             ОБЯВА</span></a>
                 </div>
             </div>
 
             <nav id="mainNavigation">
                 <div id="topNavigation">
-                    <a href="#mainPage">Начало</a>
+                    <a href="#homePage">Начало</a>
                     <a href="#publishPage">Публикуване</a>
                     <a href="#searchPage">Търсене</a>
                     <a href="https://fakti.bg/dnes" target="_blank">Новини</a>
                     <a href="https://toprentacar.bg/" target="_blank">Rent-a-car</a>
-                    <a href="#dealersPage">Дилъри</a>
+                    <a href="#homePage">Дилъри</a>
                 </div>
 
-                <a href="#myAdPage">Моите обяви</a>
+                <a href="#profilePage" id="myAdsHeaderBtn">Моите обяви</a>
             </nav>
         </header>
 
         <main>
-            <div id="mainPage">
+            <div id="homePage">
                 <nav id="mainSearchNav">
                     <a href="#mainPage/Автомобили и Джипове" class="normalDrive"><img
                             src="assets/images/icons/Автомобили и Джипове.gif" alt="Автомобили и Джипове"
@@ -568,8 +566,8 @@
                         <div id="adLeftText">
                             Ако желаете да публикувате повече обяви
                             и искате да ги управлявате по-лесно,
-                            влезте във Вашият акаунт <a href="#" target="_blank" id="adLinkToLogin">ВХОД</a> или
-                            си направете нов акаунт <a href="#" target="_blank" id="adLinkToReg">НОВА РЕГИСТРАЦИЯ</a>
+                            влезте във Вашият акаунт <a href="#loginPage" id="publishPageLoginLink">ВХОД</a> или
+                            си направете нов акаунт <a href="#loginPage" id="publishPageRegLink">НОВА РЕГИСТРАЦИЯ</a>
                         </div>
                         <div id="adCenterText">
                             <div class="adLine"></div>
@@ -601,7 +599,7 @@
                             <p>2. Преглед на обявата</p>
                         </div>
                     </div>
-                    <div id="publishAd">
+                    <div id="publishAd" class="finishedAd">
                         <h1>Обявата Ви беше публикувана успешно!</h1>
                     </div>
                     <div id="publishSecondStep">
@@ -644,14 +642,14 @@
                         </div>
                     </div>
                     <div id="publishFirstStep">
-                        <h1 id="firstStepHeading">Публикуване на безплатна обява - Автомобили - Публикуване на текст
+                        <h1 class="firstStepHeading">Публикуване на безплатна обява - Автомобили
                             <span>(Стъпка 1)</span>
                         </h1>
-                        <div id="offerDescription">
-                            <div id="publishMainCategory">
+                        <div class="offerDescription">
+                            <div class="publishMainCategory">
                                 <div>
                                     <p class="searchTitle">Онсновна категория</p>
-                                    <select name="mainCategory" id="publishMainCategory">
+                                    <select name="mainCategory" class="publishMainCategory">
                                         <option selected value="1">Автомобили и Джипове
                                         <option value="3">Бусове
                                         <option value="4">Камиони
@@ -673,8 +671,8 @@
                                 <img id="selectMainCategoryLogo" src="./assets/images/icons/Автомобили и Джипове.gif"
                                     alt="avtomobil">
                             </div>
-                            <div id="publishSecondFloor">
-                                <div id="publishFirstColumn">
+                            <div class="publishSecondFloor">
+                                <div class="publishFirstColumn">
                                     <div class="pubDisWidthVal" id="publishBrandAndModel">
                                         <div>
                                             <p class="searchTitle">Марка</p>
@@ -892,7 +890,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div id="publishColor">
+                                    <div class="publishColor">
                                         <p class="searchTitle">Цвят</p>
                                         <select name="color" id="publishColor">
                                             <option value="">всички цветове
@@ -940,7 +938,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div id="publishSecondColumn">
+                                <div class="publishSecondColumn">
                                     <div class="pubDisWidthVal" id="publishModificationAndEngine">
                                         <div>
                                             <p class="searchTitle">Модификация</p>
@@ -957,7 +955,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div id="publishGear">
+                                    <div class="publishGear">
                                         <p class="searchTitle">Скоростна кутия</p>
                                         <select name="gear" id="publishGear">
                                             <option value="">Без значение
@@ -966,7 +964,7 @@
                                             <option value="Полуавтоматична">Полуавтоматична
                                         </select>
                                     </div>
-                                    <div id="publishDateOfProduction">
+                                    <div class="publishDateOfProduction">
                                         <div>
                                             <p class="searchTitle">Дата на производство</p>
                                         </div>
@@ -1085,7 +1083,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="pubDisWidthVal" id="publishRegion">
+                                    <div class="pubDisWidthVal publishRegion">
                                         <div>
                                             <p class="searchTitle">Регион</p>
                                             <select name="region" id="publishSelectRegion">
@@ -1129,8 +1127,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="publishThirdColumn">
-                                    <div id="publishState">
+                                <div class="publishThirdColumn">
+                                    <div class="publishState">
                                         <p class="searchTitle">Състояние:</p>
                                         <input type="checkbox" id="newCar">
                                         <label for="newCar">Нов</label>
@@ -1139,7 +1137,7 @@
                                         <input type="checkbox" id="partsCar">
                                         <label for="partsCar">За части</label>
                                     </div>
-                                    <div id="publishCategory">
+                                    <div class="publishCategory">
                                         <p class="searchTitle">Категория</p>
                                         <select name="category" id="publishTypeOfCar">
                                             <option value="">всички категории
@@ -1155,12 +1153,12 @@
                                             <option value="Хечбек">Хечбек
                                         </select>
                                     </div>
-                                    <div id="publishProbeg">
+                                    <div class="publishProbeg">
                                         <p class="searchTitle">Пробег</p>
-                                        <input class="publishInputWidth" name="miliage" type="text">
+                                        <input class="publishInputWidth" name="mileage" type="text">
                                         <span>в километри</span>
                                     </div>
-                                    <div id="publishExpiryDays">
+                                    <div class="publishExpiryDays">
                                         <p class="searchTitle">Валидност на обявата</p>
                                         <select name="expiryDays" id="selectExpiryDays">
                                             <option value="35">35</option>
@@ -1169,11 +1167,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="temp">
-
-                            </div>
-                            <div id="publishThirdFloor">
-                                <div id="publishCheckboxOptions">
+                            <div class="publishThirdFloor">
+                                <div class="publishCheckboxOptions">
                                     <div id="searchSafety">
                                         <p class="searchTitle">Безопасност</p>
                                         <div>
@@ -1674,21 +1669,26 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div id="publishImage">
+                                <div class="publishImage">
                                     <div>
                                         <p>Избери снимки:</p>
                                         <input type="file" id="publishImageInput" name="publishImageInput"
                                             accept=".jpg, .jpeg, .png" multiple>
                                     </div>
-                                    <div id="publishShowImages">
+                                    <div class="publishShowImages">
                                         <p>Преглед на снимките:</p>
-                                        <div id="showUploadedImages">
+                                        <div class="showUploadedImages">
 
                                         </div>
                                     </div>
                                 </div>
-                                <div id="publishButtonDiv">
+                                <div id="firstStepButtonDiv" class="publishButtonDiv">
                                     <button>ПРОДЪЛЖИ КЪМ ПРЕГЛЕД</button>
+                                </div>
+                                <div class="notValidAd">
+                                    <p class="notValidAdWarningMessage">Обявата трябва да съдържа <span>марка, модел и
+                                            цена с положително число.</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1717,11 +1717,11 @@
                         <div class="newSearch">
                             <ul>
                                 <li>
-                                    <a href="#searchPage">ПРЕДИШНА</a>
+                                    <a class="changeAdBtns" id="prevAdBtn">ПРЕДИШНА</a>
                                 </li>
                                 <li class="cherta"> | </li>
                                 <li>
-                                    <a href="#searchPage">СЛЕДВАЩА</a>
+                                    <a class="changeAdBtns" id="nextAdBtn">СЛЕДВАЩА</a>
                                 </li>
                             </ul>
                         </div>
@@ -1729,43 +1729,37 @@
                     <div class="singleAdCard">
                         <div class="titleSP">
                             <div class="headingAndAnchSP">
-                                <h1 id="headingAndAnchSP">Alfa Romeo 147 1.6 16V</h1>
-                                <a href="#signleAdPage">/Технически характеристики и разход на гориво/</a>
+                                <h1 id="headingAndAnchSP"></h1>
+                                <a href="#singleAdPage">/Технически характеристики и разход на гориво/</a>
                             </div>
                             <div class="priceAndFavSP">
-                                <h1 id="priceAndFavSP">3999 лв.</h1>
+                                <h1 id="priceAndFavSP"></h1>
                                 <div class="favIconDiv">
-                                    <img src="assets/images/icons/listFav.svg" alt="fav icon">
+                                    <img id="singleAdFavIcon" src="assets/images/icons/starEmpty.png" alt="fav icon">
                                 </div>
                             </div>
                         </div>
                         <div class="imagesSP">
                             <div class="spImagesDiv">
                                 <div id="mainImageSP" class="mainImageSP">
-                                    <img src="assets/images/cars/car1-1.jpg" alt="">
+                                    <img src="assets/images/icons/noimage.jpg" alt="">
                                     <div id="numberText" class="numbertext">0 / 0</div>
-                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                    <a class="prev" id="prevBtn">&#10094;</a>
+                                    <a class="next" id="nextBtn">&#10095;</a>
                                 </div>
                                 <div id="spOtherImages" class="spOtherImages">
-                                    <img src="assets/images/cars/car1-3.jpg" alt="">
-                                    <img src="assets/images/cars/car1-1.jpg" alt="">
-                                    <img src="assets/images/cars/car1-2.jpg" alt="">
-                                    <img src="assets/images/cars/car1-3.jpg" alt="">
-                                    <img src="assets/images/cars/car1-1.jpg" alt="">
-                                    <img src="assets/images/cars/car1-2.jpg" alt="">
-                                    <img src="assets/images/cars/car1-3.jpg" alt="">
+
                                 </div>
                             </div>
 
                         </div>
                         <div class="titleSP">
                             <div class="headingAndAnchSP">
-                                <h1 id="secondHASP">Alfa Romeo 147 1.6 16V</h1>
+                                <h1 id="secondHASP"></h1>
                             </div>
                             <div class="priceAndFavSP">
                                 <p>Цена: </p>
-                                <h1 id="secondPAFSP" class="secondPriceSP">3999 лв.</h1>
+                                <h1 id="secondPAFSP" class="secondPriceSP"></h1>
                             </div>
                         </div>
                         <div id="componentsSP" class="componentsSP">
@@ -1817,7 +1811,6 @@
             </div>
 
             <div id="searchResultsPage">
-
                 <div id="searchResultsContainer">
                     <div id="searchResultsMainContent">
                         <div class="newSearch" id="newSearchRP">
@@ -1884,6 +1877,7 @@
                     <div id="searchResultsAsideContent"></div>
                 </div>
             </div>
+
             <div id="searchPage">
                 <div id="searchMenu">
                     <div id="searchMainCategory">
@@ -3053,33 +3047,1166 @@
                     </div>
                 </div>
             </div>
-            <div id="dealersPage">dealersPage</div>
-            <div id="myAdPage">
-                <form id="adPageLoginForm">
-                    <p class="myAdPageText">Вход:</p>
-                    <input class="myAdPageInput" type="email" name="loginInput" id="loginInput" placeholder="име">
-                    <input class="myAdPageInput" type="password" name="loginPass" id="loginPass" placeholder="парола">
-                    <div id="adPageLoginCont"></div>
-                    <p id="myAdPageLoginBtn" class="myAdPageButton">Вход</p>
-                </form>
 
-                <form id="adPageRegForm">
-                    <p class="myAdPageText">Регистрация с Email и парола:</p>
-                    <input class="myAdPageInput" type="email" name="regInput" id="regInput" placeholder="email">
-                    <div id="wrongEmailText"></div>
-                    <input class="myAdPageInput" type="password" name="regPass" id="regPass" placeholder="парола">
-                    <p id="wrongPassMessage">Паролата трябва да съдържа поне 8 символа</p>
-                    <input class="myAdPageInput" type="password" name="regRepeatPass" id="regRepeatPass"
-                        placeholder="повтори паролата">
-                    <div id="adPageRegCont"></div>
-                    <p id="myAdPageRegBtn" class="myAdPageButton">Регистрация с Email</p>
-                </form>
+            <div id="dealersPage"></div>
 
-                <div id="loggedInAdPage">
-                    <p>Списък и управление на публикуваните от Вас обяви:</p>
-                    <button id="adPageAdButton"><span id="nextPlus">+</span> ДОБАВИ ОБЯВА</button>
+            <div id="loginPage">
+                <div id="loginPageContainer">
+                    <div id="loginFormsAndBtnsContainer">
+                        <div id="displayBtnsContainer">
+                            <button id="displayLoginFormBtn" class="displayBtns selectedBtn">Вход</button>
+                            <button id="displayRegFormBtn" class="displayBtns">Регистрация</button>
+                            <div id="displayBtnsEmptySpace"></div>
+                        </div>
+                        <div id="loginAndRegFormsContainer">
+                            <div id="loginContainer" class="loginFormsStyles">
+                                <p>Вход:</p>
+                                <form id="loginForm">
+                                    <input type="email" name="" id="loginEmailInput" placeholder="E-mail">
+                                    <input type="password" name="" id="loginPasswordInput" placeholder="Парола">
+                                    <p id="loginWarningMessage" class="loginFormsWarningMessage">Невалиден Email
+                                        или Парола</p>
+                                    <button class="loginFormsBtn" id="loginBtn">Вход</button>
+                                </form>
+                            </div>
+                            <div id="registraionContainer" class="loginFormsStyles">
+                                <p>Регистрация с Email и парола:</p>
+                                <form id="registrationForm">
+                                    <input type="email" name="" id="registerEmailInput" placeholder="E-mail">
+                                    <input type="password" name="" id="registerPasswordInput" placeholder="Парола">
+                                    <input type="password" name="" id="registerRepeatedPassword"
+                                        placeholder="Повтори паролата">
+                                    <p id="registerWarningMessage" class="loginFormsWarningMessage"></p>
+                                    <button class="loginFormsBtn" id="registerBtn">Регистрация с Email</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div id="profilePage">
+                <div id="profileNavBar">
+                    <p id="profileMyAds" class="selectedProfileLink">Моите обяви</p>
+                    <span>|</span>
+                    <p id="profileMyFavAds">Бележник обяви</p>
+                    <!-- <span>|</span> -->
+                    <p id="profileSettings">Настройки</p>
+                </div>
+
+                <div id="myAdsContainer">
+                    <div id="noAdsContainer">
+                        <!-- <p>Списък и управление на публикуваните от Вас обяви:</p> -->
+                        <h6>Няма намерени обяви във вашият профил!</h6>
+                        <button id="newAdButton"><span>+</span> ДОБАВИ ОБЯВА</button>
+                    </div>
+                    <div id="userAdsContainer">
+                        <!-- <div class="userAdCard">
+                            <div class="userAdMainContent">
+                                <div class="userAdImgContainer">
+                                    <img src="assets/images/cars/car1-1.jpg">
+                                </div>
+                                <div class="userAdInfoContainer">
+                                    <h1>Toyota Corola</h1>
+                                    <h2>7000 лв.</h2>
+                                </div>
+                            </div>
+                            <div class="userAdBtnsContainer">
+                                <button>Редактирай</button>
+                                <button>Изтрий</button>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+                <div id="myFavAdsContainer">
+                    <p>Добавете в личния си бележник обявите, към които имате интерес</p>
+                    <div id="noFavAdsContainer">
+                        <h6>В личния Ви бележник нямате записани обяви.</h6>
+                    </div>
+                    <div id="userFavAdsContainer">
+                        <!-- <div class="userFavAdCard">
+                            <div class="userAdMainContent">
+                                <div class="userAdImgContainer">
+                                    <img src="assets/images/cars/car1-1.jpg">
+                                </div>
+                                <div class="userAdInfoContainer">
+                                    <h1>Toyota Corola</h1>
+                                    <h2>7000 лв.</h2>
+                                </div>
+                            </div>
+                            <div class="userFavAdBtnsContainer">
+                                <button>Виж обявата</button>
+                                <button>Премахни от бележник</button>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+                <div id="profileSettingsContainer">
+
+                </div>
+
+            </div>
+
+            <div id="editPage">
+                <div>
+                    <div id="editFinishedAd" class="finishedAd">
+                        <h1>Обявата Ви беше редактирана успешно!</h1>
+                    </div>
+                    <div id="editMenuContainer">
+                        <h1 class="firstStepHeading">Редактиране на обява</h1>
+                        <div class="offerDescription">
+                            <div class="publishMainCategory">
+                                <div>
+                                    <p class="searchTitle">Онсновна категория</p>
+                                    <select name="mainCategory" class="publishMainCategory">
+                                        <option selected value="1">Автомобили и Джипове
+                                        <option value="3">Бусове
+                                        <option value="4">Камиони
+                                        <option value="5">Мотоциклети
+                                        <option value="6">Селскостопански
+                                        <option value="7">Индустриални
+                                        <option value="8">Кари
+                                        <option value="9">Каравани
+                                        <option value="a">Яхти и Лодки
+                                        <option value="b">Ремаркета
+                                        <option value="c">Велосипеди
+                                        <option value="u">Части
+                                        <option value="v">Аксесоари
+                                        <option value="w">Гуми и джанти
+                                        <option value="y">Купува
+                                        <option value="z">Услуги
+                                    </select>
+                                </div>
+                                <img id="selectMainCategoryLogo" src="./assets/images/icons/Автомобили и Джипове.gif"
+                                    alt="avtomobil">
+                            </div>
+                            <div class="publishSecondFloor">
+                                <div class="publishFirstColumn">
+                                    <div class="pubDisWidthVal" id="publishBrandAndModel">
+                                        <div>
+                                            <p class="searchTitle">Марка</p>
+                                            <select class="selectCommonWidth" name="brand" id="editSelectBrand">
+                                                <option selected value="">Избери
+                                                    <optgroup label="A">
+                                                        <option value="AC">AC
+                                                        <option value="Abarth">Abarth
+                                                        <option value="Acura">Acura
+                                                        <option value="Aixam">Aixam
+                                                        <option value="Alfa Romeo">Alfa Romeo
+                                                        <option value="Alpina">Alpina
+                                                        <option value="Aro">Aro
+                                                        <option value="Asia">Asia
+                                                        <option value="Aston martin">Aston martin
+                                                        <option value="Audi">Audi
+                                                        <option value="Austin">Austin
+                                                    <optgroup label="B">
+                                                        <option value="BMW">BMW
+                                                        <option value="Bentley">Bentley
+                                                        <option value="Berliner">Berliner
+                                                        <option value="Bertone">Bertone
+                                                        <option value="Borgward">Borgward
+                                                        <option value="Brilliance">Brilliance
+                                                        <option value="Bugatti">Bugatti
+                                                        <option value="Buick">Buick
+                                                    <optgroup label="C">
+                                                        <option value="Cadillac">Cadillac
+                                                        <option value="Chevrolet">Chevrolet
+                                                        <option value="Chrysler">Chrysler
+                                                        <option value="Citroen">Citroen
+                                                        <option value="Corvette">Corvette
+                                                        <option value="Cupra">Cupra
+                                                    <optgroup label="D">
+                                                        <option value="DS">DS
+                                                        <option value="Dacia">Dacia
+                                                        <option value="Daewoo">Daewoo
+                                                        <option value="Daihatsu">Daihatsu
+                                                        <option value="Daimler">Daimler
+                                                        <option value="Datsun">Datsun
+                                                        <option value="Dkw">Dkw
+                                                        <option value="Dodge">Dodge
+                                                        <option value="Dr">Dr
+                                                    <optgroup label="E">
+                                                        <option value="Eagle">Eagle
+                                                    <optgroup label="F">
+                                                        <option value="FSO">FSO
+                                                        <option value="Ferrari">Ferrari
+                                                        <option value="Fiat">Fiat
+                                                        <option value="Ford">Ford
+                                                    <optgroup label="G">
+                                                        <option value="GOUPIL">GOUPIL
+                                                        <option value="Gaz">Gaz
+                                                        <option value="Geo">Geo
+                                                        <option value="Gmc">Gmc
+                                                        <option value="Great Wall">Great Wall
+                                                    <optgroup label="H">
+                                                        <option value="Haval">Haval
+                                                        <option value="Heinkel">Heinkel
+                                                        <option value="Hillman">Hillman
+                                                        <option value="Honda">Honda
+                                                        <option value="Hummer">Hummer
+                                                        <option value="Hyundai">Hyundai
+                                                    <optgroup label="I">
+                                                        <option value="Ifa">Ifa
+                                                        <option value="Infiniti">Infiniti
+                                                        <option value="Innocenti">Innocenti
+                                                        <option value="Isuzu">Isuzu
+                                                        <option value="Iveco">Iveco
+                                                    <optgroup label="J">
+                                                        <option value="JAS">JAS
+                                                        <option value="Jaguar">Jaguar
+                                                        <option value="Jeep">Jeep
+                                                        <option value="Jpx">Jpx
+                                                    <optgroup label="K">
+                                                        <option value="Kia">Kia
+                                                    <optgroup label="L">
+                                                        <option value="Lada">Lada
+                                                        <option value="Laforza">Laforza
+                                                        <option value="Lamborghini">Lamborghini
+                                                        <option value="Lancia">Lancia
+                                                        <option value="Land Rover">Land Rover
+                                                        <option value="Landwind">Landwind
+                                                        <option value="Lexus">Lexus
+                                                        <option value="Lifan">Lifan
+                                                        <option value="Lincoln">Lincoln
+                                                        <option value="Lotus">Lotus
+                                                    <optgroup label="M">
+                                                        <option value="MG">MG
+                                                        <option value="Mahindra">Mahindra
+                                                        <option value="Maserati">Maserati
+                                                        <option value="Matra">Matra
+                                                        <option value="Maybach">Maybach
+                                                        <option value="Mazda">Mazda
+                                                        <option value="McLaren">McLaren
+                                                        <option value="Mercedes-Benz">Mercedes-Benz
+                                                        <option value="Mercury">Mercury
+                                                        <option value="Mg">Mg
+                                                        <option value="Microcar">Microcar
+                                                        <option value="Mini">Mini
+                                                        <option value="Mitsubishi">Mitsubishi
+                                                        <option value="Morgan">Morgan
+                                                        <option value="Moskvich">Moskvich
+                                                    <optgroup label="N">
+                                                        <option value="Nissan">Nissan
+                                                    <optgroup label="O">
+                                                        <option value="Oldsmobile">Oldsmobile
+                                                        <option value="Opel">Opel
+                                                    <optgroup label="P">
+                                                        <option value="Perodua">Perodua
+                                                        <option value="Peugeot">Peugeot
+                                                        <option value="Pgo">Pgo
+                                                        <option value="Plymouth">Plymouth
+                                                        <option value="Polonez">Polonez
+                                                        <option value="Pontiac">Pontiac
+                                                        <option value="Porsche">Porsche
+                                                        <option value="Proton">Proton
+                                                    <optgroup label="R">
+                                                        <option value="Renault">Renault
+                                                        <option value="Rolls-Royce">Rolls-Royce
+                                                        <option value="Rover">Rover
+                                                    <optgroup label="S">
+                                                        <option value="SECMA">SECMA
+                                                        <option value="SH auto">SH auto
+                                                        <option value="Saab">Saab
+                                                        <option value="Samand">Samand
+                                                        <option value="Santana">Santana
+                                                        <option value="Saturn">Saturn
+                                                        <option value="Scion">Scion
+                                                        <option value="Seat">Seat
+                                                        <option value="Shatenet">Shatenet
+                                                        <option value="Shuanghuan">Shuanghuan
+                                                        <option value="Simca">Simca
+                                                        <option value="Skoda">Skoda
+                                                        <option value="Smart">Smart
+                                                        <option value="Ssang yong">Ssang yong
+                                                        <option value="SsangYong">SsangYong
+                                                        <option value="Subaru">Subaru
+                                                        <option value="Suzuki">Suzuki
+                                                    <optgroup label="T">
+                                                        <option value="Talbot">Talbot
+                                                        <option value="Tata">Tata
+                                                        <option value="Tavria">Tavria
+                                                        <option value="Tazzari">Tazzari
+                                                        <option value="Tempo">Tempo
+                                                        <option value="Terberg">Terberg
+                                                        <option value="Tesla">Tesla
+                                                        <option value="Tofas">Tofas
+                                                        <option value="Toyota">Toyota
+                                                        <option value="Trabant">Trabant
+                                                        <option value="Triumph">Triumph
+                                                    <optgroup label="U">
+                                                        <option value="Uaz">Uaz
+                                                    <optgroup label="V">
+                                                        <option value="VROMOS">VROMOS
+                                                        <option value="VW">VW
+                                                        <option value="Volga">Volga
+                                                        <option value="Volvo">Volvo
+                                                    <optgroup label="W">
+                                                        <option value="Warszawa">Warszawa
+                                                        <option value="Wartburg">Wartburg
+                                                        <option value="Wiesmann">Wiesmann
+                                                    <optgroup label="X">
+                                                        <option value="Xinkai">Xinkai
+                                                        <option value="Xinshun">Xinshun
+                                                    <optgroup label="Z">
+                                                        <option value="Zastava">Zastava
+                                                        <option value="Zaz">Zaz
+                                                    <optgroup label="Д">
+                                                        <option value="Други">Други
+                                                    <optgroup label="П">
+                                                        <option value="Победа">Победа
+                                                    <optgroup label="С">
+                                                        <option value="София">София
+                                                    <optgroup label="Ч">
+                                                        <option value="Чайка">Чайка
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <p class="searchTitle">Модел</p>
+                                            <select class="selectCommonWidth" name="model" id="editSelectModel">
+                                                <option value="">Избери</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="pubDisWidthVal" id="publishPowerAndEuroSt">
+                                        <div>
+                                            <p class="searchTitle">Мощност от (к.с.):</p>
+                                            <input class="publishInputWidth" name="power" type="text" id="editPower">
+                                        </div>
+                                        <div>
+                                            <p class="searchTitle">Евростандарт</p>
+                                            <select class="selectCommonWidth" name="euroSt" id="selectEuroStandard">
+                                                <option value="">Без значение
+                                                <option value="Евро 1">Евро 1
+                                                <option value="Евро 2">Евро 2
+                                                <option value="Евро 3">Евро 3
+                                                <option value="Евро 4">Евро 4
+                                                <option value="Евро 5">Евро 5
+                                                <option value="Евро 6">Евро 6
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="pubDisWidthVal" id="publishPriceAndCurrency">
+                                        <div>
+                                            <p class="searchTitle">Цена</p>
+                                            <input class="publishInputWidth" name="price" type="text" id="editPrice">
+                                        </div>
+                                        <div>
+                                            <p class="searchTitle">Валута</p>
+                                            <select class="selectCommonWidth" name="currency" id="publishCurrency">
+                                                <option value="лв.">лв.</option>
+                                                <option value="EURO">EURO</option>
+                                                <option value="USD">USD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="publishColor">
+                                        <p class="searchTitle">Цвят</p>
+                                        <select name="color" id="publishColor">
+                                            <option value="">всички цветове
+                                            <option value="Tъмно син">Tъмно син
+                                            <option value="Банан">Банан
+                                            <option value="Беата">Беата
+                                            <option value="Бежов">Бежов
+                                            <option value="Бордо">Бордо
+                                            <option value="Бронз">Бронз
+                                            <option value="Бял">Бял
+                                            <option value="Винен">Винен
+                                            <option value="Виолетов">Виолетов
+                                            <option value="Вишнев">Вишнев
+                                            <option value="Графит">Графит
+                                            <option value="Жълт">Жълт
+                                            <option value="Зелен">Зелен
+                                            <option value="Златист">Златист
+                                            <option value="Кафяв">Кафяв
+                                            <option value="Керемиден">Керемиден
+                                            <option value="Кремав">Кремав
+                                            <option value="Лилав">Лилав
+                                            <option value="Металик">Металик
+                                            <option value="Оранжев">Оранжев
+                                            <option value="Охра">Охра
+                                            <option value="Пепеляв">Пепеляв
+                                            <option value="Перла">Перла
+                                            <option value="Пясъчен">Пясъчен
+                                            <option value="Резидав">Резидав
+                                            <option value="Розов">Розов
+                                            <option value="Сахара">Сахара
+                                            <option value="Светло сив">Светло сив
+                                            <option value="Светло син">Светло син
+                                            <option value="Сив">Сив
+                                            <option value="Син">Син
+                                            <option value="Слонова кост">Слонова кост
+                                            <option value="Сребърен">Сребърен
+                                            <option value="Т.зелен">Т.зелен
+                                            <option value="Тъмно сив">Тъмно сив
+                                            <option value="Тъмно син мет.">Тъмно син мет.
+                                            <option value="Тъмно червен">Тъмно червен
+                                            <option value="Тютюн">Тютюн
+                                            <option value="Хамелеон">Хамелеон
+                                            <option value="Червен">Червен
+                                            <option value="Черен">Черен
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="publishSecondColumn">
+                                    <div class="pubDisWidthVal" id="publishModificationAndEngine">
+                                        <div>
+                                            <p class="searchTitle">Модификация</p>
+                                            <input class="publishInputWidth" name="modification" type="text">
+                                        </div>
+                                        <div id="publishEngine">
+                                            <p class="searchTitle">Тип двигател</p>
+                                            <select class="selectCommonWidth" name="engine" id="publishSelectEngine">
+                                                <option value="">всички типове
+                                                <option value="Бензинов">Бензинов
+                                                <option value="Дизелов">Дизелов
+                                                <option value="Електрически">Електрически
+                                                <option value="Хибриден">Хибриден
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="publishGear">
+                                        <p class="searchTitle">Скоростна кутия</p>
+                                        <select name="gear" id="publishGear">
+                                            <option value="">Без значение
+                                            <option value="Ръчна">Ръчна
+                                            <option value="Автоматична">Автоматична
+                                            <option value="Полуавтоматична">Полуавтоматична
+                                        </select>
+                                    </div>
+                                    <div class="publishDateOfProduction">
+                                        <div>
+                                            <p class="searchTitle">Дата на производство</p>
+                                        </div>
+                                        <div>
+                                            <select class="selectCommonWidth" name="productionMonth"
+                                                id="productionMonth">
+                                                <option selected value=""></option>
+                                                <option value="Януари">Януари</option>
+                                                <option value="Февруаро">Февруаро</option>
+                                                <option value="Март">Март</option>
+                                                <option value="Април">Април</option>
+                                                <option value="Май">Май</option>
+                                                <option value="Юни">Юни</option>
+                                                <option value="Юли">Юли</option>
+                                                <option value="Август">Август</option>
+                                                <option value="Септември">Септември</option>
+                                                <option value="Октомври">Октомври</option>
+                                                <option value="Ноември">Ноември</option>
+                                                <option value="Декември">Декември</option>
+                                            </select>
+                                            <select class="selectCommonWidth" name="productionYear" id="productionYear">
+                                                <option selected value=""></option>
+                                                <option value="2021">2021</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2014">2014</option>
+                                                <option value="2013">2013</option>
+                                                <option value="2012">2012</option>
+                                                <option value="2011">2011</option>
+                                                <option value="2010">2010</option>
+                                                <option value="2009">2009</option>
+                                                <option value="2008">2008</option>
+                                                <option value="2007">2007</option>
+                                                <option value="2006">2006</option>
+                                                <option value="2005">2005</option>
+                                                <option value="2004">2004</option>
+                                                <option value="2003">2003</option>
+                                                <option value="2002">2002</option>
+                                                <option value="2001">2001</option>
+                                                <option value="2000">2000</option>
+                                                <option value="1999">1999</option>
+                                                <option value="1998">1998</option>
+                                                <option value="1997">1997</option>
+                                                <option value="1996">1996</option>
+                                                <option value="1995">1995</option>
+                                                <option value="1994">1994</option>
+                                                <option value="1993">1993</option>
+                                                <option value="1992">1992</option>
+                                                <option value="1991">1991</option>
+                                                <option value="1990">1990</option>
+                                                <option value="1989">1989</option>
+                                                <option value="1988">1988</option>
+                                                <option value="1987">1987</option>
+                                                <option value="1986">1986</option>
+                                                <option value="1985">1985</option>
+                                                <option value="1984">1984</option>
+                                                <option value="1983">1983</option>
+                                                <option value="1982">1982</option>
+                                                <option value="1981">1981</option>
+                                                <option value="1980">1980</option>
+                                                <option value="1979">1979</option>
+                                                <option value="1978">1978</option>
+                                                <option value="1977">1977</option>
+                                                <option value="1976">1976</option>
+                                                <option value="1975">1975</option>
+                                                <option value="1974">1974</option>
+                                                <option value="1973">1973</option>
+                                                <option value="1972">1972</option>
+                                                <option value="1971">1971</option>
+                                                <option value="1970">1970</option>
+                                                <option value="1969">1969</option>
+                                                <option value="1968">1968</option>
+                                                <option value="1967">1967</option>
+                                                <option value="1966">1966</option>
+                                                <option value="1965">1965</option>
+                                                <option value="1964">1964</option>
+                                                <option value="1963">1963</option>
+                                                <option value="1962">1962</option>
+                                                <option value="1961">1961</option>
+                                                <option value="1960">1960</option>
+                                                <option value="1959">1959</option>
+                                                <option value="1958">1958</option>
+                                                <option value="1957">1957</option>
+                                                <option value="1956">1956</option>
+                                                <option value="1955">1955</option>
+                                                <option value="1954">1954</option>
+                                                <option value="1953">1953</option>
+                                                <option value="1952">1952</option>
+                                                <option value="1951">1951</option>
+                                                <option value="1950">1950</option>
+                                                <option value="1949">1949</option>
+                                                <option value="1948">1948</option>
+                                                <option value="1947">1947</option>
+                                                <option value="1946">1946</option>
+                                                <option value="1945">1945</option>
+                                                <option value="1944">1944</option>
+                                                <option value="1943">1943</option>
+                                                <option value="1942">1942</option>
+                                                <option value="1941">1941</option>
+                                                <option value="1940">1940</option>
+                                                <option value="1939">1939</option>
+                                                <option value="1938">1938</option>
+                                                <option value="1937">1937</option>
+                                                <option value="1936">1936</option>
+                                                <option value="1935">1935</option>
+                                                <option value="1934">1934</option>
+                                                <option value="1933">1933</option>
+                                                <option value="1932">1932</option>
+                                                <option value="1931">1931</option>
+                                                <option value="1930">1930</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="pubDisWidthVal publishRegion">
+                                        <div>
+                                            <p class="searchTitle">Регион</p>
+                                            <select name="region" id="publishSelectRegion">
+                                                <option value=""></option>
+                                                <option value="Благоевград">Благоевград
+                                                <option value="Бургас">Бургас
+                                                <option value="Варна">Варна
+                                                <option value="Велико Търново">Велико Търново
+                                                <option value="Видин">Видин
+                                                <option value="Враца">Враца
+                                                <option value="Габрово">Габрово
+                                                <option value="Добрич">Добрич
+                                                <option value="Дупница">Дупница
+                                                <option value="Кърджали">Кърджали
+                                                <option value="Кюстендил">Кюстендил
+                                                <option value="Ловеч">Ловеч
+                                                <option value="Монтана">Монтана
+                                                <option value="Пазарджик">Пазарджик
+                                                <option value="Перник">Перник
+                                                <option value="Плевен">Плевен
+                                                <option value="Пловдив">Пловдив
+                                                <option value="Разград">Разград
+                                                <option value="Русе">Русе
+                                                <option value="Силистра">Силистра
+                                                <option value="Сливен">Сливен
+                                                <option value="Смолян">Смолян
+                                                <option value="София">София
+                                                <option value="Стара Загора">Стара Загора
+                                                <option value="Търговище">Търговище
+                                                <option value="Хасково">Хасково
+                                                <option value="Шумен">Шумен
+                                                <option value="Ямбол">Ямбол
+                                                <option value="Извън страната">Извън страната
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <p class="searchTitle">Населено място</p>
+                                            <select class="selectCommonWidth" id="">
+                                                <option value="">Всички
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="publishThirdColumn">
+                                    <div class="publishState editStateVisibility">
+                                        <p class="searchTitle">Състояние:</p>
+                                        <input type="checkbox" id="newCar">
+                                        <label for="newCar">Нов</label>
+                                        <input type="checkbox" id="usedCar">
+                                        <label for="usedCar">Употребяван</label>
+                                        <input type="checkbox" id="partsCar">
+                                        <label for="partsCar">За части</label>
+                                    </div>
+                                    <div class="publishCategory">
+                                        <p class="searchTitle">Категория</p>
+                                        <select name="category" id="publishTypeOfCar">
+                                            <option value="">всички категории
+                                            <option value="Ван">Ван
+                                            <option value="Джип">Джип
+                                            <option value="Кабрио">Кабрио
+                                            <option value="Комби">Комби
+                                            <option value="Купе">Купе
+                                            <option value="Миниван">Миниван
+                                            <option value="Пикап">Пикап
+                                            <option value="Седан">Седан
+                                            <option value="Стреч лимузина">Стреч лимузина
+                                            <option value="Хечбек">Хечбек
+                                        </select>
+                                    </div>
+                                    <div class="publishProbeg">
+                                        <p class="searchTitle">Пробег</p>
+                                        <input class="publishInputWidth" name="mileage" type="text">
+                                        <span>в километри</span>
+                                    </div>
+                                    <div class="publishExpiryDays">
+                                        <p class="searchTitle">Валидност на обявата</p>
+                                        <select name="expiryDays" id="selectExpiryDays">
+                                            <option value="35">35</option>
+                                            <option value="49">49</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="publishThirdFloor">
+                                <div class="publishCheckboxOptions">
+                                    <div id="searchSafety">
+                                        <p class="searchTitle">Безопасност</p>
+                                        <div>
+                                            <ul>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="100"
+                                                        value="GPS система за проследяване">
+                                                    <label for="100">GPS система за проследяване</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="101"
+                                                        value="Автоматичен контрол на стабилността">
+                                                    <label for="101">Автоматичен контрол на стабилността</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="102"
+                                                        value="Адаптивни предни светлини">
+                                                    <label for="102">Адаптивни предни светлини</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="103"
+                                                        value="Въздушни възглавници - Задни">
+                                                    <label for="103">Въздушни възглавници - Задни</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="104"
+                                                        value="Въздушни възглавници - Предни">
+                                                    <label for="104">Въздушни възглавници - Предни</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="105"
+                                                        value="Въздушни възглавници - Странични">
+                                                    <label for="105">Въздушни възглавници - Странични</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="106"
+                                                        value="Ел. разпределяне на спирачното усилие">
+                                                    <label for="106">Ел. разпределяне на спирачното усилие</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="107"
+                                                        value="Електронна програма за стабилизиране">
+                                                    <label for="107">Електронна програма за стабилизиране</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="108"
+                                                        value="Контрол на налягането на гумите">
+                                                    <label for="108">Контрол на налягането на гумите</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="109" value="Парктроник">
+                                                    <label for="109">Парктроник</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="110"
+                                                        value="Система ISOFIX">
+                                                    <label for="110">Система ISOFIX</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="111"
+                                                        value="Система за динамична устойчивост">
+                                                    <label for="111">Система за динамична устойчивост</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="112"
+                                                        value="Система за защита от пробуксуване">
+                                                    <label for="112">Система за защита от пробуксуване</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="113"
+                                                        value="Система за изсушаване на накладките">
+                                                    <label for="113">Система за изсушаване на накладките</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="114"
+                                                        value="Система за контрол на дистанцията">
+                                                    <label for="114">Система за контрол на дистанцията</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="115"
+                                                        value="Система за контрол на спускането">
+                                                    <label for="115">Система за контрол на спускането</label>
+                                                </li>
+                                                <li>
+                                                    <input name="safety" type="checkbox" id="116"
+                                                        value="Система за подпомагане на спирането">
+                                                    <label for="116">Система за подпомагане на спирането</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="searchComfort">
+                                        <p class="searchTitle">Комфорт</p>
+                                        <div>
+                                            <ul>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="117"
+                                                        value="Auto Start Stop function">
+                                                    <label for="117">Auto Start Stop function</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="118" value="Bluetooth">
+                                                    <label for="118">Bluetooth \ handsfree система</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="119" value="DVD, TV">
+                                                    <label for="119">DVD, TV</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="120"
+                                                        value="Steptronic, Tiptronic">
+                                                    <label for="120">Steptronic, Tiptronic</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="121"
+                                                        value="USB, audio\video, IN\AUX изводи">
+                                                    <label for="121">USB, audio\video, IN\AUX изводи</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="122"
+                                                        value="Адаптивно въздушно окачване">
+                                                    <label for="122">Адаптивно въздушно окачване</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="123"
+                                                        value="Безключово палене">
+                                                    <label for="123">Безключово палене</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="124"
+                                                        value="Блокаж на диференциала">
+                                                    <label for="124">Блокаж на диференциала</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="125" value="Бордкомпютър">
+                                                    <label for="125">Бордкомпютър</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="126"
+                                                        value="Бързи \ бавни скорости">
+                                                    <label for="126">Бързи \ бавни скорости</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="127"
+                                                        value="Датчик за светлина">
+                                                    <label for="127">Датчик за светлина</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="128" value="Ел. огледала">
+                                                    <label for="128">Ел. огледала</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="129" value="Ел. стъкла">
+                                                    <label for="129">Ел. стъкла</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="130"
+                                                        value="Ел. регулиране на окачването">
+                                                    <label for="130">Ел. регулиране на окачването</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="131"
+                                                        value="Ел. регулиране на седалките">
+                                                    <label for="131">Ел. регулиране на седалките</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="132"
+                                                        value="Ел. усилвател на волана">
+                                                    <label for="132">Ел. усилвател на волана</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="133" value="Климатик">
+                                                    <label for="133">Климатик</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="134" value="Климатроник">
+                                                    <label for="134">Климатроник</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="135"
+                                                        value="Мултифункционален волан">
+                                                    <label for="135">Мултифункционален волан</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="136" value="Навигация">
+                                                    <label for="136">Навигация</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="137"
+                                                        value="Отопление на волана">
+                                                    <label for="137">Отопление на волана</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="138" value="Печка">
+                                                    <label for="138">Печка</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="139"
+                                                        value="Подгряване на предното стъкло">
+                                                    <label for="139">Подгряване на предното стъкло</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="140"
+                                                        value="Подгряване на седалките">
+                                                    <label for="140">Подгряване на седалките</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="141"
+                                                        value="Регулиране на волана">
+                                                    <label for="141">Регулиране на волана</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="142"
+                                                        value="Сензор за дъжд">
+                                                    <label for="142">Сензор за дъжд</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="143"
+                                                        value="Серво усилвател на волана">
+                                                    <label for="143">Серво усилвател на волана</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="144"
+                                                        value="Система за измиване на фаровете">
+                                                    <label for="144">Система за измиване на фаровете</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="145"
+                                                        value="Система за контрол на скоростта (автопилот)">
+                                                    <label for="145">Система за контрол на скоростта
+                                                        (автопилот)</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="146"
+                                                        value="Стерео уредба">
+                                                    <label for="146">Стерео уредба</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="147"
+                                                        value="Филтър за твърди частици">
+                                                    <label for="147">Филтър за твърди частици</label>
+                                                </li>
+                                                <li>
+                                                    <input name="comfort" type="checkbox" id="148"
+                                                        value="Хладилна жабка">
+                                                    <label for="148">Хладилна жабка</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="searchOthers">
+                                        <p class="searchTitle">Други</p>
+                                        <ul>
+                                            <li>
+                                                <input name="others" type="checkbox" id="149" value="4x4">
+                                                <label for="149">4x4</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="150" value="7 места">
+                                                <label for="150">7 места</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="151" value="Buy back">
+                                                <label for="151">Buy back</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="152" value="Бартер">
+                                                <label for="152">Бартер</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="153" value="Газова уредба">
+                                                <label for="153">Газова уредба</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="154" value="Дълга база">
+                                                <label for="154">Дълга база</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="155"
+                                                    value="Капариран\Продаден">
+                                                <label for="155">Капариран\Продаден</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="156" value="Катастрофирал">
+                                                <label for="156">Катастрофирал</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="157" value="Къса база">
+                                                <label for="157">Къса база</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="158" value="Лизинг">
+                                                <label for="158">Лизинг</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="159" value="Метанова уредба">
+                                                <label for="159">Метанова уредба</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="160" value="На части">
+                                                <label for="160">На части</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="161" value="Напълно обслужен">
+                                                <label for="161">Напълно обслужен</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="162" value="Нов внос">
+                                                <label for="162">Нов внос</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="163"
+                                                    value="С право на дан.к-т">
+                                                <label for="163">С право на дан.к-т</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="164" value="С регистрация">
+                                                <label for="164">С регистрация</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="165" value="Сервизна книжка">
+                                                <label for="165">Сервизна книжка</label>
+                                            </li>
+                                            <li>
+                                                <input name="others" type="checkbox" id="166" value="Тунинг">
+                                                <label for="166">Тунинг</label>
+                                            </li>
+                                            <li>
+                                                <p class="searchTitle">Екстериор</p>
+                                                <ul>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="167"
+                                                            value="2(3) Врати">
+                                                        <label for="167">2(3) Врати</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="168"
+                                                            value="4(5) Врати">
+                                                        <label for="168">4(5) Врати</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="169"
+                                                            value="LED фарове">
+                                                        <label for="169">LED фарове</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="170"
+                                                            value="Ксенонови фарове">
+                                                        <label for="170">Ксенонови фарове</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="171"
+                                                            value="Лети джанти">
+                                                        <label for="171">Лети джанти</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="172" value="Металик">
+                                                        <label for="172">Металик</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="173"
+                                                            value="Отопляеми чистачки">
+                                                        <label for="173">Отопляеми чистачки</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="174"
+                                                            value="Панорамен люк">
+                                                        <label for="174">Панорамен люк</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" name="exterior" type="checkbox" id="175"
+                                                            value="Рейлинг на покрива">
+                                                        <label for="175">Рейлинг на покрива</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="176" value="Ролбари">
+                                                        <label for="176">Ролбари</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="177"
+                                                            value="Спойлери">
+                                                        <label for="177">Спойлери</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="178" value="Теглич">
+                                                        <label for="178">Теглич</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="179"
+                                                            value="Халогенни фарове">
+                                                        <label for="179">Халогенни фарове</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="exterior" type="checkbox" id="180" value="Шибедах">
+                                                        <label for="180">Шибедах</label>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div id="searchInterior">
+                                        <p class="searchTitle">Защита</p>
+                                        <ul>
+                                            <li>
+                                                <input name="security" type="checkbox" id="180" value="OFFROAD пакет">
+                                                <label for="180">OFFROAD пакет</label>
+                                            </li>
+                                            <li>
+                                                <input name="security" type="checkbox" id="181" value="Аларма">
+                                                <label for="181">Аларма</label>
+                                            </li>
+                                            <li>
+                                                <input name="security" type="checkbox" id="182" value="Брониран">
+                                                <label for="182">Брониран</label>
+                                            </li>
+                                            <li>
+                                                <input name="security" type="checkbox" id="183" value="Имобилайзер">
+                                                <label for="183">Имобилайзер</label>
+                                            </li>
+                                            <li>
+                                                <input name="security" type="checkbox" id="184" value="Каско">
+                                                <label for="184">Каско</label>
+                                            </li>
+                                            <li>
+                                                <input name="security" type="checkbox" id="185" value="Лебедка">
+                                                <label for="185">Лебедка</label>
+                                            </li>
+                                            <li>
+                                                <input name="security" type="checkbox" id="186"
+                                                    value="Подсилени стъкла">
+                                                <label for="186">Подсилени стъкла</label>
+                                            </li>
+                                            <li>
+                                                <input name="security" type="checkbox" id="187"
+                                                    value="Централно заключване">
+                                                <label for="187">Централно заключване</label>
+                                            </li>
+                                            <li>
+                                                <p class="searchTitle">Интериор</p>
+                                                <ul>
+                                                    <li>
+                                                        <input name="interior" type="checkbox" id="188"
+                                                            value="Велурен салон">
+                                                        <label for="188">Велурен салон</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="interior" type="checkbox" id="189"
+                                                            value="Десен волан">
+                                                        <label for="189">Десен волан</label>
+                                                    </li>
+                                                    <li>
+                                                        <input name="interior" type="checkbox" id="190"
+                                                            value="Кожен салон">
+                                                        <label for="190">Кожен салон</label>
+                                                    </li>
+                                                    <li>
+                                                        <p class="searchTitle">Специализирани</p>
+                                                        <ul>
+                                                            <li>
+                                                                <input name="specialized" type="checkbox" id="191"
+                                                                    value="TAXI">
+                                                                <label for="191">TAXI</label>
+                                                            </li>
+                                                            <li>
+                                                                <input name="specialized" type="checkbox" id="192"
+                                                                    value="За хора с увреждания">
+                                                                <label for="192">За хора с увреждания</label>
+                                                            </li>
+                                                            <li>
+                                                                <input name="specialized" type="checkbox" id="193"
+                                                                    value="Катафалка">
+                                                                <label for="193">Катафалка</label>
+                                                            </li>
+                                                            <li>
+                                                                <input name="specialized" type="checkbox" id="194"
+                                                                    value="Линейка">
+                                                                <label for="194">Линейка</label>
+                                                            </li>
+                                                            <li>
+                                                                <input name="specialized" type="checkbox" id="195"
+                                                                    value="Учебен">
+                                                                <label for="195">Учебен</label>
+                                                            </li>
+                                                            <li>
+                                                                <input name="specialized" type="checkbox" id="196"
+                                                                    value="Хладилен">
+                                                                <label for="196">Хладилен</label>
+                                                            </li>
+                                                            <li>
+                                                                <input name="specialized" type="checkbox" id="197"
+                                                                    value="Хомологация N1">
+                                                                <label for="197">Хомологация N1</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="publishImage">
+                                    <div>
+                                        <p>Избери снимки:</p>
+                                        <input type="file" id="editImageInput" name="editImageInput"
+                                            accept=".jpg, .jpeg, .png" multiple>
+                                    </div>
+                                    <div class="publishShowImages">
+                                        <p>Преглед на снимките:</p>
+                                        <div class="showUploadedImages">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="publishButtonDiv">
+                                    <button id="editAdBtn">РЕДАКТИРАЙ ОБЯВАТА</button>
+                                </div>
+                                <div class="notValidAd">
+                                    <p class="notValidAdWarningMessage">Обявата трябва да съдържа <span>марка, модел и
+                                            цена с положително число.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </main>
 
         <footer>
@@ -3144,16 +4271,18 @@
     <script src="assets/data/NewsData.js"></script>
     <script src="assets/data/CarModelsData.js"></script>
     <script src="assets/js/utils.js"></script>
+    <script src="assets/js/UserService.js"></script>
+    <script src="assets/js//LoginController.js"></script>
     <script src="assets/js/CarService.js"></script>
-    <script src="assets/js/CarController.js"></script>
+    <script src="assets/js/PublishPageController.js"></script>
     <script src="assets/js/HomePageController.js"></script>
+    <script src="assets/js/ProfilePageController.js"></script>
     <script src="assets/js/NewAdPageController.js"></script>
     <script src="assets/js/SearchController.js"></script>
     <script src="assets/js/SearchResultsController.js"></script>
     <script src="assets/js/RouterController.js"></script>
     <script src="assets/js/SingleAdController.js"></script>
-    <script src="assets/js/userService.js"></script>
-    <script src="assets/js/userController.js"></script>
+    <script src="assets/js/EditAdPageController.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 

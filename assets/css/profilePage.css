@@ -1,0 +1,208 @@
+/* Profile Navigation Bar */
+#profileNavBar {
+    width: 100%;
+    height: 25px;
+    background-color: #008fc6;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#profileNavBar p {
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#profileNavBar p:first-of-type{
+    padding-left: 14px;
+}
+
+#profileNavBar span {
+    margin: 0 10px;
+}
+
+.selectedProfileLink {
+    color: #b7d7eb;
+}
+
+/* No ADS Container */
+#noAdsContainer {
+    width: 46%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#noAdsContainer h6 {
+    font-weight: bold;
+}
+
+#newAdButton {
+    cursor: pointer;
+    height: inherit;
+    width: 190px;
+    margin-top: 20px;
+    margin-left: 135px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    background-color: rgb(0, 153, 255);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9em;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 32px;
+    vertical-align: middle;
+}
+
+#newAdButton span {
+    font-size: 1.5em;
+    margin-right: 15px;
+}
+
+/* Profile user ADS Container */
+
+#myAdsContainer {
+    width: 100%;
+}
+
+#userAdsContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.userAdCard {
+    border: 1px solid black;
+    width: 317px;
+    height: 100px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.userAdMainContent{
+    height: 100%;
+    width: 225px;
+    display: flex;
+    align-items: center;
+    background-color: #e7eaf2;
+}
+
+.userAdImgContainer {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.userAdImgContainer img {
+    max-width: 105px;
+    max-height: 80px;
+    cursor: pointer;
+}
+
+.userAdInfoContainer {
+    padding: 0 10px;
+}
+
+.userAdInfoContainer h1 {
+    padding-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.userAdInfoContainer h2 {
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #0099ff;
+}
+
+.userAdBtnsContainer{
+    width: 25%;
+    font-size: 14px;
+    margin-left: 4px;
+    margin-right: 2px;
+    text-align: center;
+}
+
+.userAdBtnsContainer button {
+    all: unset;
+    cursor: pointer;
+} 
+
+.userAdBtnsContainer button:hover {
+    text-decoration: underline;
+} 
+
+.userAdBtnsContainer button:first-of-type {
+    margin-bottom: 12px;
+}
+
+.userAdBtnsContainer button:last-of-type {
+    color: red;
+}
+
+#myFavAdsContainer,
+#profileSettingsContainer {
+    display: none;
+}
+
+/* Favourite ADS Container */
+#myFavAdsContainer p {
+    margin-bottom: 10px;
+}
+
+#noFavAdsContainer h6 {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+#userFavAdsContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.userFavAdCard {
+    border: 1px solid black;
+    width: 335px;
+    height: 100px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.userFavAdBtnsContainer{
+    width: 28%;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.userFavAdBtnsContainer button {
+    all: unset;
+    cursor: pointer;
+} 
+
+.userFavAdBtnsContainer button:hover {
+    text-decoration: underline;
+} 
+
+.userFavAdBtnsContainer button:first-of-type {
+    margin-bottom: 12px;
+}
+
+.userFavAdBtnsContainer button:last-of-type {
+    text-align: center;
+    color: red;
+}
+
+/* My Profile Settings Container */
+#profileSettings,
+#profileSettingsContainer {
+    display: none;
+}
