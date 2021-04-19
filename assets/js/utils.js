@@ -67,3 +67,32 @@ function readAndPreviewPrepend(file, container) {
     // reader.readAsDataURL(file);
 
 }
+
+let adNamings = {
+    brand: 'Марка',
+    model: 'Модел',
+    modification: 'Модификация',
+    engine: 'Тип двигател',
+    gear: 'Скоростна кутия',
+    power: 'Мощност (к.с.)',
+    productionMonth: 'Дата на производство',
+    productionYear: 'Година на производство',
+    mileage: 'Пробег',
+    euroSt: 'Евростандарт',
+    color: 'Цвят',
+    category: 'Категория',
+    region: 'Град',
+    price: 'Цена',
+    currency: 'Валута',
+    expiryDays: 'Валидност на обявата',
+
+    extras: {
+        safety: 'Безопасност',
+        comfort: 'Комфорт',
+        others: 'Други',
+        exterior: 'Екстериор',
+        security: 'Защита',
+        interior: 'Интериор',
+        specialized: 'Специализирани',
+    }
+}

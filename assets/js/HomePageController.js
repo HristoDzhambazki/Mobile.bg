@@ -1,7 +1,5 @@
 let searchBoxObj = (function () {
-    let obj = {
-
-    };
+    let obj = {};
 
     //DOM Selectors
     let mainSearchBox = getById('mainSearchBox');
@@ -15,7 +13,6 @@ let searchBoxObj = (function () {
 
     //Anchor from search results page
     newSearchAnchor.addEventListener('click', resetSearchMenu);
-
 
     //Get value from Input Elements
     inputElements.forEach(el => el.addEventListener('change', getSelectValue));
@@ -59,74 +56,81 @@ let searchBoxObj = (function () {
 
 })();
 
-//Render Vehicle Cards and News
+//Render Ad Cards and News
 (function () {
-    let vehicleCardCont = getById('vehicleCardCont');
-    let adManager = carStorage;
+    let adCardsContainer = getById('adCardsContainer');
+    let ads = adStorage.getLastSixAds();
 
-    function showCarContainer(vehicles, container) {
-        vehicles = carStorage.getFirstSixAds();
+    adCardsContainer.innerHTML = '';
 
-        container.innerHTML = '';
-        for (let i = 0; i < 6; i++) {
-            let wrapper = createEl('div');
-            let photoLink = createEl('a');
-            let photo = createEl('img');
-            let info = createEl('div');
-            let vehHeader = createEl('h1');
-            vehHeader.addEventListener('click', () => location.hash = "singleAdPage")
-            vehHeader.setAttribute('id', vehicles[i].id)
-            let vehInfoHolder = createEl('div');
-            let vehPrice = createEl('p');
-            let vehKm = createEl('p');
-            let vehCity = createEl('p');
-            let adTime = createEl('p');
+    ads.forEach(ad => {
+        let card = generateCard(ad);
+        adCardsContainer.append(card);
+    })
 
-            container.append(wrapper);
-            wrapper.append(photoLink);
-            photoLink.append(photo);
-            wrapper.append(info);
-            info.append(vehHeader);
-            info.append(vehInfoHolder);
-            info.append(adTime);
-            vehInfoHolder.append(vehPrice);
-            vehInfoHolder.append(vehKm);
-            vehInfoHolder.append(vehCity);
+    function generateCard(ad) {
+        let wrapper = createEl('div');
+        let photoLink = createEl('a');
+        let photo = createEl('img');
+        let info = createEl('div');
+        let vehHeader = createEl('h1');
+        vehHeader.addEventListener('click', () => location.hash = "singleAdPage")
+        vehHeader.setAttribute('id', ad.id)
+        let vehInfoHolder = createEl('div');
+        let vehPrice = createEl('p');
+        let vehKm = createEl('p');
+        let vehCity = createEl('p');
+        let adTime = createEl('p');
 
-            wrapper.addEventListener('mouseover', () => {
-                vehHeader.style.color = '#0099ff';
-            })
+        wrapper.classList.add('autoCont');
+        info.classList.add('autoInfoCont');
+        vehInfoHolder.classList.add('autoInfoHolder');
+        vehHeader.classList.add('autoHeader');
+        vehPrice.classList.add('autoPrice');
+        vehKm.classList.add('autoKm');
+        vehCity.classList.add('autoCity');
+        adTime.classList.add('autoAdTime');
+        photo.classList.add('autoPhoto');
 
-            wrapper.addEventListener('mouseout', () => {
-                vehHeader.style.color = 'black';
-            })
-
-            wrapper.classList.add('autoCont');
-            info.classList.add('autoInfoCont');
-            vehInfoHolder.classList.add('autoInfoHolder');
-            vehHeader.classList.add('autoHeader');
-            vehPrice.classList.add('autoPrice');
-            vehKm.classList.add('autoKm');
-            vehCity.classList.add('autoCity');
-            adTime.classList.add('autoAdTime');
-
-            photo.classList.add('autoPhoto');
-            photo.src = `assets/images/cars/car${i + 1}-1.jpg`;
-            photo.alt = `car${i}`;
-            photo.setAttribute('id', vehicles[i].id)
-            photoLink.href = "#singleAdPage";
-            photoLink.setAttribute('id', vehicles[i].id)
-            photoLink.classList.add('autoPhotoLink');
-
-            vehHeader.innerHTML = `${vehicles[i].brand.value + ' ' + vehicles[i].model.value}`;
-            vehPrice.innerHTML = `${vehicles[i].price.value} ${vehicles[i].currency.value}`;
-            vehKm.innerHTML = `${vehicles[i].mileage.value} км`;
-            vehCity.innerHTML = `${vehicles[i].region.value}`;
-            adTime.innerHTML = new Date().toDateString();
+        if (ad.images[0].length < 11) {
+            photo.src = `assets/images/cars/` + ad.images[0];
+        } else {
+            photo.src = ad.images[0];
         }
 
+        photo.alt = ad.brand;
+        photo.setAttribute('id', ad.id)
+        photoLink.href = "#singleAdPage";
+        photoLink.setAttribute('id', ad.id)
+        photoLink.classList.add('autoPhotoLink');
+
+        vehHeader.innerHTML = `${ad.brand + ' ' + ad.model}`;
+        vehPrice.innerHTML = `${ad.price} ${ad.currency}`;
+
+        if (ad.mileage) {
+            vehKm.innerHTML = `${ad.mileage} км`;
+        }
+
+        if (ad.region) {
+            vehCity.innerHTML = `${ad.region}`;
+        }
+
+        adTime.innerHTML = new Date().toDateString();
+
+        wrapper.addEventListener('mouseover', () => {
+            vehHeader.style.color = '#0099ff';
+        })
+        wrapper.addEventListener('mouseout', () => {
+            vehHeader.style.color = 'black';
+        })
+
+        photoLink.append(photo);
+        vehInfoHolder.append(vehPrice, vehKm, vehCity);
+        info.append(vehHeader, vehInfoHolder, adTime);
+        wrapper.append(photoLink, info);
+
+        return wrapper;
     }
-    showCarContainer(adManager.list, vehicleCardCont);
 
     function showNews() {
         let arrayOfRandom = [];

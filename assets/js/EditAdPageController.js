@@ -41,7 +41,7 @@
     //Edit BTN from my profile page
     userAdsContainer.addEventListener('click', (ev) => {
         if (ev.target.innerText === 'Редактирай') {
-            ad = { ...carStorage.getAd(ev.target.id) };
+            ad = { ...adStorage.getAd(ev.target.id) };
             getAdInfo();
         }
     })
@@ -186,7 +186,7 @@
 
         if (isValidEdit) {
             setNoImagePhoto();
-            carStorage.replaceAd(ad.id, ad);
+            adStorage.replaceAd(ad.id, ad);
 
             localStorage.setItem('isAdEdited', 'true')
             notValidAdElement.style.display = 'none';

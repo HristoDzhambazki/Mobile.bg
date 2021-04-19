@@ -1,10 +1,11 @@
 //Using search object from SearchController.js
 //Using search BOX object from HomePageController.js
 
-let resultsObj = '';
+let results = '';
 let resultSearchObj = '';
 
 //DOM Selectors
+let searchResultsContainer = getById('searchResultsPagesAndPagination');
 let resultInfoHeadingElement = getById('resultsInfoHeading').children[0];
 let resultsCategory = getById('searchResultsCategory');
 let resultsOrderedBy = getById('searchResultsOrderedBy');
@@ -26,17 +27,23 @@ searchBoxBtn.addEventListener('click', () => loadResults(searchBoxObj));
 function loadResults(searchObj) {
     resultSearchObj = { ...searchObj };
     location.hash = '#searchResultsPage';
-    resultsObj = carStorage.filter(searchObj);
+    results = adStorage.filter(searchObj);
     mainResultsElement.innerHTML = '';
 
     renderResultsMainInfo();
-    renderPagination();
+
+    if (results.length > 0) {
+        searchResultsContainer.style.display = 'flex'
+        renderPagination();
+    } else {
+        searchResultsContainer.style.display = 'none'
+    }
 }
 
-let recordsPerPage = 4;
+const recordsPerPage = 4;
 function renderPagination() {
     let currentPage = 1;
-    let numOfPages = Math.ceil(resultsObj.length / recordsPerPage);
+    let numOfPages = Math.ceil(results.length / recordsPerPage);
 
     let btnPrev = document.createElement('button');
     btnPrev.innerText = 'Назад'
@@ -105,8 +112,8 @@ function renderPagination() {
         listingTable.innerHTML = "";
 
         for (let i = (page - 1) * recordsPerPage; i < (page * recordsPerPage); i++) {
-            if (i < resultsObj.length) {
-                renderAd(resultsObj[i]);
+            if (i < results.length) {
+                renderAd(results[i]);
             }
         }
 
@@ -117,7 +124,7 @@ function renderPagination() {
         }
 
         if (page == numOfPages) {
-            btnNext.disabled = true;;
+            btnNext.disabled = true;
         } else {
             btnNext.disabled = false;
         }
@@ -127,48 +134,54 @@ function renderPagination() {
 function renderAd(ad) {
     let card = createElement('div', 'searchResultCard');
 
-    let upperBody = createElement('div', 'cardUpperBody');
+    let upperBody = generateCardUpperBody(ad);
+    let cardDetails = generateCardDetails(ad);
 
+    card.append(upperBody, cardDetails);
+    mainResultsElement.append(card)
+}
+
+function generateCardUpperBody(ad) {
+    const id = ad.id.toString();
+    const currentUser = userStorage.getCurrentUser();
+
+    let upperBody = createElement('div', 'cardUpperBody');
+    let favIconDiv = createElement('div', 'favIconDiv');
+    let favIcon = createElement('img');
     let cardImageDiv = createElement('div', 'cardImageDiv')
     let anchorImg = createElement('a');
-    anchorImg.href = '#singleAdPage';
     let cardMainImg = createElement('img', 'cardMainImg');
-    cardMainImg.id = ad.id;
+    let cardContent = createElement('div', 'cardContent');
+    let cardTitleAndPrice = createElement('div', 'cardtitleAndPrice');
+    let title = createElement('h1');
+    let priceAndFavsIcon = createElement('div', 'priceAndFavsIcon');
+    let price = createElement('h1');
+    let cardDescription = createElement('div', 'cardDescription');
+    let cardFeatures = createElement('p', 'cardFeatures');
+    let cardExtras = createElement('p', 'cardFeatures');
+    let cardRegion = createElement('p');
+
+    favIcon.alt = 'favIcon';
+    if (currentUser && currentUser.favs.includes(id)) {
+        favIcon.src = 'assets/images/icons/starFilled.png';
+    } else {
+        favIcon.src = 'assets/images/icons/starEmpty.png';
+    }
+
+    title.innerText = `${ad.brand} ${ad.model}`
+    title.id = id;
+
+    price.innerText = `${ad.price} ${ad.currency}`
+
+    anchorImg.href = '#singleAdPage';
+    cardMainImg.id = id;
     if (ad.images[0] && ad.images[0].length > 11) {
         cardMainImg.src = ad.images[0]
     } else {
         cardMainImg.src = 'assets/images/cars/' + ad.images[0];
     }
 
-    anchorImg.append(cardMainImg);
-    cardImageDiv.append(anchorImg);
-
-    let cardContent = createElement('div', 'cardContent');
-
-    let cardTitleAndPrice = createElement('div', 'cardtitleAndPrice');
-
-    const id = ad.id.toString();
-
-    let title = createElement('h1');
-    title.innerText = `${ad.brand.value} ${ad.model.value}`
-    title.id = id;
-
     title.addEventListener('click', () => location.hash = 'singleAdPage')
-
-    let priceAndFavsIcon = createElement('div', 'priceAndFavsIcon');
-    let price = createElement('h1');
-    price.innerText = `${ad.price.value} ${ad.currency.value}`
-
-    let favIconDiv = createElement('div', 'favIconDiv');
-    let favIcon = createElement('img');
-    favIcon.alt = 'favIcon'
-
-    let currentUser = userStorage.getCurrentUser();
-    if (currentUser && currentUser.favs.includes(id)) {
-        favIcon.src = 'assets/images/icons/starFilled.png';
-    } else {
-        favIcon.src = 'assets/images/icons/starEmpty.png';
-    }
 
     favIcon.addEventListener('click', () => {
         if (currentUser) {
@@ -187,17 +200,8 @@ function renderAd(ad) {
         }
     })
 
-    favIconDiv.append(favIcon);
-    priceAndFavsIcon.append(price, favIconDiv);
-    cardTitleAndPrice.append(title, priceAndFavsIcon)
-
-    let cardDescription = createElement('div', 'cardDescription');
-    let cardFeatures = createElement('p', 'cardFeatures');
     cardFeatures.innerText = 'Характеристики: '
-
-    let cardExtras = createElement('p', 'cardFeatures');
     cardExtras.innerText = 'Особености: '
-    let cardRegion = createElement('p');
     cardRegion.innerText = 'Регион: '
 
     for (const key in ad) {
@@ -206,35 +210,47 @@ function renderAd(ad) {
             continue;
         } else if (key === 'extras') {
             for (const extra in ad.extras) {
-                if (ad.extras[extra].content.length > 0) {
-                    cardExtras.innerText += ad.extras[extra].content.join(', ');
+                if (ad.extras[extra].length > 0) {
+                    cardExtras.innerText += ad.extras[extra].join(', ');
                     cardExtras.innerText += ', ';
                 }
             }
         } else if (key === 'region') {
-            if (ad.region.value) {
-                cardRegion.innerText += ad.region.value;
+            if (ad.region) {
+                cardRegion.innerText += ad.region;
             }
-        } else if (ad[key].value) {
-            cardFeatures.innerText += `${ad[key].category}: ${ad[key].value}, `
+        } else if (ad[key] && key !== 'id') {
+            cardFeatures.innerText += `${adNamings[key]}: ${ad[key]}, `
         }
     }
 
+    favIconDiv.append(favIcon);
+    anchorImg.append(cardMainImg);
+    cardImageDiv.append(anchorImg);
+    priceAndFavsIcon.append(price, favIconDiv);
+    cardTitleAndPrice.append(title, priceAndFavsIcon)
     cardDescription.append(cardFeatures, cardExtras, cardRegion);
-
     cardContent.append(cardTitleAndPrice, cardDescription);
-
     upperBody.append(cardImageDiv, cardContent);
+
+    return upperBody;
+}
+
+function generateCardDetails(ad) {
+    const id = ad.id.toString();
+    const currentUser = userStorage.getCurrentUser();
 
     let cardDetails = createElement('div', 'cardDetails');
     let cardMoreDetails = createElement('div', 'cardMoreDetails');
     let anchMoreDetails = createElement('a');
-    anchMoreDetails.href = '#singleAdPage'
-    anchMoreDetails.id = ad.id;
-    anchMoreDetails.innerText = `Повече детайли и ${ad.images.length} снимки`;
+
     let spanMoreDetails = createElement('span');
     spanMoreDetails.innerText = '|';
     let addInNotebook = createElement('p');
+
+    anchMoreDetails.href = '#singleAdPage'
+    anchMoreDetails.id = id;
+    anchMoreDetails.innerText = `Повече детайли и ${ad.images.length} снимки`;
 
     if (currentUser && currentUser.favs.includes(id)) {
         addInNotebook.innerText = 'Премахни от бележника';
@@ -258,8 +274,6 @@ function renderAd(ad) {
         }
     })
 
-    cardMoreDetails.append(anchMoreDetails, spanMoreDetails, addInNotebook);
-
     let markId = 0;
     let cardMark = createElement('div');
     let labelMark = createElement('label');
@@ -270,12 +284,13 @@ function renderAd(ad) {
     checkboxMark.id = `mark${markId}`;
     markId++;
 
+    cardMoreDetails.append(anchMoreDetails, spanMoreDetails, addInNotebook);
+
     cardMark.append(labelMark, checkboxMark);
 
     cardDetails.append(cardMoreDetails, cardMark);
 
-    card.append(upperBody, cardDetails);
-    mainResultsElement.append(card)
+    return cardDetails;
 }
 
 function createElement(type, className) {
@@ -303,7 +318,6 @@ function renderResultsMainInfo() {
     renderTypeOfSorting();
 
     function renderResultFeatures() {
-        let ad = new Car();
 
         for (const key in resultSearchObj) {
 
@@ -361,7 +375,17 @@ function renderResultsMainInfo() {
                         paragraph.innerText = 'до ' + searchObj[key] + ' ' + searchObj.currency;
                     }
                 } else {
-                    priceInfo.innerText = `от ${searchObj.priceFrom} до ${searchObj.priceTo} ${searchObj.currency}`
+                    let priceFrom = searchObj.priceFrom;
+                    let priceTo = searchObj.priceTo;
+
+                    if (priceFrom && priceTo) {
+                        priceInfo.innerText = `от ${priceFrom} до ${searchObj.priceTo} ${searchObj.currency}`
+                    } else if (priceFrom) {
+                        priceInfo.innerText = `от ${priceFrom} ${searchObj.currency}`
+                    } else if (priceTo) {
+                        priceInfo.innerText = `до ${searchObj.priceTo} ${searchObj.currency}`
+                    }
+
                     continue;
                 }
             } else if (key === 'extras') {
@@ -390,7 +414,7 @@ function renderResultsMainInfo() {
 
                 continue;
             } else {
-                heading.innerText = ad[key].category + ':';
+                heading.innerText = adNamings[key] + ':';
                 paragraph.innerText = searchObj[key];
             }
 
@@ -425,9 +449,13 @@ function renderResultsMainInfo() {
     }
 
     function renderResultInfoHeading() {
-        let totalAds = resultsObj.length;
-
-        resultInfoHeadingElement.innerText = `1 - ${recordsPerPage} от общо ${totalAds} Обяви за ${brand} ${model} Автомобили и Джипове`
+        let totalAds = results.length;
+        console.log(totalAds);
+        if (totalAds > 0) {
+            resultInfoHeadingElement.innerText = `1 - ${recordsPerPage} от общо ${totalAds} Обяви за ${brand} ${model} Автомобили и Джипове`
+        } else {
+            resultInfoHeadingElement.style.display = 'none'
+        }
     }
 
 }

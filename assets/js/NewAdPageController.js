@@ -1,3 +1,5 @@
+//Using newAd object from Publish Page Controller
+
 //DOM Selectors
 let offerImageElement = getById('offerImages');
 let componentsListElement = getById('offerComponentsList');
@@ -10,22 +12,22 @@ function renderNewAd() {
     componentsListElement.innerHTML = '';
     extrasListElement.innerHTML = '';
 
-    let images = newAd.images;
-
     //Show Ad Images
-    renderAdImages(images);
+    renderAdImages(newAd.images);
 
     //Show Ad Components
     for (const key in newAd) {
-        if (newAd[key].value) {
-            renderComponent(newAd[key]);
+        if (newAd[key]) {
+            if (key !== 'images' && key !== 'extras') {
+                renderComponent(key);
+            }
         }
     }
 
     //Show extras
     for (const key in newAd.extras) {
-        if (newAd.extras[key].content.length > 0) {
-            renderExtras(newAd.extras[key].content);
+        if (newAd.extras[key].length > 0) {
+            renderExtras(newAd.extras[key]);
         }
     }
 }
@@ -38,14 +40,14 @@ function renderExtras(extrasArr) {
     })
 }
 
-function renderComponent(component) {
+function renderComponent(key) {
 
     let li = document.createElement('li');
     let category = document.createElement('h3');
     let value = document.createElement('p');
 
-    category.innerText = component.category;
-    value.innerText = component.value;
+    category.innerText = adNamings[key];
+    value.innerText = newAd[key];
 
     li.append(category, value);
     componentsListElement.append(li)

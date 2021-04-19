@@ -51,8 +51,6 @@
     window.addEventListener('DOMContentLoaded', showPage);
     window.addEventListener('hashchange', showPage);
 
-    let userAdsCount = carStorage.getAll().length;
-
     function showPage() {
         let page = location.hash.slice(1);
 

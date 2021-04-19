@@ -162,7 +162,7 @@ form#mainSearchForm {
     font-size: 0.8em;
 }
 
-div#vehicleCardCont {
+div#adCardsContainer {
     border-top: 3px solid #0099ff;
     padding-top: 10px;
     height: 366px;
@@ -172,7 +172,7 @@ div#vehicleCardCont {
     flex-wrap: wrap;
 }
 
-#vehicleCardCont a {
+#adCardsContainer a {
     color: #0060B6;
     text-decoration: none;
 }

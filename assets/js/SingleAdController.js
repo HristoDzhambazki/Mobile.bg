@@ -29,7 +29,7 @@
     let nextAdBtn = getById('nextAdBtn');
 
     //Pages
-    let homePageAds = getById('vehicleCardCont');
+    let homePageAds = getById('adCardsContainer');
     let searchResultsElement = getById('mainResults');
     let profilePageAds = getById('profilePage');
     let profilePageFavAds = getById('userFavAdsContainer');
@@ -46,12 +46,12 @@
     profilePageFavAds.addEventListener('click', checkTargetAndRender);
 
     function plusAd(index) {
-        let storageLength = carStorage.getLength();
-        let currAdIndex = carStorage.getAdIndex(ad.id);
+        let storageLength = adStorage.getLength();
+        let currAdIndex = adStorage.getAdIndex(ad.id);
         let newIndex = currAdIndex + index;
 
         if (newIndex >= 0 && newIndex < storageLength) {
-            ad = carStorage.getAdByIndex(newIndex);
+            ad = adStorage.getAdByIndex(newIndex);
             renderSingleAd(ad);
             checkCurrentUserFavAds(ad.id);
         }
@@ -131,7 +131,7 @@
         let targetInnerText = ev.target.innerText;
         if ((targetTagName === 'A' && targetInnerText !== 'Добави в бележника') || (targetTagName === 'IMG' && ev.target.alt !== 'favIcon') || targetTagName === 'H1' || targetInnerText === 'Виж обявата') {
             let id = ev.target.id;
-            ad = carStorage.getAd(id);
+            ad = adStorage.getAd(id);
             renderSingleAd(ad);
             checkCurrentUserFavAds(id);
             location.hash = '#singleAdPage'
@@ -143,26 +143,26 @@
 
         headingTitle.innerText = '';
         secondHeadingTitle.innerText = '';
-        if (ad.brand.value) {
-            headingTitle.innerText += ad.brand.value;
-            secondHeadingTitle.innerText += ad.brand.value;
+        if (ad.brand) {
+            headingTitle.innerText += ad.brand;
+            secondHeadingTitle.innerText += ad.brand;
         }
 
-        if (ad.model.value) {
-            headingTitle.innerText += ' ' + ad.model.value;
-            secondHeadingTitle.innerText += ' ' + ad.model.value;
+        if (ad.model) {
+            headingTitle.innerText += ' ' + ad.model;
+            secondHeadingTitle.innerText += ' ' + ad.model;
         }
 
-        if (ad.modification.value) {
-            headingTitle.innerText += ' ' + ad.modification.value;
-            secondHeadingTitle.innerText += ' ' + ad.modification.value;
+        if (ad.modification) {
+            headingTitle.innerText += ' ' + ad.modification;
+            secondHeadingTitle.innerText += ' ' + ad.modification;
         }
 
         firstPrice.innerText = '';
         secondPrice.innerText = '';
-        if (ad.price.value) {
-            firstPrice.innerText = `${ad.price.value} ${ad.currency.value}`;
-            secondPrice.innerText = `${ad.price.value} ${ad.currency.value}`;
+        if (ad.price) {
+            firstPrice.innerText = `${ad.price} ${ad.currency}`;
+            secondPrice.innerText = `${ad.price} ${ad.currency}`;
         }
 
         if (ad.images) {
@@ -173,7 +173,7 @@
                 mainImgElement.src = 'assets/images/cars/' + ad.images[0];
             }
 
-            mainImgElement.alt = ad.brand.value + ' ' + ad.model.value;
+            mainImgElement.alt = ad.brand + ' ' + ad.model;
 
             otherImagesElement.innerHTML = '';
             ad.images.forEach((imgName, index) => {
@@ -184,7 +184,7 @@
                     img.src = 'assets/images/cars/' + imgName;
                 }
 
-                img.alt = ad.brand.value + ' ' + ad.model.value;;
+                img.alt = ad.brand + ' ' + ad.model;
 
                 img.addEventListener('click', () => changeMainImg(imgName, index))
 
@@ -201,17 +201,17 @@
                 continue;
             }
 
-            if (ad[key].value) {
+            if (ad[key] && key !== 'id') {
                 let liTitle = createElement('li');
                 let liParagraph = createElement('p');
-                liParagraph.innerText = ad[key].category;
+                liParagraph.innerText = adNamings[key];
                 liTitle.append(liParagraph);
 
                 componentTitles.append(liTitle);
 
                 let liValue = createElement('li');
                 let liHeading = createElement('h6');
-                liHeading.innerText = ad[key].value;
+                liHeading.innerText = ad[key];
                 liValue.append(liHeading);
 
                 componentValues.append(liValue);
@@ -221,26 +221,26 @@
         hideAllExtrasUl();
         for (const key in ad.extras) {
 
-            if (ad.extras[key].content.length > 0) {
+            if (ad.extras[key].length > 0) {
 
                 if (key === 'safety') {
                     safetySP.style.display = 'block';
-                    appendExtras(ad.extras.safety.content, safetySP)
+                    appendExtras(ad.extras.safety, safetySP)
                 } else if (key === 'others') {
                     othersSP.style.display = 'block';
-                    appendExtras(ad.extras.others.content, othersSP)
+                    appendExtras(ad.extras.others, othersSP)
                 } else if (key === 'exterior') {
                     exteriorSP.style.display = 'block';
-                    appendExtras(ad.extras.exterior.content, exteriorSP)
+                    appendExtras(ad.extras.exterior, exteriorSP)
                 } else if (key === 'interior') {
                     interiorSP.style.display = 'block';
-                    appendExtras(ad.extras.interior.content, interiorSP)
+                    appendExtras(ad.extras.interior, interiorSP)
                 } else if (key === 'security') {
                     securitySP.style.display = 'block';
-                    appendExtras(ad.extras.security.content, securitySP)
+                    appendExtras(ad.extras.security, securitySP)
                 } else if (key === 'comfort') {
                     comfortSP.style.display = 'block';
-                    appendExtras(ad.extras.comfort.content, comfortSP)
+                    appendExtras(ad.extras.comfort, comfortSP)
                 }
             }
         }

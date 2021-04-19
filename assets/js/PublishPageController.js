@@ -1,7 +1,7 @@
 let newAd = (function () {
     localStorage.setItem('isValidPublish', 'true');
 
-    let ad = new Car();
+    let ad = new Ad();
     //CREATE new Ad and ADD specs
 
     //DOM Selectors
@@ -25,7 +25,7 @@ let newAd = (function () {
     publishAdBtnElement.addEventListener('click', () => {
         setNoImagePhoto();
 
-        carStorage.addAd(ad);
+        adStorage.addAd(ad);
         userStorage.addAdToUserAcc(ad.id)
         localStorage.setItem('isAdEdited', 'true')
     })
@@ -48,7 +48,6 @@ let newAd = (function () {
     //Functions for events
     function uploadImages(ev) {
         let files = Array.from(ev.target.files);
-        ad.images = [];
 
         // Read, Preview Images on first publish page and push image sources to image property of ad object
         files.forEach(file => {
@@ -56,7 +55,6 @@ let newAd = (function () {
             uploadedImageCard.classList.add('uploadedImageCard');
             let closeBtnIcon = document.createElement('img');
             closeBtnIcon.src = 'assets/images/icons/close.png';
-
 
             let imgElement = document.createElement('img');
             imgElement.alt = 'ad image';
@@ -84,13 +82,19 @@ let newAd = (function () {
         showUploadedImagesElement.removeChild(showUploadedImagesElement.children[indexOfImg])
     }
 
+    function setNoImagePhoto() {
+        if (ad.images.length === 0) {
+            ad.images.push('assets/images/icons/noimage.jpg')
+        }
+    }
+
     function getCheckboxValue(ev) {
         let name = ev.target.name;
         let value = ev.target.value;
         if (ev.target.checked) {
-            ad.extras[name].content.push(value)
+            ad.extras[name].push(value)
         } else {
-            ad.extras[name].content = ad.extras[name].content.filter(x => x !== value);
+            ad.extras[name] = ad.extras[name].filter(x => x !== value);
         }
     }
 
@@ -98,17 +102,11 @@ let newAd = (function () {
         let name = ev.target.name;
         let value = ev.target.value;
 
-        ad[name].value = value;
-    }
-
-    function setNoImagePhoto() {
-        if (ad.images.length === 0) {
-            ad.images.push('assets/images/icons/noimage.jpg')
-        }
+        ad[name] = value;
     }
 
     function checkIsAdValid() {
-        let isValidAd = ad.brand.value && ad.model.value && ad.price.value && ad.price.value > 0;
+        let isValidAd = ad.brand && ad.model && ad.price && ad.price > 0;
 
         if (isValidAd) {
             localStorage.setItem('isValidPublish', 'true');

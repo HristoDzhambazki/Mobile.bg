@@ -55,7 +55,7 @@
             noAdsContainer.style.display = 'none';
 
             currentUser.uploads.forEach(id => {
-                let ad = carStorage.getAd(id);
+                let ad = adStorage.getAd(id);
                 let currCard = generateAdCard(ad);
                 userAdsContainer.append(currCard);
             })
@@ -73,7 +73,7 @@
             noFavAdsContainer.style.display = 'none';
 
             currentUser.favs.forEach(id => {
-                let ad = carStorage.getAd(id);
+                let ad = adStorage.getAd(id);
                 let currCard = generateFavAdCard(ad);
                 userFavAdsContainer.append(currCard);
             })
@@ -110,9 +110,9 @@
         }
 
         img.id = ad.id;
-        title.innerText = `${ad.brand.value} ${ad.model.value}`;
+        title.innerText = `${ad.brand} ${ad.model}`;
         title.id = ad.id;
-        price.innerText = `${ad.price.value} ${ad.currency.value}`;
+        price.innerText = `${ad.price} ${ad.currency}`;
         showAdBtn.innerText = 'Виж обявата';
         deleteBtn.innerText = 'Премахни от бележник';
         showAdBtn.id = ad.id;
@@ -151,15 +151,15 @@
 
         img.src = ad.images[0];
         img.id = ad.id;
-        title.innerText = `${ad.brand.value} ${ad.model.value}`;
+        title.innerText = `${ad.brand} ${ad.model}`;
         title.id = ad.id;
-        price.innerText = `${ad.price.value} ${ad.currency.value}`;
+        price.innerText = `${ad.price} ${ad.currency}`;
         editBtn.innerText = 'Редактирай';
         deleteBtn.innerText = 'Изтрий';
         editBtn.id = ad.id;
 
         deleteBtn.addEventListener('click', () => {
-            carStorage.removeAd(ad.id);
+            adStorage.removeAd(ad.id);
             userStorage.removeAdFromUserAcc(ad.id);
             location.reload();
         })

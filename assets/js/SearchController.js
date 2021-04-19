@@ -71,7 +71,7 @@ let searchObj = (function () {
         let name = ev.target.name;
         let value = ev.target.value || ev.detail;
 
-        if (name in obj && value === '') {
+        if (name in obj && (value === '' || value === '0')) {
             delete obj[name];
         } else {
             obj[name] = value;
