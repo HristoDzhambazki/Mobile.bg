@@ -17,11 +17,29 @@ Live link: https://hristodzhambazki.github.io/Mobile.bg/
 * The data is stored in local storage
 
 ![Alt Text](/assets/images/readme/homePage.JPG)
+
+---
+
 ![Alt Text](/assets/images/readme/searchPage.JPG)
+
+---
+
 ![Alt Text](/assets/images/readme/searchResultsPage.JPG)
+
+---
+
 ![Alt Text](/assets/images/readme/singleAdPage.JPG)
+
+---
+
 ![Alt Text](/assets/images/readme/publishPage.JPG)
+
+---
+
 ![Alt Text](/assets/images/readme/myAdsPage.JPG)
+
+---
+
 ![Alt Text](/assets/images/readme/favAdsPage.JPG)
 
 Created by: 
