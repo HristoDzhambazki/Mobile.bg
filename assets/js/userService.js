@@ -11,8 +11,8 @@ let userStorage = (function () {
             this.id = ++userId;
             this.username = username;
             this.password = password;
-            this.uploads = [];
             this.favs = [];
+            this.uploads = [];
             this.isLoggedin = false;
         }
     }

@@ -201,7 +201,6 @@ let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
 if (localAds.length === 0) {
     arrayData.forEach(obj => {
         let ad = new Ad();
-
         for (const key in obj) {
             if (key === 'extras') {
 

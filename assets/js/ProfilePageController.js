@@ -84,6 +84,7 @@
     }
 
     function generateFavAdCard(ad) {
+        //
         let userFavAdCard = document.createElement('div');
         let userAdMainContent = document.createElement('div');
         let userAdImgContainer = document.createElement('div');
@@ -95,8 +96,8 @@
         let showAdBtn = document.createElement('button');
         let deleteBtn = document.createElement('button');
 
-        userFavAdCard.classList.add('userFavAdCard');
         userAdMainContent.classList.add('userAdMainContent');
+        userFavAdCard.classList.add('userFavAdCard');
         userAdImgContainer.classList.add('userAdImgContainer');
         userAdInfoContainer.classList.add('userAdInfoContainer');
         userAdBtnsContainer.classList.add('userFavAdBtnsContainer');

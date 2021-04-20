@@ -53,7 +53,7 @@ let regexEmail = /^[a-z]+[a-z]*([\-\.\_]?[a-z0-9])*@[a-z]{2,}.[a-z]{2,}(.[a-z]{2
         welcomeText.innerText = `Здравейте, ${username}`
     }
 
-    //Functions
+    //Functions //
     function logOutUser() {
         userStorage.logOutUser();
 
