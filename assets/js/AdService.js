@@ -199,6 +199,7 @@ let adStorage = new AdStorage();
 //GET local data and add it to Ad Storage
 let localAds = JSON.parse(localStorage.getItem('ADS_DATA'));
 if (localAds.length === 0) {
+
     arrayData.forEach(obj => {
         let ad = new Ad();
         for (const key in obj) {

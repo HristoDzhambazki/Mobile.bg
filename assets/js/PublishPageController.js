@@ -45,7 +45,7 @@ let newAd = (function () {
     let selectElementsArray = Array.from(selectElements).splice(1);
     selectElementsArray.forEach(el => el.addEventListener('change', getSelectValue));
 
-    //Functions for events //
+    //Functions for events 
     function uploadImages(ev) {
         let files = Array.from(ev.target.files);
 

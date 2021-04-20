@@ -60,6 +60,7 @@ let searchBoxObj = (function () {
 (function () {
     let adCardsContainer = getById('adCardsContainer');
     let ads = adStorage.getLastSixAds();
+
     adCardsContainer.innerHTML = '';
 
     ads.forEach(ad => {

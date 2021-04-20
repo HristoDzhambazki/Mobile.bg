@@ -84,7 +84,6 @@
     }
 
     function generateFavAdCard(ad) {
-        //
         let userFavAdCard = document.createElement('div');
         let userAdMainContent = document.createElement('div');
         let userAdImgContainer = document.createElement('div');
