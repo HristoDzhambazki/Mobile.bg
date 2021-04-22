@@ -1,11 +1,11 @@
-let userId = 2;
-
-let localUsers = JSON.parse(localStorage.getItem('users'));
-if (localUsers) {
-    userId = localUsers.length;
-}
-
 let userStorage = (function () {
+    let userId = 2;
+
+    let localUsers = JSON.parse(localStorage.getItem('users'));
+    if (localUsers) {
+        userId = localUsers.length;
+    }
+
     class User {
         constructor(username, password) {
             this.id = ++userId;
@@ -126,4 +126,4 @@ let userStorage = (function () {
     }
 
     return new UserManager();
-}());
+})()
